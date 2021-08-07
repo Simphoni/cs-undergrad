@@ -1,0 +1,16 @@
+        sub $0x18,%rax
+        sub %rdi,%rax
+        sub %rax,%rdi
+        add %rsp,%rax
+        add %rsp,%rdi
+        add %esp,%eax
+        add %esp,%edi
+        add %rax,%rdi
+        xor %rsp,%rax
+        xor %rsp,%rdi
+        or %rsp,%rax
+        or %rsp,%rdi
+        push %rsp
+        push %rax
+        pop %rdi
+        push %rdx
