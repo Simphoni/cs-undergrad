@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Bits, Bytes, and Integers}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Integer representation: two's complement}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Integer arithmetics}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Memory organization}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Floating point}{2}{section.2}%
