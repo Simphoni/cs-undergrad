@@ -1,0 +1,98 @@
+\documentclass[10pt]{article}
+\usepackage{ctex}
+\usepackage{amsthm,amsmath,amssymb} % math packages
+\usepackage[hidelinks]{hyperref} % hide ref in table of contents
+\usepackage{pifont} % \ding{73} makes a beautiful star
+\usepackage{fontspec}
+\usepackage{color}  
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}  
+\usepackage{framed}
+
+\setcounter{tocdepth}{2}
+
+\usepackage{enumerate}
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\arabic*).}
+\setlist[enumerate,2]{label=(\alph*).}
+
+\title{Notes for \texttt{C++ Primer}}
+\author{Jingze Xing}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{变量和基本类型}
+\begin{enumerate}
+  \item \textbf{声明(declaration)}：声称存在一个变量、函数或别处定义的类型
+  \item \textbf{声明符(declarator)}：包括被定义的名字和类型修饰符（可以没有）
+  \item \textbf{定义(definition)}：为某一特定类型的变量申请存储空间
+  \item 一条声明语句由一个\textbf{基本数据类型(base type)}和紧随其后的一个声明符列表组成
+  \item \textbf{静态类型(statically typed)语言}：在编译阶段检查类型(type checking)的语言
+  \item \textbf{作用域(scope)}
+  \subitem 使得名字具有特定含义（指向特定实体）的范围，始于名字的声明语句，以声明语句所在域的末端为结束，大多数作用域以花括号分隔
+  \subitem 作用域声明某个名字后，仍允许在其\textbf{内层作用域(inner scope)}重新定义这个名字
+  \item \textbf{复合类型(compound type)}：基于其他类型定义的类型，如引用与指针
+  \item \textbf{引用(reference)}
+  \subitem 为对象取得另外一个名字，通过将声明符写成\texttt{\&d}定义引用类型
+  \subitem 定义引用时程序将引用与其初始值\textbf{绑定(bind)}在一起
+  \subitem 引用并非对象，只是一个别名
+  \item \textbf{指针(pointer)}
+  \subitem 指针存放某个对象的地址，通过\textbf{取地址符(\texttt{\&})}获取对象地址，通过\textbf{解引用符(\texttt{*})}来访问该对象
+  \subitem 符号\texttt{*}与\texttt{\&}既能做运算符，又能作为声明的一部分出现
+  \subitem 可以构造指向指针的指针，如\texttt{**p}
+  \item \textbf{const限定符}
+  \subitem const一般修饰它前面的变量，与之构成基本数据类型，如\texttt{int const *b = \&a}（等价于\texttt{const int *b = \&a}），则\texttt{const int}是一个基本类型，\texttt{b}是指向常量的指针
+  \subitem 若const变量的初始值不是一个常数表达式，如\texttt{const int a = func();}则\texttt{func()}会在主程序之前被调用，且在此阶段a为默认初值
+  \subitem const“对象”若是引用，则相当于“常量引用”，如\texttt{const int \&b = 2 * a;}
+  \begin{enumerate}
+    \item \textbf{顶层const(top-level const)}
+    \subitem 表示指针本身是个常量，如\texttt{int* const ptr = \&a}中，\texttt{ptr}是常量，但可以通过\texttt{*ptr}来修改所指对象
+    \subitem 在\textbf{赋值/初始化}中，右值的顶层\texttt{const}可以被忽略
+    \item \textbf{底层const(low-level const)}
+    \subitem 表示指针所指的对象是个常量，如\texttt{const int *pa = \&a}，表示\texttt{pa}是指向常量\texttt{a}的指针，\texttt{a}必须是常量
+    \subitem 一个常量的地址是带有底层\texttt{const}的指针，如\texttt{const int a = 42}，\texttt{\&a}是\texttt{const int*}类型
+  \end{enumerate}
+  \item \textbf{constexpr变量}
+  \subitem 将变量声明为constexpr类型以便由编译器来验证变量的值是否是一个常量表达式
+  \subitem 定义指针时，constexpr仅能限制指针，不能限制指针所指的对象，即指针本身是常量
+  \item \textbf{别名声明(alias declaration)}
+  \subitem 如\texttt{using AB = Angel\_Beats;}
+  \subitem \texttt{using ptr = int*; ptr a, b;}则\texttt{a,b}均为指针类型
+  \item \textbf{auto类型说明符}：让编译器分析表达式所属的类型，必须有初始值
+  \subitem const一般会忽略顶层const，不忽略底层const
+  \item \textbf{decltype类型指示符}
+  \subitem 返回对象的数据类型，如\texttt{decltype(f()) sum = f();}
+  \subitem decltype返回的类型包含顶层const和引用，如果一个表达式的值可以作为\textbf{左值(lvalue)}，则该式将会对decltype返回一个引用类型
+  \item \textbf{范围for(range for)}
+  \subitem for (\textsl{declaration}: \textsl{expression}) \textsl{statement};每次迭代中\textsl{declaration}部分的变量会\textbf{初始化}为\textsl{expression}序列中的下一个元素值；故若\textsl{declaration}定义的是一个引用，则可以修改\textsl{expression}中的值
+\end{enumerate}
+\section{字符串、向量和数组}
+\subsection{数组}
+\begin{enumerate}
+  \item 数组的维数\texttt{[d]}属于数组类型的一部分\\如\texttt{int (*Parray)[10]}是指向大小为10的int数组的指针\\而\texttt{int *array[10]}则是含有10个int指针的数组
+  \item 在很多用到数组名字的地方，编译器会将其替换成一个指向首元素的指针
+  \item \texttt{begin(arr),end(arr)}分别返回指向首元素的指针与指向尾元素的下一位置的指针
+\end{enumerate}
+\subsection{迭代器}
+\begin{enumerate}
+  \item \texttt{iterator}可读可写，\texttt{const\_iterator}只可读不可写
+  \item \texttt{cbegin(),cend()}返回\texttt{const\_iterator}类型
+  \item 仅有\texttt{vector,string}的迭代器可以相减（返回值可正可负）、相互比较大小，或与整数进行加减运算
+\end{enumerate}
+\subsection{\texttt{std::string}}
+\begin{enumerate}
+  \item \texttt{istream\& getline(istream\& is, string\& str, char delim)}\\读入直至遇到delim为止，丢弃delim，此后读入从delim后继续，若没有给定delim，则默认为换行符。字符串的生成方式类似于\texttt{push\_back}
+  \item \texttt{string operator+ (...,...)}\\字符串字面值不是string类型，表达式中必须有一个是string类型，string类型可以与char相加
+  \item \texttt{const char* c\_str() const;}\\返回一个C风格的字符串，原字符串被修改或删除时先前的指针会失效
+\end{enumerate}
+\subsection{\texttt{std::vector}}
+\noindent 由类模板(\texttt{vector})创建类(\texttt{vector<T>})的过程称为\textbf{实例化(instantiation)}
+\begin{enumerate}
+  \item \texttt{vector <T> v\{e1,e2,e3\};}\\向量的列表初始化必须用花括号
+  \item \texttt{vector <T> v(int,T);}\\规定向量长度与填充的值，若不提供值，则填充默认值
+  \item \texttt{vector <T> v(a + 1, a + n + 1);}\\用两指针间的元素\texttt{a[1]$,\cdots,$a[n]}填充向量
+\end{enumerate}
+\section{表达式}
+
+\end{document}
