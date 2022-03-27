@@ -1,7 +1,7 @@
 /* 
  * CS:APP Data Lab 
  * 
- * <Please put your name and userid here>
+ * 邢竞择 2020012890
  * 
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
@@ -200,7 +200,7 @@ int getByte(int x, int n) {
  */
 int logicalShift(int x, int n) {
   int b = (x >> 31) & 1; // b = 1 if (x < 0)
-  x = x + (b << 31);     // abandon sgn 1
+  x = x ^ (b << 31);     // abandon sgn 1
   x = x >> n;
   x = x | ( b << (31 ^ n) ); // (31 ^ n) == 31 - n
   return x;
@@ -222,7 +222,7 @@ int bitReverse(int x) {
   msk = msk | (msk << 16);
   a = (x ^ (x >> 3)) & msk;
   b = (x ^ (x >> 1)) & (msk << 1);
-  x = x ^ a ^ (a << 3) ^ b ^ (b << 1); // reverse every Byte
+  x = x ^ a ^ (a << 3) ^ b ^ (b << 1); // reverse every 4bit group
   // 17 op
   ret = ((x & 0xf) << 12) | ((x & 0xf0) << 4) | ((x >> 4) & 0xf0) | ((x >> 12) & 0xf); // 12 op, 16b done
   x >>= 16;
@@ -409,6 +409,6 @@ unsigned floatScale2(unsigned uf) {
   unsigned frac = (uf << 9) >> 9;
   if ((t & 0xff) == 0xff) return uf;
   if ((t & 0xff) == 0)
-    return (t << 23) + (frac << 1); // essential
+    return (t << 23) + (frac << 1);
   return ((t + 1) << 23) + (uf & ((1 << 23) - 1));
 }
