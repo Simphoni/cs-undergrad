@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ipm_job_profile>
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="0" mpi_size="8" stamp_init="1650632403.725806" stamp_final="1650632414.499923" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432439" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07741e+01" utime="1.06815e+01" stime="6.713e-01" mtime="1.69480e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<env>SHELL=/bin/bash</env>
+<env>TBBROOT=/opt/intel/oneapi/tbb/2021.5.1/env/..</env>
+<env>ONEAPI_ROOT=/opt/intel/oneapi</env>
+<env>PKG_CONFIG_PATH=/opt/intel/oneapi/vtune/2022.0.0/include/pkgconfig/lib64:/opt/intel/oneapi/tbb/2021.5.1/env/../lib/pkgconfig:/opt/intel/oneapi/mpi/2021.5.1/lib/pkgconfig:/opt/intel/oneapi/mkl/2022.0.2/lib/pkgconfig:/opt/intel/oneapi/inspector/2022.0.0/include/pkgconfig/lib64:/opt/intel/oneapi/dpl/2021.6.0/lib/pkgconfig:/opt/intel/oneapi/compiler/2022.0.2/lib/pkgconfig:/opt/intel/oneapi/advisor/2022.0.0/include/pkgconfig/lib64:</env>
+<env>VT_MPI=impi4</env>
+<env>ACL_BOARD_VENDOR_PATH=/opt/Intel/OpenCLFPGA/oneAPI/Boards</env>
+<env>FPGA_VARS_DIR=/opt/intel/oneapi/compiler/2022.0.2/linux/lib/oclfpga</env>
+<env>VT_ADD_LIBS=-ldwarf -lelf -lvtunwind -lm -lpthread</env>
+<env>I_MPI_ROOT=/opt/intel/oneapi/mpi/2021.5.1</env>
+<env>FI_PROVIDER_PATH=/opt/intel/oneapi/mpi/2021.5.1//libfabric/lib/prov:/usr/lib64/libfabric</env>
+<env>PWD=/home/course/hpc/users/2020012890/exp5</env>
+<env>LOGNAME=2020012890</env>
+<env>DPL_ROOT=/opt/intel/oneapi/dpl/2021.6.0</env>
+<env>MANPATH=/opt/intel/oneapi/mpi/2021.5.1/man:/opt/intel/oneapi/itac/2021.5.0/man:/opt/intel/oneapi/debugger/2021.5.0/documentation/man:/opt/intel/oneapi/compiler/2022.0.2/documentation/en/man/common::</env>
+<env>_=/usr/bin/srun</env>
+<env>SPACK_PYTHON=/usr/bin/python3</env>
+<env>MOTD_SHOWN=pam</env>
+<env>INSPECTOR_2022_DIR=/opt/intel/oneapi/inspector/2022.0.0</env>
+<env>HOME=/home/course/hpc/users/2020012890</env>
+<env>GDB_INFO=/opt/intel/oneapi/debugger/2021.5.0/documentation/info/</env>
+<env>LANG=en_US.UTF-8</env>
+<env>LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:</env>
+<env>ADVISOR_2022_DIR=/opt/intel/oneapi/advisor/2022.0.0</env>
+<env>SETVARS_COMPLETED=1</env>
+<env>APM=/opt/intel/oneapi/advisor/2022.0.0/perfmodels</env>
+<env>CMAKE_PREFIX_PATH=/opt/intel/oneapi/tbb/2021.5.1/env/..:/opt/intel/oneapi/compiler/2022.0.2/linux/IntelDPCPP</env>
+<env>SSH_CONNECTION=183.173.119.202 59053 172.20.0.10 22</env>
+<env>CMPLR_ROOT=/opt/intel/oneapi/compiler/2022.0.2</env>
+<env>SPACK_ROOT=/home/spack/spack</env>
+<env>FPGA_VARS_ARGS=</env>
+<env>INFOPATH=/opt/intel/oneapi/debugger/2021.5.0/gdb/intel64/lib</env>
+<env>PYTHONPATH=/opt/intel/oneapi/advisor/2022.0.0/pythonapi</env>
+<env>TERM=xterm-256color</env>
+<env>VT_ROOT=/opt/intel/oneapi/itac/2021.5.0</env>
+<env>USER=2020012890</env>
+<env>LIBRARY_PATH=/opt/intel/oneapi/tbb/2021.5.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.5.1//libfabric/lib:/opt/intel/oneapi/mpi/2021.5.1//lib/release:/opt/intel/oneapi/mpi/2021.5.1//lib:/opt/intel/oneapi/mkl/2022.0.2/lib/intel64:/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/lib/intel64_lin:/opt/intel/oneapi/compiler/2022.0.2/linux/lib</env>
+<env>SHLVL=2</env>
+<env>I_MPI_PMI_LIBRARY=/usr/lib/x86_64-linux-gnu/libpmi.so</env>
+<env>OCL_ICD_FILENAMES=libintelocl_emu.so:libalteracl.so:/opt/intel/oneapi/compiler/2022.0.2/linux/lib/x64/libintelocl.so</env>
+<env>CLASSPATH=/opt/intel/oneapi/mpi/2021.5.1//lib/mpi.jar</env>
+<env>INTELFPGAOCLSDKROOT=/opt/intel/oneapi/compiler/2022.0.2/linux/lib/oclfpga</env>
+<env>LD_LIBRARY_PATH=/opt/intel/oneapi/tbb/2021.5.1/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.5.1//libfabric/lib:/opt/intel/oneapi/mpi/2021.5.1//lib/release:/opt/intel/oneapi/mpi/2021.5.1//lib:/opt/intel/oneapi/mkl/2022.0.2/lib/intel64:/opt/intel/oneapi/itac/2021.5.0/slib:/opt/intel/oneapi/debugger/2021.5.0/gdb/intel64/lib:/opt/intel/oneapi/debugger/2021.5.0/libipt/intel64/lib:/opt/intel/oneapi/debugger/2021.5.0/dep/lib:/opt/intel/oneapi/compiler/2022.0.2/linux/lib:/opt/intel/oneapi/compiler/2022.0.2/linux/lib/x64:/opt/intel/oneapi/compiler/2022.0.2/linux/lib/oclfpga/host/linux64/lib:/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/lib/intel64_lin</env>
+<env>VT_LIB_DIR=/opt/intel/oneapi/itac/2021.5.0/lib</env>
+<env>SSH_CLIENT=183.173.119.202 59053 22</env>
+<env>VT_SLIB_DIR=/opt/intel/oneapi/itac/2021.5.0/slib</env>
+<env>MKLROOT=/opt/intel/oneapi/mkl/2022.0.2</env>
+<env>NLSPATH=/opt/intel/oneapi/mkl/2022.0.2/lib/intel64/locale/%l_%t/%N:/opt/intel/oneapi/compiler/2022.0.2/linux/compiler/lib/intel64_lin/locale/%l_%t/%N</env>
+<env>PATH=/opt/intel/oneapi/vtune/2022.0.0/bin64:/opt/intel/oneapi/mpi/2021.5.1//libfabric/bin:/opt/intel/oneapi/mpi/2021.5.1//bin:/opt/intel/oneapi/mkl/2022.0.2/bin/intel64:/opt/intel/oneapi/itac/2021.5.0/bin:/opt/intel/oneapi/inspector/2022.0.0/bin64:/opt/intel/oneapi/dev-utilities/2021.5.2/bin:/opt/intel/oneapi/debugger/2021.5.0/gdb/intel64/bin:/opt/intel/oneapi/compiler/2022.0.2/linux/lib/oclfpga/bin:/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64:/opt/intel/oneapi/compiler/2022.0.2/linux/bin:/opt/intel/oneapi/advisor/2022.0.0/bin64:/home/course/hpc/users/2020012890/astyle:/home/spack/spack/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games</env>
+<env>INTEL_PYTHONHOME=/opt/intel/oneapi/debugger/2021.5.0/dep</env>
+<env>SSH_TTY=/dev/pts/7</env>
+<env>INTEL_LICENSE_FILE=/opt/intel/licenses:/home/course/hpc/users/2020012890/intel/licenses</env>
+<env>CPATH=/opt/intel/oneapi/tbb/2021.5.1/env/../include:/opt/intel/oneapi/mpi/2021.5.1//include:/opt/intel/oneapi/mkl/2022.0.2/include:/opt/intel/oneapi/dpl/2021.6.0/linux/include:/opt/intel/oneapi/dev-utilities/2021.5.2/include</env>
+<env>OLDPWD=/home/course/hpc/users/2020012890</env>
+<env>VTUNE_PROFILER_2022_DIR=/opt/intel/oneapi/vtune/2022.0.0</env>
+<env>BASH_FUNC__spack_shell_wrapper%%=() {  for var in LD_LIBRARY_PATH DYLD_LIBRARY_PATH DYLD_FALLBACK_LIBRARY_PATH;
+ do
+ eval "if [ -n \"\${${var}-}\" ]; then export SPACK_$var=\${${var}}; fi";
+ done;
+ if [ -n "${ZSH_VERSION:-}" ]; then
+ emulate -L sh;
+ fi;
+ _sp_flags="";
+ while [ ! -z ${1+x} ] && [ "${1#-}" != "${1}" ]; do
+ _sp_flags="$_sp_flags $1";
+ shift;
+ done;
+ if [ -n "$_sp_flags" ] && [ "${_sp_flags#*h}" != "${_sp_flags}" ] || [ "${_sp_flags#*V}" != "${_sp_flags}" ]; then
+ command spack $_sp_flags "$@";
+ return;
+ fi;
+ _sp_subcommand="";
+ if [ ! -z ${1+x} ]; then
+ _sp_subcommand="$1";
+ shift;
+ fi;
+ case $_sp_subcommand in 
+ "cd")
+ _sp_arg="";
+ if [ -n "$1" ]; then
+ _sp_arg="$1";
+ shift;
+ fi;
+ if [ "$_sp_arg" = "-h" ] || [ "$_sp_arg" = "--help" ]; then
+ command spack cd -h;
+ else
+ LOC="$(spack location $_sp_arg "$@")";
+ if [ -d "$LOC" ]; then
+ cd "$LOC";
+ else
+ return 1;
+ fi;
+ fi;
+ return
+ ;;
+ "env")
+ _sp_arg="";
+ if [ -n "$1" ]; then
+ _sp_arg="$1";
+ shift;
+ fi;
+ if [ "$_sp_arg" = "-h" ] || [ "$_sp_arg" = "--help" ]; then
+ command spack env -h;
+ else
+ case $_sp_arg in 
+ activate)
+ _a=" $@";
+ if [ -z ${1+x} ] || [ "${_a#* --sh}" != "$_a" ] || [ "${_a#* --csh}" != "$_a" ] || [ "${_a#* -h}" != "$_a" ] || [ "${_a#* --help}" != "$_a" ]; then
+ command spack env activate "$@";
+ else
+ stdout="$(command spack $_sp_flags env activate --sh "$@")" || return;
+ eval "$stdout";
+ fi
+ ;;
+ deactivate)
+ _a=" $@";
+ if [ "${_a#* --sh}" != "$_a" ] || [ "${_a#* --csh}" != "$_a" ]; then
+ command spack env deactivate "$@";
+ else
+ if [ -n "$*" ]; then
+ command spack env deactivate -h;
+ else
+ stdout="$(command spack $_sp_flags env deactivate --sh)" || return;
+ eval "$stdout";
+ fi;
+ fi
+ ;;
+ *)
+ command spack env $_sp_arg "$@"
+ ;;
+ esac;
+ fi;
+ return
+ ;;
+ "load" | "unload")
+ _a=" $@";
+ if [ "${_a#* --sh}" != "$_a" ] || [ "${_a#* --csh}" != "$_a" ] || [ "${_a#* -h}" != "$_a" ] || [ "${_a#* --list}" != "$_a" ] || [ "${_a#* --help}" != "$_a" ]; then
+ command spack $_sp_flags $_sp_subcommand "$@";
+ else
+ stdout="$(command spack $_sp_flags $_sp_subcommand --sh "$@")" || return;
+ eval "$stdout";
+ fi
+ ;;
+ *)
+ command spack $_sp_flags $_sp_subcommand "$@"
+ ;;
+ esac
+}</env>
+<env>BASH_FUNC_spack%%=() {  : this is a shell function from: /home/spack/spack/share/spack/setup-env.sh;
+ : the real spack script is here: /home/spack/spack/bin/spack;
+ _spack_shell_wrapper "$@";
+ return $?
+}</env>
+<env>ZES_ENABLE_SYSMAN=1</env>
+<env>SLURM_CONF=/etc/slurm/slurm.conf</env>
+<env>SLURM_PRIO_PROCESS=0</env>
+<env>SRUN_DEBUG=3</env>
+<env>SLURM_UMASK=0077</env>
+<env>SLURM_CLUSTER_NAME=conv</env>
+<env>SLURM_SUBMIT_DIR=/home/course/hpc/users/2020012890/exp5</env>
+<env>SLURM_SUBMIT_HOST=conv0</env>
+<env>SLURM_JOB_NAME=main</env>
+<env>SLURM_JOB_CPUS_PER_NODE=28</env>
+<env>SLURM_NTASKS=8</env>
+<env>SLURM_NPROCS=8</env>
+<env>SLURM_JOB_ID=193345</env>
+<env>SLURM_JOBID=193345</env>
+<env>SLURM_STEP_ID=0</env>
+<env>SLURM_STEPID=0</env>
+<env>SLURM_NNODES=1</env>
+<env>SLURM_JOB_NUM_NODES=1</env>
+<env>SLURM_NODELIST=conv1</env>
+<env>SLURM_JOB_PARTITION=conv</env>
+<env>SLURM_TASKS_PER_NODE=8</env>
+<env>SLURM_SRUN_COMM_PORT=46105</env>
+<env>SLURM_JOB_UID=21024</env>
+<env>SLURM_JOB_USER=2020012890</env>
+<env>SLURM_JOB_ACCOUNT=hpc-lab</env>
+<env>SLURM_JOB_QOS=normal</env>
+<env>SLURM_WORKING_CLUSTER=conv:conv0:6817:9216:102</env>
+<env>SLURM_JOB_NODELIST=conv1</env>
+<env>SLURM_STEP_NODELIST=conv1</env>
+<env>SLURM_STEP_NUM_NODES=1</env>
+<env>SLURM_STEP_NUM_TASKS=8</env>
+<env>SLURM_STEP_TASKS_PER_NODE=8</env>
+<env>SLURM_STEP_LAUNCHER_PORT=46105</env>
+<env>SLURM_SRUN_COMM_HOST=172.20.0.10</env>
+<env>SLURM_TOPOLOGY_ADDR=conv1</env>
+<env>SLURM_TOPOLOGY_ADDR_PATTERN=node</env>
+<env>SLURM_CPUS_ON_NODE=28</env>
+<env>SLURM_CPU_BIND=quiet,mask_cpu:0xFFFFFFF</env>
+<env>SLURM_CPU_BIND_LIST=0xFFFFFFF</env>
+<env>SLURM_CPU_BIND_TYPE=mask_cpu:</env>
+<env>SLURM_CPU_BIND_VERBOSE=quiet</env>
+<env>SLURM_TASK_PID=2432439</env>
+<env>SLURM_NODEID=0</env>
+<env>SLURM_PROCID=0</env>
+<env>SLURM_LOCALID=0</env>
+<env>SLURM_LAUNCH_NODE_IPADDR=172.20.0.10</env>
+<env>SLURM_GTIDS=0,1,2,3,4,5,6,7</env>
+<env>SLURM_JOB_GID=20000</env>
+<env>SLURMD_NODENAME=conv1</env>
+<env>TMPDIR=/tmp</env>
+<env>MPI_LOCALRANKID=0</env>
+<env>MPI_LOCALNRANKS=8</env>
+<env>FI_UNIVERSE_SIZE=8</env>
+<env>PSM2_MULTI_EP=0</env>
+<env>FI_PSM2_DELAY=0</env>
+<env>HFI_NO_CPUAFFINITY=1</env>
+<env>FI_PSM2_LOCK_LEVEL=0</env>
+<env>PSM2_BOUNCE_SZ=8192</env>
+<env>FI_PSM2_INJECT_SIZE=32768</env>
+<env>FI_PSM3_UUID=41a0d068-349a-cde6-f379-bc5e2f170b05</env>
+<env>PSM3_MULTI_EP=0</env>
+<env>FI_PSM3_DELAY=0</env>
+<env>PSM3_NO_CPUAFFINITY=1</env>
+<env>FI_PSM3_LOCK_LEVEL=0</env>
+<env>PSM3_BOUNCE_SZ=8192</env>
+<env>FI_PSM3_INJECT_SIZE=32768</env>
+<env>FI_PSM_TAGGED_RMA=0</env>
+<env>FI_MLX_TLS=rc,self</env>
+<env>UCX_WARN_UNUSED_ENV_VARS=n</env>
+<env>UCX_LOG_LEVEL=ERROR</env>
+<env>UCX_NUM_PPN=8</env>
+<env>UCX_NUM_EPS=8</env>
+<env>FI_OFI_RXM_USE_HASH=1</env>
+<env>FI_OFI_RXM_TAG_LAYOUT=regular</env>
+<env>FI_PSM2_TAG_LAYOUT=tag64</env>
+<env>FI_PSM3_TAG_LAYOUT=tag64</env>
+<ru_s_ti>1.3004e-01 4.5711e-01 103604 0 0 0 5300 1422 0 4116 0 0 0 0 2342 11</ru_s_ti>
+<ru_s_tf>1.0681e+01 6.7134e-01 738776 0 0 0 6647 1478 0 5116 0 0 0 0 2454 38</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0319e+01" utime="1.0681e+01" stime="6.7133e-01" mtime="1.6948e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 5.5879e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.6546e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.6948e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.6948e+01 7.4453e-03 1.6941e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >5.5879e-07 5.5879e-07 5.5879e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.6546e-05 1.6546e-05 1.6546e-05</hent>
+</hash>
+<internal rank="0" log_i="1650632414.508343" log_t="8.4200e-03" report_delta="1.0117e-02" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="1" mpi_size="8" stamp_init="1650632403.725562" stamp_final="1650632414.499904" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432440" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07743e+01" utime="1.07295e+01" stime="6.356e-01" mtime="1.69776e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>1.7846e-01 4.2037e-01 97372 0 0 0 5848 1143 0 1392 0 0 0 0 2200 16</ru_s_ti>
+<ru_s_tf>1.0729e+01 6.3561e-01 732312 0 0 0 7189 1152 0 1696 0 0 0 0 2312 26</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0319e+01" utime="1.0729e+01" stime="6.3561e-01" mtime="1.6978e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 4.7497e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.2532e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.6978e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.6978e+01 3.8008e-02 1.6940e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >4.7497e-07 4.7497e-07 4.7497e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.2532e-05 1.2532e-05 1.2532e-05</hent>
+</hash>
+<internal rank="1" log_i="1650632414.508035" log_t="8.1310e-03" report_delta="1.3658e-02" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="2" mpi_size="8" stamp_init="1650632403.725569" stamp_final="1650632414.499922" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432441" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07744e+01" utime="1.07055e+01" stime="6.269e-01" mtime="1.72503e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>1.6189e-01 4.1065e-01 97492 0 0 0 5812 1182 0 4176 0 0 0 0 2315 15</ru_s_ti>
+<ru_s_tf>1.0706e+01 6.2692e-01 731016 0 0 0 6735 1191 0 4416 0 0 0 0 2428 95</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0320e+01" utime="1.0706e+01" stime="6.2692e-01" mtime="1.7250e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 7.0967e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.3899e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.7250e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.7250e+01 1.0602e-02 1.7240e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >7.0967e-07 7.0967e-07 7.0967e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.3899e-05 1.3899e-05 1.3899e-05</hent>
+</hash>
+<internal rank="2" log_i="1650632414.508004" log_t="8.0819e-03" report_delta="1.3624e-02" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="3" mpi_size="8" stamp_init="1650632403.725562" stamp_final="1650632414.499943" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432442" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07744e+01" utime="1.07663e+01" stime="5.961e-01" mtime="1.73019e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>1.8503e-01 4.1028e-01 97052 0 0 0 5312 1140 0 1720 0 0 0 0 2186 7</ru_s_ti>
+<ru_s_tf>1.0766e+01 5.9613e-01 731588 0 0 0 6538 1147 0 1992 0 0 0 0 2297 21</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0320e+01" utime="1.0766e+01" stime="5.9613e-01" mtime="1.7302e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 5.7183e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.8438e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.7302e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.7302e+01 1.9250e-02 1.7283e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >5.7183e-07 5.7183e-07 5.7183e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.8438e-05 1.8438e-05 1.8438e-05</hent>
+</hash>
+<internal rank="3" log_i="1650632414.508149" log_t="8.2059e-03" report_delta="8.8684e-03" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="4" mpi_size="8" stamp_init="1650632403.725570" stamp_final="1650632414.499924" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432443" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07744e+01" utime="1.06443e+01" stime="7.094e-01" mtime="1.69371e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>1.4578e-01 4.4108e-01 99240 0 0 0 5828 1172 0 3026 0 0 0 0 2284 32</ru_s_ti>
+<ru_s_tf>1.0644e+01 7.0936e-01 733940 0 0 0 7096 1180 0 3026 0 0 0 0 2393 42</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0320e+01" utime="1.0644e+01" stime="7.0935e-01" mtime="1.6937e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 4.2655e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.6464e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.6937e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.6937e+01 5.2042e-03 1.6932e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >4.2655e-07 4.2655e-07 4.2655e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.6464e-05 1.6464e-05 1.6464e-05</hent>
+</hash>
+<internal rank="4" log_i="1650632414.508122" log_t="8.1980e-03" report_delta="9.6275e-03" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="5" mpi_size="8" stamp_init="1650632403.725570" stamp_final="1650632414.499927" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432444" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07744e+01" utime="1.07285e+01" stime="6.309e-01" mtime="1.69712e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>1.8576e-01 4.0635e-01 97660 0 0 0 5848 1166 0 3010 0 0 0 0 2295 23</ru_s_ti>
+<ru_s_tf>1.0729e+01 6.3085e-01 732592 0 0 0 7216 1173 0 3394 0 0 0 0 2403 34</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0320e+01" utime="1.0728e+01" stime="6.3085e-01" mtime="1.6971e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 2.1793e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.1351e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.6971e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.6971e+01 3.5244e-02 1.6936e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >2.1793e-07 2.1793e-07 2.1793e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.1351e-05 1.1351e-05 1.1351e-05</hent>
+</hash>
+<internal rank="5" log_i="1650632414.508150" log_t="8.2231e-03" report_delta="9.6155e-03" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="6" mpi_size="8" stamp_init="1650632403.725563" stamp_final="1650632414.500787" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432445" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07752e+01" utime="1.06799e+01" stime="6.712e-01" mtime="4.99520e-03" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>9.8398e-02 4.8412e-01 97492 0 0 0 5795 1182 0 5514 0 0 0 0 2299 24</ru_s_ti>
+<ru_s_tf>1.0680e+01 6.7124e-01 772520 0 0 0 6965 1189 0 5514 0 0 0 0 2423 37</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0321e+01" utime="1.0680e+01" stime="6.7124e-01" mtime="4.9952e-03" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 7.3016e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.4070e-05 </func>
+<func name="MPI_Barrier" count="2" > 4.9804e-03 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >4.9804e-03 4.5711e-05 4.9347e-03</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >7.3016e-07 7.3016e-07 7.3016e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.4070e-05 1.4070e-05 1.4070e-05</hent>
+</hash>
+<internal rank="6" log_i="1650632414.508098" log_t="7.3109e-03" report_delta="1.2020e-02" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+<task ipm_version="0.983" cookie="1650632403.725806" mpi_rank="7" mpi_size="8" stamp_init="1650632403.725563" stamp_final="1650632414.499935" username="202001289hpc-lab" groupname="hpc-lab" flags="9277997192" pid="2432446" >
+<job nhosts="1" ntasks="8" start="1650632403" final="1650632414" cookie="1650632403.725806" code="unknown" >193345</job>
+<host mach_name="unknown" mach_info="x86_64_Linux" >conv1</host>
+<perf wtime="1.07744e+01" utime="1.06633e+01" stime="6.712e-01" mtime="1.69329e+01" gflop="-1.00000e+00" gbyte="0.00000e+00" ></perf>
+<switch bytes_tx="0.00000e+00" bytes_rx="0.00000e+00" >  </switch>
+<cmdline realpath="unknown" >unknown</cmdline>
+<ru_s_ti>1.5351e-01 4.1331e-01 99132 0 0 0 5802 1184 0 3580 0 0 0 0 2322 38</ru_s_ti>
+<ru_s_tf>1.0663e+01 6.7120e-01 733840 0 0 0 7029 1191 0 3740 0 0 0 0 2430 52</ru_s_tf>
+<ru_c_ti>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_ti>
+<ru_c_tf>0.0000e+00 0.0000e+00 0 0 0 0 0 0 0 0 0 0 0 0 0 0</ru_c_tf>
+<call_mask >
+</call_mask >
+<regions n="1" >
+<region label="ipm_noregion" nexits="2" wtime="2.0320e+01" utime="1.0663e+01" stime="6.7120e-01" mtime="1.6933e+01" >
+ <hpm api="DISABLED" ncounter="1" eventset="0" gflop="-1.0000e-09" >
+<counter name="NULL" > 0 </counter>
+</hpm>
+<func name="MPI_Comm_rank" count="1" > 6.5938e-07 </func>
+<func name="MPI_Comm_size" count="1" > 1.6313e-05 </func>
+<func name="MPI_Barrier" count="2" > 1.6933e+01 </func>
+</region>
+</regions>
+<hash nlog="4" nkey="3" >
+<hent key="10414574138294272" call="MPI_Barrier" bytes="0" orank="0" region="0" count="2" >1.6933e+01 5.3330e-04 1.6932e+01</hent>
+<hent key="844424930131968" call="MPI_Comm_rank" bytes="0" orank="0" region="0" count="1" >6.5938e-07 6.5938e-07 6.5938e-07</hent>
+<hent key="1125899906842624" call="MPI_Comm_size" bytes="0" orank="0" region="0" count="1" >1.6313e-05 1.6313e-05 1.6313e-05</hent>
+</hash>
+<internal rank="7" log_i="1650632414.508113" log_t="8.1780e-03" report_delta="1.0027e-02" fname=".//202001289hpc-lab.1650632403.725806.0" logrank="-1" ></internal>
+</task>
+
+</ipm_job_profile>

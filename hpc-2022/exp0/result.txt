@@ -1,0 +1,45 @@
+mpi_pow: n = 112000, m = 100000, process_count = 56
+Congratulations!
+Time Cost: 318377 us
+
+2020012890@conv0:~/exp0$ ./submit.sh 
+make: Nothing to be done for 'all'.
+openmp_pow: n = 112000, m = 100000, thread_count = 1
+Congratulations!
+Time Cost: 14006817 us
+
+openmp_pow: n = 112000, m = 100000, thread_count = 7
+Congratulations!
+Time Cost: 2016546 us
+
+openmp_pow: n = 112000, m = 100000, thread_count = 14
+Congratulations!
+Time Cost: 1010652 us
+
+openmp_pow: n = 112000, m = 100000, thread_count = 28
+Congratulations!
+Time Cost: 510107 us
+
+mpi_pow: n = 112000, m = 100000, process_count = 1
+Congratulations!
+Time Cost: 14016652 us
+
+mpi_pow: n = 112000, m = 100000, process_count = 7
+Congratulations!
+Time Cost: 2024093 us
+
+mpi_pow: n = 112000, m = 100000, process_count = 14
+Congratulations!
+Time Cost: 1026667 us
+
+mpi_pow: n = 112000, m = 100000, process_count = 28
+Congratulations!
+Time Cost: 504354 us
+
+srun: job 137951 queued and waiting for resources
+srun: job 137951 has been allocated resources
+mpi_pow: n = 112000, m = 100000, process_count = 56
+Congratulations!
+Time Cost: 311839 us
+
+All done!

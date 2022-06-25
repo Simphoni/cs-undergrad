@@ -1,0 +1,43 @@
+srun -N 4 -n 4 allreduce 10 100000000
+Correct.
+MPI_Allreduce:   2315.28 ms.
+Naive_Allreduce: 4553.39 ms.
+Ring_Allreduce:  1241.25 ms.
+srun -N 4 -n 8 allreduce 10 100000000
+srun: job 149549 queued and waiting for resources
+srun: job 149549 has been allocated resources
+Correct.
+MPI_Allreduce:   3590.84 ms.
+Naive_Allreduce: 6711.39 ms.
+Ring_Allreduce:  2473.37 ms.
+srun -N 4 -n 32 allreduce 10 10000000
+srun: job 149551 queued and waiting for resources
+srun: job 149551 has been allocated resources
+Correct.
+MPI_Allreduce:   505.916 ms.
+Naive_Allreduce: 1199.72 ms.
+Ring_Allreduce:  495.946 ms.
+srun -N 4 -n 32 allreduce 10 1000000
+srun: job 149552 queued and waiting for resources
+srun: job 149552 has been allocated resources
+Correct.
+MPI_Allreduce:   62.0093 ms.
+Naive_Allreduce: 78.4249 ms.
+Ring_Allreduce:  44.849 ms.
+srun -N 4 -n 32 allreduce 10 100000
+srun: job 149553 queued and waiting for resources
+srun: job 149553 has been allocated resources
+Correct.
+MPI_Allreduce:   11.0299 ms.
+Naive_Allreduce: 11.6148 ms.
+Ring_Allreduce:  12.2832 ms.
+srun -N 4 -n 100 allreduce 10 1000
+Correct.
+MPI_Allreduce:   0.762061 ms.
+Naive_Allreduce: 0.816606 ms.
+Ring_Allreduce:  3.57032 ms.
+srun -N 4 -n 100 allreduce 10 100
+Correct.
+MPI_Allreduce:   2.30321 ms.
+Naive_Allreduce: 0.460798 ms.
+Ring_Allreduce:  3.03585 ms.
