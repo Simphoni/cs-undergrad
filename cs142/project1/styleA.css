@@ -1,0 +1,42 @@
+.odd {
+    text-align: center;
+    font: Tahoma;
+    font-size: 40px;
+    height: 100px;
+    width: 100px;
+    background-color: #dfe1e7;
+    border-top: 1px solid;
+    border-color: #687291;
+    margin: auto;
+    align-items: center;
+    align-self: center;
+}
+
+.even {
+    text-align: center;
+    font: Tahoma;
+    font-size: 40px;
+    height: 100px;
+    width: 100px;
+    background-color: #eeeff2;
+    border-top: 1px solid;
+    border-color: #687291;
+    margin: auto;
+    align-items: center;
+    align-self: center;
+}
+
+.even#spec {
+    line-height: 100px;
+    background-color: #687291;
+    border: 4px solid;
+    border-color: black;
+}
+
+div.main {
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: auto;
+}
