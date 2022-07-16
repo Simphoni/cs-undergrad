@@ -1,0 +1,73 @@
+.title {
+    font-family: 'Cascadia Mono';
+    font-size: 40px;
+    color: black;
+    text-align: center;
+    width: 540px;
+    height: 60px;
+}
+
+.header {
+    font-size: 24px;
+    background-color: #4169E1;
+    color: white;
+    position: relative;
+    height: 60px;
+    width: 60px;
+    line-height: 58px;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.body {
+    font-size: 24px;
+    background-color: #F0F8FF;
+    color: black;
+    position: relative;
+    height: 58px;
+    width: 58px;
+    line-height: 58px;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.body.other-month {
+    color: #BBBBBB;
+}
+
+.body.current-month:hover {
+    background-color: #0033CC;
+    color: white;
+    -webkit-transition: all .5s; 
+    -moz-transition: all .5s; 
+    -ms-transition: all .5s; 
+    -o-transition: all .5s; 
+    transition: all .5s;
+}
+
+.body.empty {
+    border: None;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.row {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(9, 60px);
+}
