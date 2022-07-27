@@ -1,0 +1,305 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\chapter{随机过程}
+\section{Bernoulli过程与Poisson过程}
+\subsection{基本概念}
+\tinysec{定义}令($\omega,\mathscr{J},P$)为概率空间，$T$ 为指标集，$S$ 为状态空间（相空间），$\forall t\in T, \omega\in\Omega,X_t(\omega)\in S$，$X_t$ 为随机变量，$\{X_t:t\in T\}$ 称为一个\underline{\textbf{随机过程}}\textbf{(stochastic process)}；$\forall \omega_0\in\Omega$，$X_t(\omega_0)$ 称为一个\underline{\textbf{样本轨道}}\textbf{(sample path)}。\\
+\tinysec{定义}随机变量 $\{N(t):t\ge 0\}$ 称为\underline{\textbf{计数过程}}，如果满足
+\begin{enumerate*}
+    \item $N(t)\ge 0$，取整数值
+    \item $\forall t>s\ge 0,N(t)\ge N(s)$
+    \item $N(t)-N(s)$ 表示时间 $(s,t]$ 时间内的事件数
+\end{enumerate*}
+
+一般记第 $n$ 次到达的时间为 $Y_n$，则有到达时间序列 $\{Y_n\}_{n=1}^{\infty}$；定义 $\{T_n\}_{n=1}^{\infty}$，满足 $T_1=Y_1,\ T_i=Y_i-Y_{i-1}(i>1)$。
+\subsubsection{REMARK:}
+\begin{enumerate*}
+    \item $X_t$ 记为 $X(t)$ 时强调函数性质
+    \item $T$ 通常解释为时间，可以为离散或者连续
+    \item $X_t$ 称为过程在 $t$ 时刻的状态，$S$ 可以为离散或者连续
+    \item $X_t(\omega)=X(t,\omega)$ 视为 $(t,\omega)$ 的函数
+\end{enumerate*}
+\subsection{Bernoulli过程}
+\tinysec{定义}$T$ 为离散时间，记为 $\{1,2,\dots,n,\dots\}$。$X_1,X_2,\dots$ 独立同分布且 $X_i\sim B(p)$，$X_i$ 可以视为第 $i$ 次实验成功与否。$\{X_n\}_{n=1}^{\infty}$ 记为Bernoulli过程。
+\subsubsection{REMARK:}
+\begin{enumerate*}
+    \item $X_1,X_2,\dots$ 相互独立 $\iff$ $\forall n,X_1,X_2,\dots,X_n$ 相互独立
+    \item $\forall \text{certain}\ n$，$\{X_{n+1},X_{n+2},\dots\}$ 仍为Bernoulli过程。
+\end{enumerate*}
+\subsection{Bernoulli过程的性质}
+\subsubsection{首次到达（相邻两次到达）的分布：几何分布}
+\tinysec{定义}令 $T=$ 首次试验成功的时间，则 $P(T=m)=p(1-p)^{m-1}(m=1,2,\dots)$\\
+\tinysec{性质}无记忆性
+\begin{equation}
+    P(T-n=m|T>m)=\frac{P(T=n+m,T>n)}{P(T>n)}=\frac{p(1-p)^{n+m}}{1-\sum_{k\ge 1}p(1-p)^{k-1}}=p(1-p)^{m-1}=P(T=m)
+\end{equation}
+\subsubsection{第 $k$ 次到达时间的分布：负二项分布}
+\tinysec{定义}对于Bernoulli过程 $\{T_n\}_{n=1}^{\infty}$，令$$P(Y_k=m)=P(\text{第$m$次成功，且前$m$次成功了$k$次})=\binom{m-1}{k-1}p^k(1-p)^{m-k}$$
+\subsubsection{Bernoulli过程的分裂}
+若每次到达的时间以 $q$ 的概率保留下来，则保留下来的过程为Bernoulli过程，参数为 $pq$。
+\subsubsection{Bernoulli过程的合并}
+两个独立的Bernoulli过程合并，结果仍为Bernoulli过程，且参数为 $p+q-pq$。
+\subsection{Poisson过程}
+\subsubsection{平稳增量过程}
+\tinysec{定义} 如果增量 $X(t+\tau)-X(t)$ 的\textbf{分布}仅与 $\tau$ 有关，而与 $t$ 无关，则称为平稳增量过程。
+\subsubsection{独立增量过程}
+\tinysec{定义} 时刻 $t$ 以前发生的事件数[即$N(t)$]必须独立于时刻 $t$ 与 $t+s$ 之间发生的事件数[$N(t+s)-N(t)$]，则该过程为独立增量过程。
+\subsubsection{Poisson过程}
+\tinysec{定义1}计数过程$\{N(t):t\ge 0\}$称为Poisson过程，如果满足
+\begin{enumerate*}
+    \item $N(0)=0$
+    \item 过程有平稳独立增量
+    \item 存在 $\lambda>0$，满足 $h\rightarrow 0$ 时，$P(N(h)=1)=\lambda h+o(h)$
+    \item $P(N(h)\ge 2)=o(h)$
+\end{enumerate*}
+\tinysec{定义2}
+\begin{enumerate*}
+    \item $N(0)=0$
+    \item 过程有独立增量
+    \item $\forall s,t\ge 0,P\{N(t+s)-N(s)=n\}=e^{-\lambda t}\frac{(\lambda t)^n}{n!}$
+\end{enumerate*}
+\subsection{Poisson过程的性质}
+\subsubsection{Poisson过程的分裂}
+\tinysec{定理}假设Poisson过程过程中每次发生的事件分为I型和II型，以概率 $p$ 为I型，否则为II型。$N_1(t),N_2(t)$ 分别表示 $(0,t]$ 内两种事件的数目，则
+\begin{enumerate*}
+    \item $N(t)=N_1(t)+N_2(t)$
+    \item $\{N_1(t):t\ge 0\},\{N_2(t):t\ge 0\}$ 为Poisson过程，且到达率分别为 $\lambda p,\lambda(1-p)$
+    \item 这两个过程相互独立
+\end{enumerate*}
+\subsubsection{Poisson过程的合并}
+\tinysec{定理}已知$\{N_1(t):t\ge 0\},\{N_2(t):t\ge 0\}$ 为相互独立的Poisson过程，到达率分别为 $\lambda_1,\lambda_2$，令 $N(t)=N_1(t)+N_2(t)$，则 $\{N(t):t\ge 0\}$ 为Poisson过程，其到达率为 $\lambda_1+\lambda_2$。且时间 $N_1$ 先发生的概率为 $\frac{\lambda_1}{\lambda_1+\lambda_2}$，事实上，对于每个发生的事件，其属于 $N_i$ 的概率为 $\frac{\lambda_i}{\lambda_1+\lambda_2}$。
+\subsubsection{条件作用}
+已知 $[0,t]$ 内发生了一次事件，则该事件发生在 $[0,s](s\le t)$ 上的概率为
+\begin{align*}
+    P(Y_1\le s|N(t)=1) & =\frac{P(N(s)=1,N(t)-N(s)=0)}{P(N(t)=1)}=\frac{P(N(s)=1)P(N(t)-N(s)=0)}{P(N(t)=1)} \\&=\frac{\lambda se^{-\lambda s}\cdot e^{-\lambda(t-s)}}{\lambda te^{-\lambda t}}=\frac{s}{t}
+\end{align*}
+$\implies N(t)=1$ 条件下，$Y_1\sim U(0,t)$。\\
+\tinysec{定理}$N(t_2)=n$ 的条件下，对于 $t_1<t_2$，$N(t_1)\sim B(n,\frac{t_1}{t_2})$。相当于在 $[0,t_2]$ 上均匀分布随机放置 $n$ 个到达点，第 $j$ 次到达即为第 $j$ 阶{\kaishu 次序统计量}。\\
+\tinysec{定理}$N(t)=n$ 的条件下，事件发生的 $n$ 个时刻 $Y_1,Y_2,\dots,Y_n$ 的联合pdf为
+\begin{equation}
+    f(t_1,\dots,t_n)=\frac{n!}{t^n}
+\end{equation}
+\begin{proof}
+    已知条件等价于 $$T_1=1,T_2=t_2-t_1,\dots,T_n=t_n-t_{n-1},T_{n+1}>t-t_n$$这里 $T_i$ 为间隔事件，$T_i\mathop\sim\limits^{iid} Exp(\lambda)$。$Y_1,\dots,Y_n$ 的pdf就等价于 $T_1,\dots,T_n$ 的pdf
+    \begin{align*}
+        f(t_1,\dots,t_n|N(t)=n) & =\frac{f(t_1,\dots,t_n,n)}{P(N(t)=n)}                                                                                                       \\
+                                & =\frac{\lambda e^{-\lambda t_1}\cdots \lambda e^{-\lambda(t_n-t_{n-1})}\cdot e^{-\lambda(t-t_n)}}{\frac{(\lambda t)^{n}}{n!}e^{-\lambda t}} \\
+                                & =\frac{n!}{t^n}
+    \end{align*}
+\end{proof}
+\noindent 因此有生成Poisson过程的另一种方式：
+\begin{enumerate*}
+    \item 根据 $N(t)\sim P(\lambda t)$ 生成 $(0,t]$ 内事件发生数
+    \item 假定 $N(t)=n$，则取 $U_1,\dots,U_n\mathop{\sim}\limits^{iid}U(0,t)$
+    \item 令 $Y_j=U_{(j)},j=1,2,\dots,n$
+\end{enumerate*}
+\subsubsection{次序统计量}
+设有 $X_1,\dots,X_n$ 独立同分布，令 $X_{(i)}=\min\{X_1,\dots,X_n\}\ (1\le i\le n)$，则 $X_{(i)}$ 为 $i$ 阶次序统计量。\\
+\indent 设 $X_i$ 的pdf为 $f(x)$，cdf为 $F(x)$，则\\
+\indent $X_{(j)}=x\iff X_1,\dots,X_n$ 中有 $j-1$ 个取值 $<x$，且有 $n-j$ 个取值 $>x$，可以不严格地推导出 $X_{(j)}$ 的pdf。
+\begin{align}
+    P(x\le X_{(j)}\le x+\d{x}) & \approx\binom{n}{j-1,n-j,1}F^{j-1}(x)(1-F(x))^{n-j}f(x)\d{x}\notag \\
+    f_j(x)                     & =\frac{n!}{(j-1)!(n-j)!}F^{j-1}(x)(1-F(x))^{n-j}f(x)
+\end{align}
+由此定义联合分布pdf $\dots$
+
+\subsection{Poisson过程的推广}
+\subsubsection{非齐次Poisson过程}
+\tinysec{定义}计数过程$\{N(t):t\ge 0\}$ 称为到达率为 $\lambda(t)(\lambda(t)>0)$ 的Poisson过程，如果
+\begin{enumerate*}
+    \item $N(0)=0$
+    \item 具有独立增量
+    \item $P(N(t+h)-N(t)=1)=\lambda(t)h+o(h)$
+    \item $P(N(t+h)-N(t)\ge 2)=o(h)$
+\end{enumerate*}
+若令 $m(t)=\int_0^t\lambda(k)\d{k}$，则 $$P(N(t+s)-N(t)=n)=e^{m(t+s)-m(t)}\frac{(m(t+s)-m(t))^n}{n!}$$ 其中 $m(t+s)-m(t)$ 即为这段时间内的期望事件数。
+该过程没有平稳增量性质。
+\subsubsection{复合Poisson过程}
+\tinysec{定义}$\{N(t):t\ge 0\}$ 为Poisson过程，$X_i\ iid$ 且与 $N(t)$ 相互独立，令$Z(t)\triangleq\sum_{i=1}^{N(t)}X_i$，则 $Z_t$ 为复合Poisson过程。
+\noindent\textbf{定理}
+\begin{enumerate*}
+    \item $Z(t)$ 有独立增量性质
+    \item 若 $E(X_i^2)\le\infty$，则 $E(Z(t))=\lambda tE(X_i),Var(Z(t))=\lambda tE(X_i^2)$（用矩母函数证明）
+\end{enumerate*}
+\subsubsection{条件Poisson过程}
+\tinysec{定义}设 $\Lambda>0$ 为随机变量，当 $\Lambda=\lambda$ 时，计数过程 $\{N(t):t\ge 0\}$ 为到达率为 $\lambda$ 的Poisson过程，则称 $N(t)$ 为条件Poisson过程。$N(t)$ 不是一个Poisson过程。\\
+\tinysec{定理}$E(\Lambda)<\infty$，则$E(N(t))=tE(\Lambda),Var(N(t))=t^2Var(\Lambda)+tE(\Lambda)$\\
+若事件间隔 $X_i$ 的分布不限定为指数分布，则计数过程称为\underline{\textbf{更新过程}}
+
+\begin{table}[h]
+    \centering
+    \caption{\textbf{Summary}}
+    \begin{tabular}{ccc}
+        \toprule
+        到达过程             & Bernoulli过程 & Poisson过程        \\
+        \hline
+        到达时间             & 离散          & 连续               \\
+        \hline
+        到达率               & $p$每次试验   & $\lambda$ 单位时间 \\
+        \hline
+        相邻两次到达间隔     & 几何分布      & 指数分布           \\
+        \hline
+        $t$ 内到达次数的分布 & 二项分布      & Poisson分布        \\
+        \hline
+        第 $k$ 次到达        & 负二项分布    & Gamma分布          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\section{离散时间Markov链}
+\subsection{基本概念}
+指标集 $T$ 离散，不妨记 $T=\{0,1,2,\dots\}$。\\
+\indent 状态空间 $S$ 离散，不妨记 $T=\{0,1,2,\dots\}$\\
+\tinysec{定义}(Markov链) $\{X_n,n=0,1,\dots\}$ 为随机过程，$X_i\in S$，若 $\forall n\ge 0$ 及任意状态 $i,j,i_0,\dots,i_{n-1}$，有
+\begin{equation}P(X_{n+1}=j|X_1=1,\dots,X_{n-1}=i_{n-1},X_n=i)=P(X_{n+1}=j|X_n=i)\end{equation}
+则称 $\{X_n,n=0,1,\dots\}$ 为离散时间Markov链。可以导出：
+\begin{align*}
+    &P(X_0=i_0,\dots,X_n=i_n)\\
+    =&P(X_n=i_n|X_0=i_0,\dots,X_{n-1}=i_{n-1})P(X_0=i_0,\dots,X_{n-1}=i_{n-1})\\
+    =&P(X_n=i_n|X_{n-1}=i_{n-1})P(X_0=i_0,\dots,X_{n-1}=i_{n-1})\\
+    =&\dots\\
+    =&P(X_n=i_n|X_{n-1}=i_{n-1})\dots P(X_1=i_1|X_0=i_0)P(X_0=i_0)
+\end{align*}
+\tinysec{定义}$P(X_{n+1}=j|X_n=i)$ 称为Markov链的（一步）\underline{\textbf{转移概率}}。当它与 $n$ 无关时，称Markov链关于时间是\textbf{\underline{齐次}}的，记
+\begin{equation}P_{ij}^{(n)}=P_{ij}=P(X_{n+1}=j|X_n=i)\end{equation}
+将 $P\triangleq(P_{ij})$ 称为\underline{\textbf{转移概率矩阵}}。
+\begin{enumerate*}
+    \item 状态有限（无限）时，对应称为有（无）限链
+    \item 路径概率 $P(X_k=i_k)=P_{i_0i_1}\cdots P_{i_{n-1}i_n}$
+    \item 转移概率矩阵描述了一个 $n$ 个点带自环的完全图
+\end{enumerate*}
+\tinysec{例}(随机游走) $S=\{0,\pm 1,\pm 2,\dots\},p\in (0,1)$。$P(X_i=1)=p,P(X_i=0)=1-p$，令 $Y_n=\sum_0^nX_i$，则 $\{Y_n\}$ 称为随机游走模型。$P_{i,i+1}=p,P_{i,i-1}=1-p$。\\
+\tinysec{例}(赌博模型) $S=\{0,1,\dots,n\}$，0 和 $n$ 为\textbf{吸收态}，$P_{0,0=1},P_{n,n}=1$。此模型称为\textbf{具有吸收壁的有限随机游走}。
+\subsection{C-K方程}
+\tinysec{定义}$n$ 步转移概率为 $P_{ij}^{(n)}\triangleq P(X_n=j|X_0=i)$，由于时间齐次性，$P(X_{m+n}=j|X_m=i)=P_{ij}^{(n)}$，即与 $m$ 无关。
+规定$P_{ij}^{(n)}=\begin{cases}1,i=j\\0,i\neq j\end{cases}=\delta_{ij}$。\\
+\tinysec{定理}(Chapman-Kolmogorov方程) $\forall m,n\ge 0,\forall i,j\in S$，有
+\begin{equation}
+    P_{ij}^{(m+n)}=\sum_{k\in S}P_{ik}^{(m)}P_{kj}^{(n)}
+\end{equation}
+\begin{proof}
+    $P(X_{m+n}=j|X_0=i_0,\dots,X_m=k)=P(X_{m+n}=j|X_m=k)$
+\end{proof}
+\tinysec{定理}若记 $P^{(n)}\triangleq (P_{ij}^{(n)})$，则 $P^{(n)}=P^n,P^{(n+m)}=P^{(n)}P^{(m)}$。\\
+\tinysec{计算}$X_n$ 的边际分布
+\begin{align}
+    P(X_n=j)&=\sum_{i\in S}P(X_0=i)P(X_n=j|X_0=i)\notag\\
+    &=\sum_{i\in S}P(X_0=i)P_{ij}^{n}
+\end{align}
+矩阵形式：记 $\vec{\beta}_n=(\beta_{n_1},\beta_{n_2}\dots),\beta_{n_{i}}\triangleq P(X_n=i)$，则 $\vec{\beta}_n=\vec{\beta}_0P^n$。
+\subsection{状态的分类}
+\tinysec{定义（可达）}称状态 $i$ \textbf{可达}状态 $j$，若 $\exists n\ge 0,P_{ij}^{(n)}>0$。若相互可达，则记为 $i\leftrightarrow j$。
+\begin{enumerate*}
+    \item 自返性：$i\leftrightarrow i$
+    \item 对称性：$i\leftrightarrow j\iff j\leftrightarrow i$
+    \item 传递性
+\end{enumerate*}
+显然，$\leftrightarrow$ 定义了一个 $S$ 上的\textbf{等价关系}，将所有状态划分为若干个\textbf{等价类}。若一条Markov链上仅有一个类，则称其为\underline{\textbf{不可约的}}。\\
+\tinysec{定义}记 $f_{ij}^{(n)}$ 表示从 $i$ 经过 $n$ 次转移后，\textbf{\color{red}首次}到达 $j$ 的概率。则\textbf{首达}概率
+\begin{equation*}
+    f_{ij}^{(n)}=P(X_n=j,X_k\neq j,k=1,2,\dots,n-1|X_0=i)
+\end{equation*}
+额外定义平凡情况 $f_{ij}^{(0)}=\delta_{ij}$。\textbf{\color{red}注意区别 $P_{ij}^{(n)}$ 与 $f_{ij}^{(n)}$}。\\
+\tinysec{定义}$f_{ij}\triangleq\sum_{n=1}^{\infty}f_{ij}^{(n)}$ 表示从 $i$ 出发经有限步可达 $j$ 的概率。\\
+\tinysec{定义}若 $f_{ii}=1$，则称状态 $i$ 为\textbf{常返(recurrent)}，否则 $i$ 为\textbf{瞬时(transient)}的。\\
+\tinysec{\color{red}\ding{72}定理（常返态的等价判定）}
+\vspace{-0.7em}
+\begin{itemize*}
+    \item $i$ 为常返态 $\iff \sum_{n=0}^{\infty}P_{ii}^{(n)}=+\infty$
+    \item $i$ 为瞬时态 $\iff\sum_{n=0}^{\infty}P_{ii}^{(n)}=\frac{1}{1-f_{ii}}$
+\end{itemize*}
+\begin{proof}
+    引理：$P_{ij}^{(n)}=\sum_{k=1}^{n}f_{ij}^{(k)}P_{jj}^{(n-k)
+}$
+\begin{align*}
+    \sum_{n=0}^{\infty}P_{ii}^{(n)}&=P_{ii}^{(0)}+\sum_{n=1}^{\infty}\sum_{k=1}^{n}f_{ii}^{(k)}P_{ii}^{(n-k)}\\
+    &=P_{ii}^{(0)}+\left(\sum_{n=1}^{\infty}f_{ii}^{(k)}\right) \left(\sum_{k=1}^{\infty}P_{ii}^{(k)}\right)\\
+    &=1+f_{ii}\sum_{k=0}^{\infty}P_{ii}^{(k)}\\
+    &=\frac{1}{1-f_{ii}}\text{(若$f_{ii}<1$)}
+\end{align*}
+因此 $\sum_{k=0}^{\infty}P_{ii}^{(k)}\text{收敛}\iff f_{ii}<1$。
+\end{proof}
+\tinysec{性质（常返态的命运）}
+\begin{enumerate*}
+\item 令 $I_n=[X_n=i]$，则 $\sum_{n=0}^{\infty}$ 为经过状态 $i$ 的次数，$$E(\sum_{n=0}^{\infty}I_n|X_0=i)=\sum_{n=0}^{\infty}P(I_n=1|X_0=i)=\sum_{n=0}^{\infty}P_{ii}^{(n)}$$ 为从 $i$ 出发的链回到 $i$ 的期望次数
+\item 若 $i$ 常返，则从 $i$ 出发时以概率1有限步回到 $i$
+\item 若 $i$ 非常返，则从 $i$ 出发以概率 $P=1-f_ii>0$ 回不到 $i$，从而从 $i$ 出发的链恰好经过 $i$ 的次数为 $k$ 的概率为 $f_{ii}^{k-1}(1-f_{ii})$（几何分布），所以只能返回有限次，最后永远离开
+\end{enumerate*}
+\tinysec{\color{red}\ding{72}定理（常返态的事实）}
+\begin{enumerate*}
+    \item 若$i\leftrightarrow j$，则 $i$ 和 $j$ 同时为常返态或者非常返态
+    \item 常返态 $i$ 所能到达的一切状态均与$i$相互可达，即\textbf{从常返态出发不能到达非常返态}
+    \item 在一个\textbf{有限}Markov链上，从任意非常返态出发，最终必然到达常返态
+    \item 一个\textbf{有限}Markov链至少有一个常返态
+    \item 一个\textbf{有限}Markov链若\textbf{不可约}，则所有状态均为常返态
+\end{enumerate*}
+\tinysec{例子}（随机游走）当 $p=\frac{1}{2}$ 时常返，当 $p\neq\frac{1}{2}$ 时非常返。\\
+\tinysec{定理}若 $i\leftrightarrow j$，且 $i$ 为常返态，则 $f_{ji}=1$\\
+\tinysec{定义}若集合 $\{n|n\ge 1,P_{ii}^{(n)}>0\}$ 非空，则其最大公约数 $d=d(i)$ 称为状态 $i$ 的\textbf{周期}。若 $d>1$，则称状态 $i$ 是\textbf{周期的}；若 $d=1$ 则称 $i$ 是\textbf{非周期的}。若链中所有状态的周期都为 $d$，则称 $d$ 为该\textbf{链的周期}。若链中所有状态周期都为1，则称该链是\textbf{非周期的}；否则称其为\textbf{周期的}。\\
+\tinysec{定理}若 $i\leftrightarrow j$，则 $i$ 的周期与 $j$ 相等。\\
+\tinysec{定理}若一个\textbf{不可约}Markov链周期为 $d$，其状态空间 $S$ 存在唯一的\textbf{划分} $\{S_1,S_2,\dots,S_d\}$，且使得从 $S_r$ 中任意状态出发，任1步转移必然进入 $S_{r+1}$ 中。实际上，若将状态 $i$ 固定在 $S_d$ 中，则有$$S_r=\{j|\exists n\in\mathbb{N},s.t.P_{ij}^{(nd+r)}>0\}$$
+\indent 对于任意Markov链，其状态空间存在划分 $\{C_0,C_1,C_2,\dots\}$，其中 $C_0$ 为所有非常返态构成的集合，$C_n(n\ge 1)$ 不可约。
+\subsection{稳态性质}
+\tinysec{定义}$\vec{\beta}=(\beta_j)_{j\in S}$ 为概率分布，若
+$$\vec{\beta}P=\vec{\beta}\ \ (i.e.\beta_j=\sum_{i\in S}\beta_iP_{ij})$$
+则称 $\vec{\beta}$ 为该Markov链的\textbf{平稳分布(stationary distribution)}。\\
+\indent 若$\vec{\beta}$为 $X_0$ 的分布(即 $P(X_0=j)=\beta_j$)，则 $X_n(n\ge 1)$ 的分布都为 $\vec{\beta}$，从而 $\{X_n:n\ge 0\}$ 为\textbf{平稳过程}。\\
+\indent 平稳分布为边际分布，不是条件分布，一般地有 $$P(X_{n+1}=j|X_n=i)=P_{ij}\neq P(X_{n+1}=j)$$
+\tinysec{定义}设 $i$ 为常返态，定义 $\mu_{i}\triangleq \sum_{n=1}^{\infty}nf_{ii}^{(n)}$ 为由 $i$ 出发再返回 $i$ 所需的平均时间（步数）。\\
+\indent 若 $\mu_i<+\infty$，则称 $i$ 为\textbf{正常返的(positive recurrent)}；\\
+\indent 若 $\mu_i=+\infty$，则称 $i$ 为\textbf{零常返的(null recurrent)}。\\
+\indent $\mu_i$ 越小，返回越频繁。
+\indent \\
+\tinysec{\color{red}\ding{72}定理}若 $i$ 常返且周期为 $d$ ，则
+\begin{equation}
+    \lim\limits_{n\rightarrow\infty}P_{ii}^{(nd)}=\frac{d}{\mu_i}
+\end{equation}
+当 $\mu_i=+\infty$ 时，$\frac{d}{\mu_i}=0$。（不证）\\
+\tinysec{定理}$i$ 为零常返态或非常返态$\iff\lim\limits_{n\rightarrow \infty}P_{ii}^{(n)}=0$
+\begin{proof}
+    $i$ 为零常返$\implies\mu_i=+\infty\implies\lim\limits_{n\rightarrow\infty}P_{ii}^{(nd)}=0$\\
+    又知 $P_{ii}^{(m)}=0,m$不被 $d$整除，故 $\lim\limits_{n\rightarrow \infty}P_{ii}^{(n)}=0$\\
+    $i$ 非常返 $\implies\sum_{n=0}^{\infty}P_{ii}^{(n)}<+\infty\implies\lim\limits_{n\rightarrow\infty}P_{ii}^{(n)}=0$
+\end{proof}
+\tinysec{定理}$i\leftrightarrow j$，常返，则 $i$ 与 $j$ 同时为正常返或零常返。\\
+\tinysec{定理}若 $j$ 为非常返或零常返，则 $\forall i\in S$ 都有 $\lim\limits_{n\rightarrow\infty}P_{ij}^{(n)}=0$。有限链不可能又零常返态，从而不可约有限Markov链所有状态都是正常返的。若Markov链有零常返态\\
+\tinysec{定义}若 $i$ 正常返且周期为1，则称 $i$ 为\underline{\textbf{遍历的(ergodic)}}；若一个Markov链中所有状态都是遍历的，则称该链是遍历的。\\
+\tinysec{\color{red}\ding{72}定理}对于不可约、非周期的Markov链，
+\begin{enumerate}[(1)]
+    \item 若它是遍历的，则 $\pi_j=\ntoinf{n}P_{ij}^{(n)}$ 是该链的唯一平稳分布
+    \item 若状态都是非常返的或是零常返的，则平稳分布不存在
+\end{enumerate}
+\section{某次课}
+
+\begin{enumerate*}
+    \item 若它是遍历的，则 $\pi_j=\lim\limits_{n\rightarrow\infty}$
+\end{enumerate*}
+$\vec{\pi} P=\vec{\pi}$
+\begin{proof}
+    \begin{align*}
+    \forall M,\sum_{j=0}^{M}P_{ij}^{(n)}\le\sum_{j=0}^{\infty}P_{ij}^{(n)}=1\\
+    P_{ij}^{(n+1)}=\sum_{k=0}^{\infty}P_{ik}^{(n)}P_{kj}\ge\sum_{k=0}^MP_{ik}^{(n)}P_{kj}\\
+    P_{ij}^{(n)}\ge\sum_{k=0}
+    \end{align*}
+\end{proof}
+\tinysec{定义}若 $\pi_j=\lim\limits_{n\rightarrow\infty}P_{ij}^{(n)}$ 存在，则 $\vec{\pi}=(\pi_0,\pi_1,\dots)$ 称为该链的\textbf{极限分布}。\\
+\tinysec{性质}
+\begin{enumerate*}
+    \item $\lim\limits_{n\rightarrow\infty}P^{(n)}=\lim\limits_{n\rightarrow\infty}P^n=\begin{bmatrix}\vec{\pi}\\\vec{\pi}\\\vdots\end{bmatrix}$
+    \item 对于一切初始分布 $\vec{\beta}$，$\ntoinf{n}\vec\beta P^n=\vec{\pi}$
+    \item 一个链具有平稳分布并不意味着有极限分布
+    \item 若链不可约且遍历，则极限分布式链唯一的平稳分布
+    \item 可以证明，有限链总存在平稳分布；若其不可约，则平稳分布唯一
+\end{enumerate*}
+\subsection{可逆性}
+（平稳分布当状态空间规模非常大时难以计算）\\
+\tinysec{定义}$\pi_j\ge 0,\sum_i\pi_i=1$，若满足以下\underline{\textbf{可逆性条件}}：
+\begin{equation}
+    \pi_iP_{ij}=\pi_jP_{ji},\forall i,j\in S
+\end{equation}
+则称该链对于 $\vec{\pi}$ 可逆。\\
+\tinysec{定理}若 $P$ 相对于 $\vec{\pi}$ 可逆，则 $\vec{\pi}$ 为链的平稳分布。
+\begin{proof}
+    $\sum_i\pi_iP_{ij}=\sum_i\pi_jP_{ji}=\pi_j(\sum_{i}P_{ji})=\pi_j\implies\vec{\pi}P=\vec{\pi}$
+\end{proof}
+
+\end{document}

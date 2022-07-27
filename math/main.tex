@@ -1,0 +1,172 @@
+\documentclass[11pt,a4paper,oneside,fontset=windows]{ctexbook}
+\usepackage{ctex}
+\usepackage{amsthm,amssymb} % math packages
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{bm} % bold math
+\usepackage[hidelinks]{hyperref} % hide ref in table of contents
+\usepackage{pifont} % \ding{73} makes a beautiful star
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{stmaryrd}
+\usepackage{subfiles}
+\usepackage{pgfplots}
+\usepackage{pgfornament}
+\usepackage{enumerate}
+\usepackage{mdwlist}
+\usepackage{booktabs}
+\usepackage[level]{datetime}
+\allowdisplaybreaks[4]
+
+\setcounter{tocdepth}{1}
+\definecolor{navy}{rgb}{0,0,0.5}
+% \tag{} numbers the equation
+\def\d#1{\text{d}#1}
+\def\D#1{\text{d}(#1)}
+\def\p#1{\partial#1}
+\def\ds#1#2{\frac{\text{d}#1}{\text{d}#2}}
+\def\pds#1#2{\frac{\partial#1}{\partial#2}}
+\def\jishu#1#2{\sum_{#1=1}^{+\infty}#2}
+\def\linsp#1{\mathbb{R}^{#1}}
+\def\ntoinf#1{\lim\limits_{#1\rightarrow\infty}}
+\def\tinysec#1{\noindent\underline{\textbf{#1}}\indent}
+\def\concept#1{\underline{\textbf{#1}}}
+\geometry{a4paper, scale=0.75}
+
+\newenvironment{solution}{\noindent{\kaishu 解}.}{  }
+
+\title{\Huge{\heiti 数学支配着宇宙}\\Math Dominates the Universe}
+\author{Jingze Xing}
+
+\pgfplotsset{compat=1.16} % advised setting
+\begin{document}
+%\ThisCenterWallPaper{}{back.jpg}
+\thispagestyle{empty}
+\begin{tikzpicture}[color=navy,overlay,remember picture,
+    every node/.style={inner sep=5pt}]
+    \node[anchor=north west] at (current page.north west)
+    {\pgfornament[width=3cm]{63}};
+    \node[anchor=north east] at (current page.north east)
+    {\pgfornament[width=3cm,symmetry=v]{63}};
+    \node[anchor=south west] at (current page.south west)
+    {\pgfornament[width=3cm,symmetry=h]{63}};
+    \node[anchor=south east] at (current page.south east)
+    {\pgfornament[width=3cm,symmetry=c]{63}};
+\end{tikzpicture}
+\begin{figure}
+    \centering
+    \begin{minipage}[t][10cm][b]{\textwidth}
+        \centering
+        \begin{tikzpicture}[color=black,remember picture]
+            \node[minimum width=12cm, minimum height=3.6cm](vecbox){};
+            \node[anchor=north] at (vecbox.north)
+            {\pgfornament[height=0.27cm]{89}};
+            \node[anchor=south] at (vecbox.south)
+            {\pgfornament[height=0.27cm]{89}};
+            
+            \node[inner sep=10pt,align=center] (text) at (vecbox.center){\Huge\textbf{Math Dominates the Universe}\\[1em]\Huge{\heiti 数学支配着宇宙}};
+        \end{tikzpicture}
+    \end{minipage}
+    \centering
+    \begin{minipage}[t][3.5cm][b]{\textwidth}
+        \centering
+        \begin{tikzpicture}[color=black,remember picture]
+            \node[minimum width=8.6cm, minimum height=2cm](vecbox){};
+            \node[inner sep=0pt,align=center,anchor=north] (text) at ([yshift={-7pt}]vecbox.north){\LARGE\textbf{Jingze Xing}};
+            \node[inner sep=0pt,align=center,anchor=south] (text) at (vecbox.south){\Large{\today}};
+            \node[inner sep=0pt,anchor=north west] at (vecbox.north west)
+            {\pgfornament[height=1cm]{113}};
+            \node[inner sep=0pt,anchor=north east] at (vecbox.north east)
+            {\pgfornament[height=1cm,symmetry=v]{113}};
+        \end{tikzpicture}
+    \end{minipage}
+\end{figure}
+\tableofcontents
+\newpage
+
+\subfile{1-calculus1.tex}
+\subfile{2-calculus2.tex}
+\subfile{7-linear-algebra.tex}
+% \subfile{3-discrete.tex}
+\subfile{4-complex-functions.tex}
+\subfile{5-probability.tex}
+\subfile{6-stochastic-process.tex}
+
+\chapter{线性代数}
+\section{基本事实}
+\begin{itemize}
+  \item \( rank(A)+rank(B)<rank(AB)-n,A\in \mathbb{R}^{m\times n} \)
+  \item  \( a_1+a_2,a_2+a_3,\cdots,a_n+a_1 \text{可逆}\implies n\text{为奇数} \)
+  \item \( Q^TQ=I_n\iff Q\text{为保距变换}\iff \text{为保内积变换}\)
+  \item \textit{Housholder}变换(关于\textbf{面}反射)：\( I_n-2\bm{vv}^T,||\bm{v}||=1 \)
+  \item \( \mathcal{R}(A^TA)=\mathcal{R}(A^T)\)
+  \item \( P_{\mathcal{M}}=QQ^T,\text{span}(Q)=\mathcal{M} \)
+  \item \( P_{A}=A(A^TA)^{-1}A^T,A \)列线性无关
+  \item 实对称矩阵\( S=Q\Lambda Q^T \)
+\end{itemize}
+\section{例题}
+\subsubsection{练习1.6.17-(5)}
+若 $A^2-I_n=O$ ，证明：
+\begin{equation*}
+  \forall \bm{v}\in \mathbb{R}^n, \exists \bm{x}+\bm{y}=\bm{v},\ s.t.\ (A-I_n)\bm{x}=(A+I_n)\bm{y}=\bm{0}
+\end{equation*}
+\begin{proof}
+  \begin{align*}
+                  & (A+I_n)(A-I_n)=0                                           \\
+    \text{构造}\  & \bm{x}=\frac{A+I_n}{2}\bm{v},\bm{y}=\frac{-A+I_n}{2}\bm{v}
+  \end{align*}
+\end{proof}
+\subsubsection{练习 1.7.10}
+证明：$A\in\mathbb{R}^{m*n},B\in\mathbb{R}^{n*m}, I_m+AB\ \text{可逆} \iff I_n+BA\ \text{可逆}$.
+\begin{proof}
+  \begin{align*}
+                  & \text{构造矩阵} \begin{bmatrix} I_m  &A \\ B &I_n \end{bmatrix}                       \\
+                  & \begin{bmatrix} I_m  &O \\-B  &I_n\end{bmatrix}
+    \begin{bmatrix} I_m  &A \\  B  &I_n\end{bmatrix}=
+    \begin{bmatrix} I_m  &A \\  O  &I_n-BA\end{bmatrix}                                                       \\
+                  & \begin{bmatrix} I_m  &-A \\ O  &I_n\end{bmatrix}
+    \begin{bmatrix} I_m  &A \\ B  &I_n\end{bmatrix}=
+    \begin{bmatrix} I_m-AB  &O \\ B  &I_n\end{bmatrix}                                                       \\
+                  & I_n-BA\text{可逆}\iff
+    \begin{bmatrix} I_m &A \\ B &I_n\end{bmatrix}\text{可逆} \iff I_m-AB \text{可逆}                   \\
+    \text{另：\ } & (I_m+AB)A=A+ABA=A(I_n+BA)                                       \\
+    let\          & (I_n+BA)^{-1}=C                                                 \\
+    then\         & (I_m+AB)ACB=AB                                                  \\
+                  & (I_m+AB)-(I_m+AB)ACB=(I_m+AB)-AB                                \\
+                  & (I_m+AB)(I_m-ACB)=I_m\implies (I_m+AB)^{-1}=I_m-A(I_n+BA)^{-1}B
+  \end{align*}
+\end{proof}
+\subsection{正交矩阵}
+\subsection{特征值与特征向量}
+\subsubsection{练习5.2.23}
+给定$m$阶方阵$A_1$，$n$阶方阵$A_2$和$m\times n$矩阵$B$，证明若$A_1$和$A_2$没有相同的特征值，则关于$m\times n$矩阵$X$的矩阵方程$A_1X-XA_2=B$有唯一解.\\
+\begin{proof}
+  因为$X$与$B$规格相同，所以只要证明该变换是单射即可证明是双射.\\
+  即证：$A_1X=XA_2$仅有零解
+  \begin{align*}
+    A_1^2X=(A_1X) & A_2=XA_2^2                      \\
+    A_1^3X=(A_1X) & A_2^2=XA_2^3                    \\
+                  & \vdots                          \\
+    A_1^nX=(A_1X) & A_2^{n-1}=XA_2^n\tag{\ding{72}}
+  \end{align*}
+  考虑上述等式的线性组合，则
+  $$f(A_1)X=Xf(A_2)$$
+  恒成立.\\
+  不妨令$f=p_A$，则$f(A_1)=O$.令$\lambda_i$为$A_1$的特征值，则$\det(\lambda_iI_n-A_2)\neq 0$，所以
+  \begin{align*}
+    \det(f(A_2))=\prod\limits_{i=1}^{n}{(\lambda_i I_n-A_2)}\neq 0 \tag{\ding{72}}
+  \end{align*}
+  故$f(A_2)$可逆，因此$$X=f(A_1)X\left[f(A_2)\right]^{-1}=O$$
+\end{proof}
+\subsection{实对称矩阵}
+对实对称矩阵，$A$正定\\$\iff$$A$的特征值都是正数\\$\iff$$A=TT^T$,$T$可逆\\$\iff$$A=LDL^T$\\$\iff$$A$的顺序主子式都是正数
+\newpage
+
+\newpage
+\begin{itemize}
+  \item gbk (gbk不能解码的特殊字符，用更高级的GB18030)
+\end{itemize}
+
+\end{document}

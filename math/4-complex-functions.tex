@@ -1,0 +1,332 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\chapter{复变函数}
+\section{复变函数}
+\subsection{函数的定义}
+给定 $G\in \mathbb{C}$ 及从 $G$ 到 $\mathbb{C}$ 的对应法则 $f$，满足 $\forall z=x+iy\in G$，都有一个或多个 $\omega=u+iv\in \mathbb{C}$ 与之对应，则称 $\omega$ 为关于 $z$ 的函数。
+\subsection{极限的定义}
+设 $\omega=f(z)$  在 $B_{\varphi}^*(z_0)\triangleq \{z\in\mathbb{C}{\big|}0<|z-z_0|<\rho\}$ 上有定义，若 $\exists A\in \mathbb{C},\forall \varepsilon>0,\exists\delta=\delta(\varepsilon)>0,\text{s.t.} 0<|z-z_0|<\delta\rightarrow |f(z)-A|<\varepsilon$，则称 $z\rightarrow z_0$ 时，$f(z)$ 以 $A$ 为极限。\textbf{注意这意味着沿任意路径逼近得到的极限都是 $A$}。
+\subsection{连续性的定义}
+若 $f$ 在实心邻域 $B_{\varphi}$ 上有定义，且 $\lim\limits_{z\rightarrow z_0}f(z)=f(z_0)$，则称 $f(z)$ 在 $z_0$ 连续。
+\begin{enumerate*}
+    \item 连续函数的和、差、积、商仍是连续函数
+    \item 设 $g=g(z)$ 连续，$\omega=f(g)$ 在 $g_0=g(z_0)$ 处连续，则 $\omega=(g\circ f)(z)$ 在 $z_0$ 连续。
+    \item 闭区域 $\overline{\mathscr{D}}$ 上的连续函数一定能在 $\overline{\mathscr{D}}$ 上取到最小（大）模长。
+\end{enumerate*}
+\subsection{区域、曲线的定义}
+点集 $\mathscr{D}$ 称为一个\textbf{区域}，如果它是一个\underline{开集}且它连通。没有重点的连续曲线称为\textbf{简单曲线}或\textbf{Jordan曲线}；若仅有曲线起点与终点重合，则为\textbf{简单闭曲线}，曲线以\textbf{\color{red}逆时针}为正向。若一个区域内任意一条闭曲线的内部都属于该区域，那么该区域为\textbf{单连通域}。
+\subsection{复数的辐角}
+对于 $z\in\mathbb{C}\backslash\{0\}$，定义 {\color{red}$\arg(z)\in (-\pi,\pi]$} 为辐角的主值；$\text{Arg}(z)=\arg(z)+2k\pi,k\in\mathbb{Z}$ 为负数的辐角函数。
+\section{解析函数}
+\subsection{导数的定义}
+若极限 $\lim\limits_{z\rightarrow z_0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}$ 存在且有限，则 $f(z)$ 在 $z_0$ 可导。
+\subsection{可微与微分}
+若 $\omega=f(z)$ 在 $z_0$ 的某个邻域内有表达式
+\begin{gather}
+    \Delta\omega=f(z_0+\Delta z)-f(z_0)=\mathscr{A}\Delta z+\rho(\Delta z)\Delta z\\
+    \mathscr{A}\in\mathbb{C},\lim\limits_{|z_0|\rightarrow 0}\rho(z)=0
+\end{gather}
+则称 $f(z)$ 在 $z_0$ 可微，$\mathscr{A}\Delta z$ 称为 $f(z)$ 在 $z_0$ 的微分，记为 $\d{\omega}=\mathscr{A}\Delta z=f'(z_0)\d{z}$。\\
+\indent 函数在一点可导和可微是等价的。
+\subsection{解析函数（或全纯函数、正则函数）}
+$\forall z_0\in\mathbb{C}$，若 $\omega=f(z)$ 在 $z_0$ 的\textbf{某邻域内处处可导}，则称 $f(z)$ 在 $z_0$ 处解析，$z_0$ 为解析点；否则 $z_0$ 为 $f(z)$ 的奇点。注意可能函数在某一点可导，在其任意邻域上均不可导。在整个 $\mathbb{C}$ 上都解析的函数称为\underline{\textbf{整函数}}。
+\subsubsection{\ding{72}Lemma}
+\begin{enumerate*}
+    \item 两个解析函数的和、差、积、商仍是解析函数
+    \item 设 $g=g(z)$ 在 $\mathscr{D}$ 上解析，$\omega=f(g)$ 在 $g(\mathscr{D})$ 上解析，则 $\omega=(f\circ g)(z)$ 在 $\mathscr{D}$ 上解析。
+\end{enumerate*}
+\subsection{函数可导的充要条件}
+\textbf{Cauchy-Riemann方程}：设 $z=x+iy\in D,\omega=f(z)=u(x,y)+iv(x,y)$，则 $f(z)$ 在 $z$ 可导的\underline{\textbf{充要条件}}是 \underline{$u(x,y)$ 与 $v(x,y)$ 在 $(x,y)$ 可微}且
+\begin{equation}{\color{red}
+    \pds{u}{x}=\pds{v}{y},\pds{u}{y}=-\pds{v}{x}    }
+\end{equation}
+导数为
+\begin{equation}
+    f'(z)=\pds{u}{x}+i\pds{v}{x}=-i\pds{u}{y}+\pds{v}{y}
+\end{equation}
+\indent \textbf{形式导数}：用形式变元 $z,\overline{z}$ 表示 $x,y$，则$\begin{cases}x=\frac{1}{2}(z+\overline{z})\\y=\frac{1}{2i}(z-\overline{z})\end{cases}$，则$\begin{cases}x_z=x_{\overline{z}}=\frac{1}{2}\\y_z=-y_{\overline{z}}=\frac{1}{2i}\end{cases}$ 进而可以求出 $u_z,u_{\overline{z}},v_z,v_{\overline{z}}$，可以发现
+\begin{gather}
+    f_z=u_z+iv_z=\frac{1}{2}(u_x+u_y)+\frac{i}{2}(v_x-u_y)\\
+    f_{\overline{z}}=u_{\overline{z}}+iv_{\overline{z}}=\frac{1}{2}(u_x-v_y)+\frac{i}{2}(u_y+v_x)
+\end{gather}
+注意到 $f_{\overline{z}}=0\iff f$ 满足柯西-黎曼方程。
+\subsection{初等函数}
+\subsubsection{指数函数}
+定义指数函数为 \begin{equation}e^z=\exp(z)=e^x(\cos y+i\sin y)\end{equation}该函数为整函数，$\exp z'=\exp z$，周期为 $2k\pi i$，值域为 $\mathbb{C}\backslash\{0\}$，满足 $\exp(z_1+z_2)=\exp z_1\exp z_2$，$|\exp z|=e^x$，$\arg(\exp z)=y$。
+\subsubsection{对数函数}
+定义为指数函数的反函数，即
+\begin{equation}\ln(z)=\ln|z|+i\arg(z),\text{Ln}(z)=\ln(z)+2k\pi i\end{equation}，导数 $\ds{\ln z}{z}=\frac{1}{z}$。
+\subsubsection{幂函数}
+定义幂函数为
+\begin{equation}
+    z^b\triangleq\exp(b\cdot\text{Ln}z)=e^{b\ln z}\cdot e^{2bk\pi i},k\in\mathbb{Z}
+\end{equation}
+多值性讨论
+\begin{itemize}
+    \item $b\in \mathbb{Z}$, $e^{2bk\pi i}\equiv 1$，单值
+    \item $b\in \mathbb{Q}\backslash\mathbb{Z}$, $e^{2k\pi i\frac{m}{n}}$，$n$值
+    \item $b\in \mathbb{R}\backslash\mathbb{Q}$, $e^{2(bk)\pi i}$ ，无穷多值
+    \item $b\in \mathbb{C}\backslash\mathbb{R}$, $e^{2(\alpha+i\beta)k\pi i}=e^{-2\beta k\pi}\cdot e^{2\alpha k\pi i}$，仅模长部分便有无穷多值
+\end{itemize}
+取同一个第 $k$ 支的情况下有 $(z^b)'=bz^{b-1},z^{a+b}=z^a\cdot z^b,z^{-a}=\frac{1}{z^a}$
+\subsubsection{三角函数}
+根据指数函数的定义进行“逆推”，有
+\begin{gather}
+    \cos z=\frac{e^{iz}+e^{-iz}}{2}\\
+    \sin z=\frac{e^{iz}-e^{-iz}}{2i}
+\end{gather}
+$\sin z$ 与 $\cos z$ 都是整函数，导数性质、和角公式与实数下相同。注意该函数\textbf{无界}。
+\section{复变函数积分}
+\subsection{积分的计算}
+设 $f(z)$ 沿 $C$ 连续，弧上第 $k$ 段取点 $\zeta_k=\xi_k+i\eta_k$，记 $\delta=\max\{|\Delta x_k+i\Delta y_k|\}$。
+\begin{align}\label{int:calc}
+    I_n&=\sum_{i=1}^{n}[u(\xi_k+i\eta_k)+iv(\xi_k+i\eta_k)](\Delta x_k+i\Delta y_k)\notag\\
+    &=\sum_{k=1}^n[(u\Delta x_k-v\Delta y_k)+i(u\Delta y_k+v\Delta x_k)]\notag\\
+    &\xrightarrow[n\rightarrow\infty]{\delta\rightarrow 0}\int_c[(u\d{x}-v\d{y})+i(u\d{y}+v\d{x})]
+\end{align}
+\subsection{积分的性质}
+积分的复共轭：
+\begin{equation}
+    \overline{\int_cf(z)\d{z}}=\int_c\overline{f}(z)\overline{\d{z}}
+\end{equation}
+若曲线 $C$ 上有 $\big|f(z)\big|\le M(<+\infty)$，$C$ 的弧长为 $L$，则 \begin{equation}\bigg|\int_cf(z)\d{z}\bigg|\le ML\end{equation}（积分控制）。\\
+\indent 一个重要的积分$(n\in\mathbb{Z})$
+\begin{align}\label{equ:simpleint}
+I_n&=\oint_c\frac{\d{z}}{(z-z_0)^{n+1}}=\frac{i}{R^n}\int_0^{2\pi}e^{in\theta}\d{\theta}\notag\\&=\frac{i}{R^n}\int_0^{2\pi}(\cos n\theta-i\sin n\theta)\d{\theta}=2\pi i[n=0]
+\end{align}
+\subsection{柯西-古萨(Cauchy-Goarsat)定理}
+若函数 $f(z)$ 在\textbf{单连通区域} $\mathscr{B}$ 内\textbf{处处解析}，那么函数 $f(z)$ 沿 $\mathscr{B}$ 内的任何一条封闭曲线 $C$ 的积分为0。\\
+\indent 一种不严谨的理解：基于\eqref{int:calc}，使用格林公式，以实部为例，变为 $\iint_D(-u_y-v_x)\d{x}\d{y}$。若处处解析，则处处满足柯西-黎曼方程，故 $u_y=-v_x$，因此实部被积变量恒为0。虚部同理。（由于 $u,v$ 不一定有一阶\textbf{连续}偏导数，故不一能使用Green公式。）
+\subsection{复合闭路定理}
+\subsubsection{连续变形原理}
+在区域内一个解析函数沿闭曲线的积分，不因闭曲线在区域内做连续变形而改变它的值。
+\subsubsection{复合闭路定理}
+设 Jordan 闭曲线 $\gamma=\gamma_0+\gamma_1^-+\cdots+\gamma_n^-$ 围成一个 (n+1)-连通区域 $\mathscr{D}$， $\omega=f(z)$ 在其上解析，在 $\overline{\mathscr{D}}$ 上连续，则 $\oint_{\gamma}f(z)\d{z}=0$。
+\subsection{原函数与不定积分}
+设 $\omega=f(z)$ 在单连通域 $\mathscr{D}$ 上解析，定义原函数 $$F(z)=\int_{z_0}^zf(\zeta)\d{\zeta}$$，则 $F(z)$ 在 $\mathscr{D}$ 上解析，且 $F'(z)=f(z),\forall z\in \mathscr{D}$。原函数可以有多个，但它们的差恒为常数。
+\subsubsection{Newton-Leibniz定理}
+设 $\omega=f(z)$ 在单连通域 $\mathscr{D}$ 上解析，$G(z)$ 为 $f(z)$ 在 $\mathscr{D}$ 上的一个原函数，则
+\begin{equation}
+    \int_{z_0}^{z_1}f(z)\d{z}=G(z)\bigg|_{z_0}^{z_1}
+\end{equation}
+\subsubsection{分步积分公式}
+设 $\omega=f(z),\sigma=g(z)$ 在单连通域 $D$ 上解析
+\begin{equation}
+    \int_{z_0}^{z_1}f'(z)g(z)\d{z}=f(z)g(z)\bigg|_{z_0}^{z_1}-\int_{z_0}^{z_1}f(z)g'(z)\d{z}
+\end{equation}
+\subsubsection{三个等价命题}
+设 $\omega=f(z)$ 在n-连通区域 $D$ 上解析，则
+\begin{enumerate}[(1)]
+    \item $\forall C\subseteq D$ 有 $\oint_Cf(z)\d{z}=0$
+    \item $f(z)$ 在 $D$ 上有积分路径无关性
+    \item $f(z)$ 在 $D$ 上有原函数
+\end{enumerate}
+等价，且任意一条成立，牛顿-莱布尼茨定理即可使用。
+\subsection{Cauchy积分公式}
+设 $\omega=f(z)$ 在单连通域 $D$ 上解析，在 $\overline{D}$ 上连续，则 $\forall z_0\in D,C\subseteq D$
+\begin{align}
+    f(z_0)&=\frac{1}{2\pi i}\oint_{\p{D}}\frac{f(z)}{z-z_0}\d{z}\\
+    &=\frac{1}{2\pi i}\oint_c\frac{f(z)}{z-z_0}\d{z}\\&=\frac{1}{2\pi}\int_0^{2\pi}f(z_0+Re^{i\theta})\d{\theta}\\&=\frac{1}{\pi R^2}\iint_{|z-z_0|\le R}f(z)\d{x}\d{y}
+\end{align}
+\subsection{高阶导数}
+定理：解析函数 $f(z)$ 的\textbf{任意阶导数}仍为解析函数，其 $n$ 阶导数满足
+\begin{equation}\label{thm:gjds}
+    f^{(n)}(z_0)=\frac{n!}{2\pi i}\oint_c\frac{f(z)}{(z-z_0)^{n+1}}\d{z}
+\end{equation}
+其中 $C$ 为围绕 $z_0$ 的任意一条\textbf{正向}简单闭曲线，且 $C$ 在单连通的解析区域 $\mathscr{D}$ 上。
+\subsubsection{莫雷拉(Morera)定理（柯西定理的逆定理）}
+若 $f(z)$ 在\textbf{单连通区域} $\mathscr{D}$ 内\textbf{连续}，且沿 $\mathscr{D}$ 内任意闭合曲线积分为0（\textbf{路径无关}），则 $f(z)$ 在 $\mathscr{D}$ 内解析。（在任意一个解析函数上修改一个点，函数仍然路径无关，因此连续是必要的。）
+\subsection{代数基本定理}
+$P_n(z)=a_nz^n+a_{n-1}z^{n-1}+\cdots+a_0(a_n\neq 0)$ 在 $\mathbb{C}$ 上恰有 $n$ 个零点（记重数）。\\
+\indent 只要证明 $\forall n\in \mathbb{N}_{+},P_n$ 存在零点即可（从而可以不断地分离因式降阶）。
+\subsubsection{刘维尔（Liouville）定理}
+一个有界的正函数必然是常函数
+\begin{proof}
+设 $|f(z)|<M$，根据\eqref{thm:gjds}
+$$ |f'(z_0)|\le\frac{1}{2\pi}\oint_{|z-z_0|=R}\frac{M}{R^2}\d{l}=\frac{M}{R}\xrightarrow[]{R\rightarrow+\infty}0 $$
+故 $f(z_0)$ 为常数
+\end{proof}
+\subsubsection{代数基本定理证明}
+假设 $P_n(z)$ 在 $\mathbb{C}$ 上没有零点，设 $f(z)=\frac{1}{P_n(z)}$，则 $f(z)$ 为整函数。在 $|z|\rightarrow+\infty$ 时，显然 $|f(z)|\rightarrow\frac{1}{a_n|z|^n}\rightarrow 0$ 故存在 $R$ 使得 $\forall |z|>R,f(|z|)<1$，则在 $\mathbb{C}$ 上，$$|f(z)|\le\max\{1,\max\limits_{|z|\le R}\{|f(z)|\}\}$$ 不等式右侧显然不等于 $\infty$（有界闭域上连续函数有界），故 $f(z)$ 为常函数，$P_n(z)$ 为常数，这与 $a_n\neq 0$ 矛盾。故 $P_n(z)$ 必有零点。
+\subsection{解析函数与调和函数}
+\subsubsection{调和函数}
+设 $\varphi=\varphi(x,y)\in C^2(\mathscr{D})$ 且处处有 $\Delta\varphi=\pds{^2\varphi}{x^2}+\pds{^2\varphi}{y^2}\equiv0$，则 $\varphi$ 为 $\mathscr{D}$ 上的调和函数。\\
+\indent 设 $\omega=f(z)=u+iv$ 在 $\mathscr{D}$ 上解析，则 $u,v$ 在 $\mathscr{D}$ 上调和。称上述 $u,v$ 为 $\mathscr{D}$ 上的\concept{共轭调和函数}。给出 $\mathscr{D}$ 上调和函数 $u$，找出其共轭调和函数 $\iff$  找出解析函数 $f(z)$ 使 $Re\ f(z)=u$。\\
+\indent 设 $u$ 为\textbf{单连通域}上的调和函数，则必然存在 $f(z)$ 使 $Re\ f(z)=u$。注意多连通情况下不一定正确。
+\begin{proof}
+    这样的 $f(z)$ 必定满足  $f'(z)=u_x-iu_y=U(z)$，$U(z)$ 显然是解析的，故 $f(z)=\int_{z_0}^z U(z)\d{z}$ 即为满足条件的函数。
+\end{proof}
+
+\noindent 例：$u=x^3-3xy^2$\\
+\noindent\ding{125}\underline{不定积分法}\\
+$f'(z)=(3x^2-3y^2)-i(-6xy)=3(x+iy)^2$\\
+$f(z)=\int 3z^2\d{z}=z^3+c=(x+iy)^3+C=(x^3-3xy^2)+i(3x^2y-y^3)+C$\\
+$v(x)=3x^2y-y^3-iC$\\
+由于 $f(z)-u=iv$ 为虚数，故 $C$ 必须为纯虚数。\\
+\noindent\ding{125}\underline{偏积分法}\\
+$v_y=u_x=3x^2-3y^2,v_x=-u_y=6xy$\\
+$v$ 先关于 $y$ 积分，即 $v=3x^2y-y^3+g(x)$，则 $v_x=6xy+g'(x)=6xy\implies g(x)=C$
+
+\section{级数}
+\subsection{复数项级数}
+\subsubsection{复数项序列}
+设 $\{x_i\},\{y_i\}$ 为实数序列，则 $z_n=x_n+iy_n$ 即为复数项序列。
+\subsubsection{级数}
+定义 $I=\sum_{n=0}^{\infty}z_n=\sum_{n=0}^{\infty}x_n+i\sum_{n=0}^{\infty}y_n$ （不论是否收敛都称为级数），级数的部分和定义为 $S_n=\sum_{k=0}^{n}z_k$。
+\begin{enumerate*}
+\item 若 $\ntoinf{n}S_n=A\in\mathbb{C}$，则称 $I$ 收敛
+\item 若 $\sum_{n=0}^{\infty}|z_n|$ 收敛，则称 $I$ 绝对收敛
+\item 若 $I$ 收敛但不绝对收敛，则称 $I$ 条件收敛
+\end{enumerate*}
+\subsubsection{复数项级数与常数项级数的关系}
+$\ntoinf{n}z_n=A=\alpha+i\beta\iff \ntoinf{n} x_n=\alpha\wedge\ntoinf{n}y_n=\beta$\\
+$\ntoinf{n}z_n=A=\alpha+i\beta$ 条件收敛或绝对收敛 $\iff \ntoinf{n} x_n \ntoinf{n}y_n$ 均条件收敛或绝对收敛
+\subsubsection{敛散判别法}
+\begin{enumerate}[(I)]
+    \item Cauchy根式判别法
+    \begin{itemize}
+        \item $\sqrt[n]{|z_n|}<q<1(\forall n>N)$，则 $I$ 绝对收敛
+        \item 只要满足 $\sqrt[n]{|z_n|}\ge q\ge 1$ 的项有无穷多个，则 $I$ 发散
+        \item 若 $\ntoinf{n}\sqrt[n]{|z_n|}=q$，则 $q<1$ 时 $I$ 绝对收敛，$q>1$ 时 $I$ 发散。$q=1$ 时无法确定，例如 $\frac{1}{n},\frac{(-1)^n}{n},\frac{1}{n^2}$ 三者收敛情况均不同
+    \end{itemize}
+    \item D'Alembert判别法
+    \begin{itemize}
+        \item $\big|\frac{z_{n+1}}{z_n}\big|<q<1(\forall n>N)$ 则 $I$ 绝对收敛
+        \item $\big|\frac{z_{n+1}}{z_n}\big|\ge q\ge 1(\forall n>N)$ 则 $I$ 发散
+        \item 若 $\ntoinf{n}\big|\frac{z_{n+1}}{z_n}\big|=q$，则 $q<1$ 时绝对收敛，$q>1$ 时绝对发散，$q=1$ 时无法判断
+        \end{itemize}
+    \item Dirichlet判别法
+\end{enumerate}
+
+\subsection{幂级数}
+\subsubsection{（复变）函数级数}
+定义 $\mathscr{D}$ 上的函数列 $\{f_n(z)\}_{n=0}^{\infty}$，其级数为 $I=\sum_{n=0}^{\infty}f_n(z)$，当 $z$ 固定时 $I$ 就变成常数项级数。
+\subsubsection{幂级数}
+形如 $I(z)=\sum_{n=0}^{\infty}C_n(z-a)^n$ 或 $I(z)=\sum_{n=0}^{\infty}C_nz^n$ 的级数称为幂级数。
+\begin{enumerate*}
+\item 若 $i$ 在 $z_0$ 处收敛，则 $\forall z:|z|<|z_0|$，$I$ 在 $z$ 处收敛
+\item 若 $i$ 在 $z_0$ 处发散，则 $\forall z:|z|>|z_0|$，$I$ 在 $z$ 处发散
+\end{enumerate*}
+\begin{proof}(1)\\易知 $\ntoinf{n}|C_nz_0^n|$ 收敛到0，故其必有 $|C_nz_0^n|<M(\forall n\in\mathbb{N})$，则 $\sum_{n=0}^{\infty}|C_nz_0^n|\big|\frac{z}{z_0}\big|^n$ 有界递增（并因此收敛），因此 $I(z)$ 绝对收敛。
+\end{proof}
+\subsubsection{收敛半径与收敛圆盘}
+$I=\sum_{n=0}^{\infty}C_nz^n$ 的\concept{收敛半径} $R$ 定义为
+\begin{align*}
+R&\triangleq\sup\{|z|:I\text{ is convergent at }z\}\\
+&=\sup\{|z|:I\text{ is absolutely convergent at }z\}\\
+&=\inf\{|z|:I\text{ is divergent at } z\}
+\end{align*}
+（$R=+\infty$ 时函数级数在 $\mathbb{C}$ 上收敛。）
+定义 $C_R:|z|=R$ 为收敛圆周，$D_R:|z|\le R$ 为\concept{收敛圆盘}，考虑 $C_R$ 上的点属于内外哪一侧：
+\begin{itemize*}
+\item $I(z)$ 在 $C_R$ 上处处发散：$I(z)=\sum z^n$
+\item $I(z)$ 在 $C_R$ 上部分收敛：$I(z)=\sum\frac{z^n}{n}$，$C_R$ 上仅 $z=1$ 处发散
+\item $I(z)$ 在 $C_R$ 上全部收敛：$I(z)=\sum\frac{(-1)^{\lfloor\sqrt{n}\rfloor}}{n}z^n$
+\item $I(z)$ 在 $C_R$ 上全部绝对收敛：$I(z)=\sum \frac{z^n}{n^2}$，一旦有一个点绝对收敛，则整个圆上所有点都绝对收敛
+\end{itemize*}
+\subsubsection{收敛半径的计算}
+\begin{itemize}
+\item 若 $\ntoinf{n}\big|\frac{c_{n+1}}{c_n}\big|=\lambda$，则 $R=\frac{1}{\lambda}$
+\item 若 $\ntoinf{n}\sqrt[n]{|c_n|}=\lambda$ 或者 $\mathop{\overline{\lim}}\limits_{n\rightarrow\infty}\sqrt[n]{|c_n|}=\lambda$，则 $R=\frac{1}{\lambda}$
+\end{itemize}
+\subsubsection{幂级数的和函数}
+设 $I=\sum_{n\ge 0}c_n(z-a)^n$ 的收敛半径为 $R$，则在 $D:|z-a|<R$ 上有
+\begin{enumerate}[(a)]
+    \item 和函数 $f(z)$ 为解析函数
+    \item $f(z)$ 能够逐项求导
+    $$f'(z)=\sum_{n\ge 1}nc_n(z-a)^{n-1}$$
+    \item $f(z)$ 能够逐项积分
+    $$F(z)=\sum_{n\ge 0}\frac{c_n}{n+1}(z-a)^{n+1}$$
+    \item $f(z)$ 在 $C_R$ 上至少存在一个奇点
+\end{enumerate}
+\subsection{Taylor展开式}
+设 $\omega=f(z)$ 在单连通域 $\mathscr{D}$ 上解析，$z_0\in\mathscr{D},d=\mathop{\inf}\limits_{z\in\p{\mathscr{D}}}|z-z_0|$，则 $\forall z\in B_d(z_0)$，有
+\begin{equation}
+    f(z)=\sum_{n\ge 0}c_n(z-z_0)^n,c_n=\frac{f^{(n)}(z_0)}{n!}=\frac{1}{2\pi i}\oint\frac{f(z)}{(z-z_0)^{n+1}}\d{z}
+\end{equation}
+且该展开式唯一。
+\subsection{解析函数的零点}
+设 $\omega=f(z)$ 在 $\mathscr{D}$ 上解析
+\begin{enumerate*}
+    \item 若 $f(z_0)=0$，则称 $z_0$ 为 $f(z)$ 的零点
+    \item 若 $f(z_0)=f'(z_0)=\dots=f^{(m-1)}(z_0)=0,f^{(m)}(z_0)\neq 0$，则称 $z_0$ 为 $m$ 级零点
+    \item 若 $f(z_0)=0$，且某个去心领域 $B^*_{\delta}(z_0)$ 上 $f(z)$ 恒不为0，则称 $z_0$ 为 $f(z)$ 的孤立零点
+\end{enumerate*}
+\tinysec{定理}$z_0$ 为 $f(z)$ 的 $m$ 级零点 $\iff\exists B_{\delta}(z_0)$ 及其上的解析函数 $\varphi(z)$，满足 $$f(z)=(z-z_0)^n\varphi(z),\varphi(z_0)\neq 0$$
+\tinysec{定理}设 $f(z)$ 在 $\mathscr{D}$ 上解析，则 $f(z)$ 在 $\mathscr{D}$ 上的所有零点都孤立，除非 $f(z)\equiv 0$。
+\subsection{解析函数的唯一性定理}
+设 $f(z)$ 与 $g(z)$ 在 $\mathscr{D}$ 上解析，且 $a\in D$，若 $\exists\{z_n\}\in D$，满足
+\begin{enumerate*}
+    \item $z_n\neq a$
+    \item $\ntoinf{n}z_n=a$
+    \item $f(z_n)=g(z_n),\forall n\ge 0$
+\end{enumerate*}
+则 $f(z)=g(z),\forall z\in D$
+\subsection{一般常级数}
+形如 $I=\sum_{n=-\infty}^{\infty}c_n(z-z_0)^n=\sum_{n\ge 0}c_n(z-z_0)^n+\sum_{n\ge 1}c_{-n}\zeta^n=I_++I_-,\zeta=\frac{1}{z-z_0}$ 的级数称为一般常级数。\\
+\indent 若 $I_+$ 的收敛半径为 $R_+$，$I_-$ 的收敛半径为 $R_-$，则称 $|\frac{1}{R_-}<|z-z_0|<R_+|$ 为 $I$ 的\concept{收敛圆环域} $D(z_0,r_1,r_2)$。
+\subsection{洛朗级数}
+设 $\omega=f(z)$ 在 $D(z_0,r,R)$ 上解析，则 $\forall z\in D(z_0,r,R)$，有 
+\begin{equation}
+    f(z)=\sum_nc_n(z-z_0)^n,c_n=\frac{1}{2\pi i}\oint_C\frac{f(\zeta)}{(z-z_0)^{n+1}}\d{\zeta}
+\end{equation}
+其中 $C$ 为 $D$ 上任意环绕的Jordan闭曲线。该展开唯一，称为\concept{Laurent级数}。\\
+\textbf{注意 $f(z)$ 在 $z_0$ 的导数一般不存在，故不能套用高阶导数公式。}
+\section{留数}
+\subsection{孤立奇点}
+\tinysec{定义}若 $z_0$ 为 $f(z)$ 的奇点，且在某个邻域 $B_{\delta}^*(z_0)$ 内 $f(z)$ 解析，则称 $z_0$ 为 $f(z)$ 的\concept{孤立奇点}。若 $z_0\in\mathbb{C}$ 为孤立奇点，且 $f(z)$ 在上述领域中的洛朗级数为 $f(z)=\sum_{-\infty}^{\infty}c_n(z-z_n)^n$，则
+\begin{enumerate}[(A)]
+    \item $z_0$ 为可去奇点，若级数中不含负幂项，且 $\lim\limits_{z\rightarrow z_0}=c_0$。若补充定义 $f(z_0)=c_0$，则 $f(z)$ 在 $z_0$ 解析，因而以下命题等价：
+    \begin{itemize*}
+        \item $z_0$ 为可取奇点
+        \item $\lim\limits_{z\rightarrow z_0}f(z)=A\in\mathbb{C}$
+        \item $f(z)$ 在某邻域 $B_{\delta}^*(z_0)$ 内有界
+    \end{itemize*}
+    \item $z_0$ 为 $m$ 级极点，若展式中含有有限的负幂项，且最低负幂项为 $c_{-m}(z-z_0)^{-m},c_{-m}\neq 0$。若 $\lim\limits_{z\rightarrow z_0}f(z)=\infty$，则必定为极点而不是本性奇点。以下命题等价
+    \begin{itemize*}
+        \item $z_0$ 为 $f(z)$ 的 $m$ 级极点
+        \item 存在某个 $B_0(z_0)$ 上的解析函数 $g(z)$，满足 $f(z)=g(z)(z-z_0)^{-m}$
+        \item $\lim\limits_{z\rightarrow z_0}(z-z_0)^nf(z)=A\in\mathbb{C}\backslash\{0\}$
+        \item $z_0$ 为 $\frac{1}{f(z)}$ 的 $m$ 级零点
+    \end{itemize*}
+    \item $z_0$ 为本性奇点，若展式中含有无穷个负幂项。注意 $\lim\limits_{z\rightarrow z_0}f(z)$ 必不存在。\\
+    (Weierstress) $\forall A\in\overline{\mathbb{C}}$，都存在 $\{z_n\}_{n=1}^{\infty}\subseteq B_{\delta}^*(z_0)$，满足 $\ntoinf{n}z_n=z_0$ 且 $\ntoinf{n}f(z_n)=A$
+\end{enumerate}
+若 $f(z)$ 在 $R<|z|<\infty$ 内解析，则称 $\infty$ 为 $f(z)$ 的孤立奇点。设 $\zeta=\frac{1}{z}$，则 $\varphi(\zeta)=\sum_n c_{-n}\zeta^n=f(z)$，若 $0$ 为 $\varphi(\zeta)$ 的本性/可去奇点或 $m$ 级极点，则 $\infty$ 为 $f(z)$ 的本性/可去奇点或 $m$ 级极点。
+\subsection{留数}
+设 $z_0$ 为 $f(z)$ 的孤立奇点，$f(z)$ 在 $z_0$ 的洛朗级数为 $f(z)=\sum_{n=-\infty}^{\infty}c_n(z-z_0)^n$，$C$ 为环绕 $z_0$ 的正向简单曲线，则
+\begin{equation}
+    \oint_Cf(z)\d{z}=2\pi ic_{-1}
+\end{equation}
+这是由\eqref{equ:simpleint}直接得到的。定义留数为
+\begin{equation}
+    \text{Res}[f(z),z_0]=\frac{1}{2\pi i}\oint_Cf(z)\d{z}=c_{-1}
+\end{equation}
+\subsection{留数的计算规则}
+\begin{enumerate}[(A)]
+    \item 若 $z_0$ 为 $f(z)$ 的一级极点，则 $$\text{Res}[f(z),z_0]=\lim\limits_{z\rightarrow z_0}(z-z_0)f(z)$$
+    \item 若 $z_0$ 为 $f(z)$ 的 $m$ 级极点，则
+    \begin{equation}
+        \text{Res}[f(z),z_0]=\frac{1}{(m-1)!}\lim\limits_{z\rightarrow z_0}\ds{^{m-1}}{z^{m-1}}\{(z-z_0)^mf(z)\}
+    \end{equation}
+    \item 设 $f(z)=\frac{P(z)}{Q(z)}$，$P(z),Q(z)$ 在 $z_0$ 解析，若 $P(z_0)\neq 0,Q(z_0)=0,Q'(z_0)\neq 0$，则 $z_0$ 为 $f(z)$ 的一级极点，且（可由(A)导出） $$\text{Res}[f(z),z_0]=\frac{P(z_0)}{Q'(z_0)}$$
+    \item 若无穷远也为孤立极点，则无穷远处的留数定义为 $\frac{1}{2\pi i}\oint_{C^-}f(z)\d{z}$，不难发现，此即所有有限点的留数之和的负数 \begin{equation}
+        \text{Res}[f(z),\infty]=-\text{Res}\left[f\left(\frac{1}{z}\right)\frac{1}{z^2},0\right]
+    \end{equation}
+\end{enumerate}
+\subsection{留数的应用}
+\begin{enumerate}[(A)]
+    \item 形如 $\int_0^{2\pi}R(\cos\theta,\sin\theta)\d{\theta}$ 的积分，对于 $z=\cos\theta+i\sin\theta$，可以用 $z$ 反求 $\cos\theta,\sin\theta$。
+    \begin{equation}
+        \int_0^{2\pi}R(\cos\theta,\sin\theta)\d{\theta}=\oint_{|z|=1}R\left[\frac{z^2+1}{2z},\frac{z^2-1}{2iz}\right]\frac{\d{z}}{iz}
+    \end{equation}
+    \item 形如 $\sum_{-\infty}^{\infty}R(x)\d{x}$ 的积分，其中 $R(x)$ 为\textbf{有理函数}，且分母比分子的次数\textbf{至少高二次}，且在实轴上没有奇点。将其延拓到复数域上，并且沿路径 $(-R,0)\rightarrow(R,0)\xrightarrow{x^2+y^2=R^2,y\ge 0}(-R,0),R\rightarrow+\infty$ 进行积分，设 $z_k$ 为虚部为正数的全部奇点，则
+    \begin{equation}
+        \int_{-\infty}^{\infty}R(x)\d{x}=2\pi i\sum\text{Res}[R(z),z_k]
+    \end{equation}
+    \item 形如 $\sum_{-\infty}^{\infty}R(x)e^{iax}\d{x}(a>0)$ 的积分，其中 $R(x)$ 为\textbf{有理函数}，且分母比分子的次数\textbf{至少高一次}，且在实轴上没有奇点。将其延拓到复数域上，并且沿路径 $(-R,0)\rightarrow(R,0)\xrightarrow{x^2+y^2=R^2,y\ge 0}(-R,0),R\rightarrow+\infty$ 进行积分，设 $z_k$ 为虚部为正数的全部奇点，则
+    \begin{equation}
+        \int_{-\infty}^{\infty}R(x)e^{iax}\d{x}=2\pi i\sum\text{Res}[R(z)e^{iaz},z_k]
+    \end{equation}
+\end{enumerate}
+\end{document}

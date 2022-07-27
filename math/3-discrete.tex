@@ -1,0 +1,71 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\chapter{离散数学}
+\section{数理逻辑}
+\subsection{命题逻辑与运算}
+\subsubsection{等值定理}
+设 $\Phi(A)$ 是含命题公式 $A$ 的命题公式， $\Phi(B)$是用命题公式 $B$ 置换了 $\Phi(A)$ 中的 $A$ 之后得到的命题公式，如果 A = B，则 $ \Phi(A)=\Phi(B) $.
+\subsubsection{常见等值公式}
+\begin{align}
+	P\rightarrow Q&=\neg P\vee Q & \text{蕴含等值式}\\
+    P\rightarrow(Q\rightarrow R)&=(P\wedge Q)\rightarrow R &\text{前提合并提取}\\
+    P\leftrightarrow Q&=(P\rightarrow Q)\wedge(Q\rightarrow P) &\text{等价等值式}\\
+    P\rightarrow Q&=(\neg Q)\rightarrow(\neg P) &\text{假言易位}\\
+    (P\rightarrow Q)\wedge(P\rightarrow \neg Q)&=\neg P &\text{归谬论}\\
+    P\rightarrow(Q\rightarrow R)&=Q\rightarrow(P\rightarrow R) &\text{前提交换}
+\end{align}
+\subsubsection{真值表还原命题公式}
+考察真值表中取1的所有 $m$ 行，则可以将命题公式表示为 $$A=Q_1\vee Q_2\vee \dots\vee Q_m = (\ \wedge\ )\vee(\ \wedge\ )\vee\dots\vee(\ \wedge\ )$$其中 $Q_i=(R_1\wedge R_2\wedge\dots\wedge R_n)$，若该行的 $P_i=1$，则 $R_i=P_i$，否则 $R_i=\neg P_i$.
+\subsubsection{连结词的完备集}
+设 $C$ 是一个联结词的集合，如果可以仅用集合中的连结词构造出所有的 $n$ 元映射，称 $C$ 是完备的联结词集合. 典型的完备集有：$$\{\neg,\wedge\},\ \{\neg,\vee\},\ \{\neg,\rightarrow\},\ \{\uparrow\}\text{(与非)},\ \{\downarrow\}\text{(或非)}$$
+\subsubsection{对偶式}
+将给定的命题公式 $A$ 中出现的 $\vee$，$\wedge$，$T$，$F$ 分别
+以 $\wedge$，$\vee$，$F$，$T$ 代换，得到公式 $A^*$，即为公
+式 A的对偶式.\\
+\indent 另记 $A^-=A(\neg P_1,\neg P_2,\dots,\neg P_n)$，则有
+\begin{gather}
+    \neg(A^*)=(\neg A)^*\\
+    \neg(A^-)=(\neg A)^-\\
+    \neg A=(A^*)^-
+\end{gather}（归纳法证明）
+\subsubsection{对偶原理}
+\begin{itemize}
+\item 若 $A=B$，则 $A^*=B^*$.
+\begin{equation}
+    A=B\implies \neg A=\neg B\implies A^{*-}=B^{*-}\implies A^*=B^*
+\end{equation}
+\item 若 $A\rightarrow B$ 永真，必有 $B^*\rightarrow A^*$ 永真
+\begin{equation}
+    A\rightarrow B\implies \neg B\rightarrow\neg A\implies B^{*-}\rightarrow A^{*-}\implies B^*\rightarrow A^*
+\end{equation}
+\item $A$ 永真 $\Leftrightarrow A^-$ 永真（$\neg A$ 永真 $\Leftrightarrow A^*$ 永真）；$A$ 永真 $\Leftrightarrow$ $A^*$ 矛盾
+\end{itemize}
+\subsubsection{范式存在定理}
+命题变项及其否定式统称\textbf{文字}，由文字的合（析）取所组成的公式称为\textbf{合（析）取式}\\
+\indent \ding{72}形如 $A_1\vee A_2\vee\dots\vee A_n$ 的公式为\textbf{析取范式}，其中 $A_i$ 为合取式. \\
+\indent \ding{72}形如 $A_1\wedge A_2\wedge\dots\wedge A_n$ 的公式为\textbf{合取范式}，其中 $A_i$ 为析取式. \\
+\indent \textbf{（范式的关键在于嵌套只有两层）}\\
+\indent \textbf{任一}命题公式\textbf{都存在}与之等值的合取范式和析取范式，但命题公式的合取范式和析取范式并不唯一.\hfill(\textsc{proof})
+\subsubsection{主范式}
+\textbf{极小项}：指合取式 $Q_1\wedge Q_2\wedge\dots Q_n$，$Q_i=P_i\ \text{或}\ \neg P_i$\\
+\indent \textbf{主析取范式}：每个\underline{一级命题变项}都是极小项，且两两不相同\\
+\indent \textbf{极大项}：指析取式 $Q_1\vee Q_2\vee\dots Q_n$，$Q_i=P_i\ \text{或}\ \neg P_i$\\
+\indent \textbf{主合取范式}：每个\underline{一级命题变项}都是极大项，且两两不相同
+\subsubsection{极小项性质}
+\begin{enumerate}
+    \item 任意极小项仅在\textbf{一个}解释下为真
+    \item 极小项两两不等值，两两不同时为真
+    \item 对于任意一个解释，$2^n$ 个极小项中\textbf{有且仅有}一个为真
+    \item 若一个基本变项不在于合取式中，则可以拆分成 $(Q_1\wedge Q_2\wedge P_3)\vee(Q_1\wedge Q_2\wedge \neg P_3)$
+\end{enumerate}
+\subsubsection{主范式定理}
+\indent \textbf{任一}命题公式\textbf{都存在}与之等值的\textbf{唯一}主合取范式和主析取范式.\hfill（与多项式插值类似）
+\subsubsection{两种主范式的转换}
+引入二进制表示，如 $m_5=P_1\wedge\neg P_2\wedge P_3$（极小项），$M_5=P_1\vee\neg P_2\vee P_3$（极大项）\\
+\indent 设有基于 $n$ 个命题变量的主合取范式 $A=\bigwedge M_{i_1,\dots,i_k}$，则由于 $M_i\ (0\le i<2^n)$ 中有且仅有一个为假，故
+\begin{align}
+    \neg A&=\bigwedge M_{(0,1,\dots,2^n-1)\backslash(i_1,\dots,i_k)}\notag \\
+    A&=\left(\bigwedge M_{(0,1,\dots,2^n-1)\backslash(i_1,\dots,i_k)}\right)^{*-}\notag
+    \\&=\bigvee m_{\text{bitinv}[(0,1,\dots,2^n-1)\backslash(i_1,\dots,i_k)]}
+\end{align}
+\end{document}

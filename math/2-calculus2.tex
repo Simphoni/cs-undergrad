@@ -1,0 +1,203 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\chapter{微积分A2 ： 多元函数微积分与级数}
+\section{多元函数的连续、可导与可微}
+\subsection{基本定理}
+\begin{itemize}
+  \item $f(x,y)$在$(x_0,y_0)$连续$\iff$\\动点$(x,y)$以任意路径趋向$(x_0,y_0)$时的极限全部等于$f(x_0,y_0)$
+  \item $f(x,y)\text{在}(x_0,y_0)\text{可微}\iff$ $$\\\lim\limits_{(\Delta{x},\Delta{y})\rightarrow (0,0)}\frac{f(x_0+\Delta{x},y_0+\Delta{y})-f(x_0,y_0)-f_x^\prime(x_0,y_0)\Delta{x}-f_y^\prime(x_0,y_0)\Delta{y}}{\sqrt{\Delta{x}^2+\Delta{y}^2}}=0$$
+  \item 函数是否连续与偏导数是否存在无关
+  \item 函数可微$\implies$ 偏导数存在\\
+  偏导数连续$\implies$ 函数可微\\o
+  邻域上偏导数有界$\implies$ 函数可微\\
+  邻域上偏导数\textbf{只有一个不}一致连续$\implies$ 函数可微
+  \item 梯度的定义$$\text{grad}f(\bm{X}_0)=\left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2},\dots, \frac{\partial f}{\partial x_n} \right)_{\bm{X}_0}$$
+  \item $\bm{J}(f\circ g)=\bm{J}(f)\cdot \bm{J}(g) $（一阶微分形式不变）\\
+  $\d{f(\bm{X}_0)}=\bm{J}f(\bm{X}_0)\d{\bm{X}}$
+  \item 多元隐函数的偏导数 $$\frac{\partial y}{\partial x_i}=-\frac{\frac{\partial F}{\partial x_i}(\bm{X},y)}{\frac{\partial F}{\partial y}(\bm{X},y)}$$
+  \item 向量值隐函数的Jacobi矩阵
+  $$\bm{J}f(\bm{X})=\frac{\p{(y_1,\dots,y_m)}}{\p{(x_1,\dots,x_n)}}=-\left(\frac{\partial(F_1,\dots,F_m)}{\partial(y_1,\dots,y_m)}\right)^{-1}\frac{\partial(F_1,\dots,F_m)}{\partial(x_1,\dots,x_n)}$$
+  理解：记$G_k(\bm{X})=f_k(\bm{X},y_1(\bm{X}),\dots,y_m(\bm{X}))\equiv 0$ $$\frac{\partial(F_1,\dots,F_m)}{\partial(y_1,\dots,y_m)}\frac{\p{(y_1,\dots,y_m)}}{\p{(x_1,\dots,x_n)}}+\frac{\partial(F_1,\dots,F_m)}{\partial(x_1,\dots,x_n)}=\frac{\partial(G_1,\dots,G_m)}{\partial(x_1,\dots,x_n)}=0$$
+  \item 隐函数的逆映射：对于$\bm{Y}=f(\bm{x}),f:\mathbb{R}^n\rightarrow\mathbb{R}^n$，当$\text{det}(\bm{J}f(X_0))$非零时，有：
+  $$\bm{J}f^{-1}(Y_0)=[\bm{J}f(Y_0)]^{-1},Y_0=f(X_0)$$
+  \item[\ding{72}] Taylor展开
+  $$f(x,y)=\sum_{k=0}^{n}\frac{1}{k!}\left(\frac{\p{}}{\p{x}}(x-x_0)+\frac{\p{}}{\p{y}}(y-y_0)\right)^kf(x_0,y_0)+o\left((\sqrt{(x-x_0)^2+(y-y_0)^2})^n\right)$$
+  \item[\ding{72}] \textbf{（多元函数的中值定理）}设$f:\mathbb{R}^n\rightarrow\mathbb{R}$为$C^1$函数，则$\forall a,b\in\Omega$，$\exists\ \theta\in(0,1)$，s.t.
+  $$f(b)-f(a)=\nabla f(a+(b-a)\theta)\cdot(b-a)$$
+  *定理不能推广到向量值函数的情形
+\end{itemize}
+\subsection{极值与条件极值}
+\begin{itemize}
+  \item[\ding{72}] $f(x,y)$在$(x_0,y_0)$处有极值的条件
+  \subitem （必要）$\frac{\p{f}}{\p{x}}(x_0,y_0)=\frac{\p{f}}{\p{y}}(x_0,y_0)=0$（极值点必为驻点）
+  \subitem （必要）$H(x_0,y_0)$非不定
+  \subitem （充分）$H(x_0,y_0)$正定（极小值）或负定（极大值）
+  \subitem （充分）在$(x_0,y_0)$的某个邻域上$H(x_0,y_0)$半正定（极小值）或半负定（极大值）
+  \item \textbf{（条件极值的必要条件）}设原问题的Lagrange函数对应无约束问题$\max(\min)\ L(\bm{x},\bm{\lambda})$，则原问题的每个解必然对应着无约束问题的一个驻点。即答案必然在无约束问题的驻点中
+\end{itemize}
+\subsection{几何应用}
+\begin{itemize}
+  \item 平面及其法线（直线及其法平面）公式\\
+    记$P_0(x_0,y_0,z_0)$处法线方向向量为$\vec{n}=(A,B,C)$，则法线为$$\frac{x-x_0}{A}=\frac{y-y_0}{B}=\frac{z-z_0}{C}$$法平面使得$\vec{P_0P}$与$\vec{n}$垂直，即点积为零$$A(x-x_0)+B(y-y_0)+C(z-z_0)=0$$因此，只要求出法线方向向量即可快速表达法线及切平面
+  \item 空间曲面的表达方式及法向量
+  \item[$\circ$]
+    空间曲面可以看做是二维空间到三维欧氏空间投影的像，故可以用以$x,y$为自变量确定$z$的隐函数方程表示
+    $$F(x,y,z)=0,\vec{n}=\text{grad}F(P_0)$$由于沿任何\textbf{在该点切平面内的}方向向量都使函数值保持不变，故均与梯度垂直，即梯度为法向量，表示函数$F(x,y,z)$变化最快的方向.
+  \item[$\circ$] 借助辅助变量$P=(u,v)$表示\\
+    $S:\begin{cases}x=x(u,v)\\y=y(u,v)\\z=z(u,v)\end{cases}$注意：这与$F(x,y,z)=0$完全不同\\化曲为平，切平面的参数方程：$\begin{pmatrix}\Delta x\\\Delta y\\\Delta z \end{pmatrix}=\begin{pmatrix}
+      x_u^{\prime} & x_v^{\prime}\\y_u^{\prime} & y_v^{\prime}\\z_u^{\prime} & z_v^{\prime} \end{pmatrix}_{P_0}\begin{pmatrix} \Delta u\\\Delta v \end{pmatrix}$
+  \item 空间曲线的表达方式及切向量
+  \item[$\circ$] $\mathcal{L}:\begin{cases}x=x(t)\\y=y(t)\\z=z(y)\end{cases}\vec{n}=(x^{\prime}(t),y^{\prime}(t),z^{\prime}(t))$\\
+  \item[$\circ$] $\mathcal{L}:\begin{cases}
+      F(x,y,z)=0\\G(x,y,z)=0
+    \end{cases}$曲线可以视作\textbf{两空间曲面的交}，其\textbf{切线}为两\textbf{切平面的交}，即\textbf{垂直于}两个\textbf{法向量}，因而可用叉积确定$\vec{n}=\text{grad}F(P_0)\times\text{grad}G(P_0)$
+\end{itemize}
+\subsection{例题}
+\subsubsection{课本 p.66-3(4)}
+以下方程确定了$z=f(x,y)$：$\begin{cases}
+x=u\cos v\ (\text{\ding{72}})\\y=u\sin v\ (\text{\ding{73}})\\z=v
+\end{cases}$，计算：$\frac{\partial^2z}{\partial x^2},\frac{\partial^2z}{\partial x\partial y}$.\\
+\begin{solution}{ }\\
+  将$x,y$视为自变量，将$u,v$视作$u=\bm{u}(x,y),v=\bm{v}(x,y)$，则
+  \begin{gather*}
+    z=\bm{z}(u,v)=\bm{z}(\bm{u}(x,y),\bm{v}(x,y)) \\
+    \frac{\p{z}}{\p{x}}=\frac{\p{z}}{\p{u}}\frac{\p{u}}{\p{x}}+\frac{\p{z}}{\p{v}}\frac{\p{v}}{\p{x}}=\frac{\p{v}}{\p{x}}\\
+    \text{对(\ding{72})与(\ding{73})两边依次求$x,y$的偏导}\\
+    1=\frac{\p{u}}{\p{x}}\cos v-u\frac{\p{v}}{\p{x}}\sin v\\
+    0=\frac{\p{u}}{\p{x}}\sin v+u\frac{\p{v}}{\p{x}}\cos v\\
+    0=\frac{\p{u}}{\p{y}}\cos v-u\frac{\p{v}}{\p{y}}\sin v\\
+    1=\frac{\p{u}}{\p{y}}\sin v+u\frac{\p{v}}{\p{y}}\cos v\\
+  \text{从而}\ \frac{\p{v}}{\p{x}}=-\frac{\sin v}{u},\  \frac{\p{u}}{\p{x}}=\cos{v},\ \frac{\p{v}}{\p{y}}=\frac{\cos{v}}{u},\ \frac{\p{u}}{\p{y}}=\sin{v}\\
+    \frac{\p{^2z}}{\p{x}^2}=\frac{\p{}}{\p{x}}\left( -\frac{\sin{v}}{u} \right)=\frac{\sin{v}}{u^2}\frac{\p{u}}{\p{x}}-\frac{\cos{v}}{u}\frac{\p{v}}{\p{x}}=\frac{\sin{2v}}{u^2}\\
+    \frac{\p{^2x}}{\p{x}\p{y}}=\frac{\p{}}{\p{y}}\left( -\frac{\sin{v}}{u} \right)=\frac{\sin{v}}{u^2}\frac{\p{u}}{\p{y}}-\frac{\cos{v}}{u}\frac{\p{v}}{\p{y}}=-\frac{\cos{2v}}{u^2}
+  \end{gather*}
+  注：最后仍可用$u,v$表示。
+\end{solution}
+
+\section{（广义）含参积分}
+\subsection{累次积分}
+\begin{itemize}
+  \item $f(x,y)$在有界闭域$\Omega\in \mathbb{R}^2$上连续$\implies f(x,y)$在$\Omega$上\textbf{一致连续}.
+  \item \textbf{（积分号下可求极限）}$f(x,y)$为矩形有界闭域 $D$ 上的\textbf{连续函数}时，积分运算和极限运算可以交换顺序.
+  \item \textbf{（积分号下可求导）}设 $f(x)$ 与 $\pds{f}{y}$ 在 $D=[a,b]\times[c,d]$ 上\textbf{连续}，则
+  $$\frac{\d{}}{\d{y}}\left[\int_a^bf(x,y)\d{x}\right]=\int_a^b\left[\pds{f}{y}(x,y)\right]\d{x}$$
+  若要将 $b$ 改为 $+\infty$，则需等式右侧的积分关于 $y\in[c,d]$ 一致收敛.
+  \item \textbf{（积分号下求积分公式）}$f(x,y)$在$D=[a,b]\times[c,d]$上\textbf{连续}，则
+  $$\int_c^d\d{y}\int_a^bf(x,y)\d{x}=\int_a^b\d{x}\int_c^df(x,y)\d{y}$$
+  若要将 $b$ 改为 $+\infty$，则需 $\int_a^{+\infty}f(x,y)\d{x}$ 关于 $y\in[c,d]$ 一致收敛.
+\end{itemize}
+\subsection{广义积分}
+\begin{itemize}
+  \item \textbf{（连续性定理）}设 $f(x)$ 在 $[a,\infty)\times K\subset \mathbb{R}^2$，其中$K$为某一区间。那么，若广义含参积分 $$J(y)=\int_a^{+\infty}f(x,y)\d{x}$$ 关于 $y\in K$ 一致收敛，则$J(y)$ 在区间 $K$ 上连续.
+\end{itemize}
+\subsection{例题}
+\subsubsection{课本 p.110-5(2)}
+\vspace{-1em}
+$$\int_0^1\frac{x^b-x^a}{\ln x}\sin\left(\ln\frac{1}{x}\right)$$
+\section{重积分}
+\subsection{基本定理}
+\begin{itemize}
+  \item 若 $f(x,y)$ 在闭矩形域 $K$ 上可积，则它在 $K$ 上有界.
+  \item $D\subset \mathbb{R}^2$ 为有界集合，则 $D$ 有面积 $\iff$ $\p{D}$ 为零测集.\\一个平面集合不可求面积与面积为零是两回事.
+  \item \textbf{（平面变换的面积公式）}当 $(u,v)\mapsto (x(u,v),y(u,v))$ \textbf{可微、正则且一一对应}时，面积微元
+  $$\d{x}\d{y}=\bigg|\frac{D(x,y)}{D(u,v)}\bigg|\d{u}\d{v}$$ 体积微元的变换类似.
+  \item 球坐标系体积微元 $\d{x}\d{y}\d{z}=r^2\sin\varphi\ \d{r}\d{\theta}\d{\varphi}$，$\varphi$ 为 $\vec{r}$ 与 $z$ 轴的夹角.\\
+  柱坐标系体积微元 $\d{x}\d{y}\d{z}=r\ \d{r}\d{\theta}\d{z}$
+  \item \textbf{Euler-Poisson积分}
+  \begin{align*}
+    I&=\int_0^{+\infty}e^{-t^2}\d{t}\\
+    I^2&=\int_0^{+\infty}\int_0^{+\infty}e^{-(x^2+y^2)}\d{x}\d{y}\\
+    &=\int_0^{\frac{\pi}{2}}\d{\theta}\int_0^{+\infty}re^{-r^2}\d{r}\ \ \ \text{（注意$x,y>0$对应的$\theta$范围）}\\
+    &=\frac{\pi}{2}\left(-\frac{1}{2}e^{-r^2}\right)\bigg|_0^{+\infty}=\frac{\pi}{4}\\
+    I&=\frac{\sqrt{\pi}}{2}
+  \end{align*}
+\end{itemize}
+\section{场论初步(Green, Gauss \& Stokes)}
+\subsection{曲线积分与曲面积分}
+\begin{itemize}
+  \item \textbf{（第一型曲线积分）}设曲线 $C$ 有正则参数表达 $r(t)=(x(t),y(t),z(t)),t\in[a,b]$，则 $$\int_Cf(x,y,z)\d{l}\triangleq\int_a^bf(r(t))\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}$$
+  \item \textbf{（第二型曲线积分）}设向量场 $\mathbf{F}(x,y,z)=(M(\dots),N(\dots),P(\dots))$，$C^+$ 有正则表示 $r(t)=(x(t),y(t),z(t)),t:a\rightarrow b$，则
+  \begin{align*}
+    \int_C\mathbf{F}(r)\cdot \d{\vec{r}}&\triangleq \int_C\mathbf{F}\cdot\tau\d{l}&\text{定义}\\&=\int_C\mathbf{F}(r(t))\cdot r'(t)\d{t} &\text{计算公式}\\ &=\int_C[Mx'(t)+Ny'(t)+Pz'(t)]\d{t} &\text{内积展开}\\ &=\int_CM\d{x}+N\d{y}+P\d{z} &\text{上式的缩写}
+  \end{align*}
+  \item \textbf{（第一型曲面积分）}设曲面 $S$ 有正则的参数表示 $r=r(u,v),(u,v)\in D$，则 $$\iint_Sf(x,y,z)\d{S}\triangleq\iint_Df(r(u,v))|r_u\times r_v|\d{u}\d{v}$$
+  对显式曲面 $z=z(x,y)$，面积微元为 $\sqrt{1+z_x^2+z_y^2}$
+  \item \textbf{（第二型曲面积分）} 设向量场 $\mathbf{F}(x,y,z)=(M(\dots),N(\dots),P(\dots))$
+    \begin{align*}
+      \iint_{S^+}\d{\vec{S}}&\triangleq\iint_S(\mathbf{F}\cdot \vec{n})\d{S}\\&=\iint_D\mathbf{F}(r(u,v))\cdot(r_u\times r_v)\d{u}\d{v}\\&=\iint_{S^+}P\d{y}\wedge\d{z}+Q\d{z}\wedge\d{x}+R\d{x}\wedge\d{y}
+    \end{align*}
+  其中 $\d{x}\wedge\d{y}$ 为面积微元 $\d{S}$ 在 $xy$ 平面上的投影\\现考虑其中一个分量，若 $S^+$ 正法向向上，$D$ 为 $S$ 在 $xy$ 平面上的投影，则
+  $$\iint_{S^+}R\d{x}\wedge\d{y}=\iint_DR(x,y,z(x,y))\d{x}\d{y}$$ 将第二型曲面积分转换为二重积分.
+  \item 为什么 $\d{\vec{S}}=(r_u\times r_v)\d{u}\d{v}$：\\$S$ 在 $(u,v)$ 对应的点处近似于平行四边形的小平面，该平面的两条邻边分别为 $r_u\d{u}$ 与 $r_v\d{v}$，$\d{\vec{S}}$ 即对应该小平面的有向面积
+  \end{itemize}
+  \subsection{向量场}
+  \begin{itemize}
+    \item \textbf{散度(divergence)}：表征在某点处的单位体积内散发出来的矢量的\textbf{通量}
+    $$\text{div}\mathbf{F}=\nabla\cdot\mathbf{F}=\pds{F_x}{x}+\pds{F_y}{y}+\pds{F_z}{z}$$
+    \item \textbf{旋度(curl)}：表示三维向量场对某一点附近的微元造成的\textbf{旋转程度}，旋度向量的方向表示向量场在这一点附近\textbf{旋转度最大的环量的旋转轴}
+    $$\text{rot}\mathbf{F}=\nabla\times\mathbf{F}=(\pds{F_z}{y}-\pds{F_y}{z},\pds{F_x}{z}-\pds{F_z}{x},\pds{F_y}{x}-\pds{F_x}{y})$$
+    \item \textbf{单连通(simply connected)}：$\Omega$ 中的任意一条简单闭曲线都可以\textbf{连续地在 $\Omega$ 中}收缩成一点.
+    \item 几种特殊的场：
+    \begin{itemize}
+      \item \textbf{（保守场）}$L(A,B)$逐段光滑，则$\int_{L(A,B)}P\d{x}+Q\d{y}$与积分路径无关，只与起终点有关.\\
+      等价表述：对$D$内任意一条逐段光滑的封闭曲线$l_+$,
+      $$\oint_{l_+}P\d{x}+Q\d{y}=0$$
+      \item \textbf{（梯度场）}$\mathbf{F}=\nabla u=(u_x,u_y,u_z)$，且 $u$ 与 $\mathbf{F}$ 的定义域相同.
+      \item \textbf{（无旋场）}$\text{rot}\mathbf{F}=0$，二维平面上， $\pds{P}{y}=\pds{Q}{x}$      
+    \end{itemize}
+    保守场$\iff$梯度场$\implies$无旋场（对二维、三维欧氏空间均成立）\\
+    无旋场\&平面单连通区域$\iff$ 保守场
+  \item 设$D$为单连通有界闭域，$\d{u}=P\d{x}+Q\d{y}$，则任两点$A(x_1,y_1),B(x_2,y_2)\in D$，
+  $$\int_{L(A,B)}P\d{x}+Q\d{y}=u(x,y)\bigg|_A^B$$
+  \item \textbf{（Green定理）}在平面有界闭区域 $D$ 上，对于向量场 $\mathbf{F}$，沿闭路 $\p{D}^+$ 的环量（通量）等于闭域 $D$ 上各点旋度（散度）的积分.
+  \begin{itemize}
+    \item 环量(circulation)形式 $$\oint_{\p{D^+}}(\mathbf{F}\cdot\vec{\tau})\d{l}=\iint_D\text{rot}\mathbf{F}\ \d{x}\d{y}$$
+    \item 通量(flux)形式 $$\oint_{\p{D^+}}(\mathbf{F}\cdot\vec{n})\d{l}=\iint_D\text{div}\mathbf{F}\ \d{x}\d{y}$$
+  \end{itemize}
+  更一般的，可以记为
+  $$ \oint_{\p{D}^+}P\d{x}+Q\d{y}=\iint_{D}\left(-\pds{P}{y}+\pds{Q}{x}\right)\d{x}\d{y} $$
+    \item \textbf{（Gauss定理）}设 $\Omega\subset\mathbb{R}^3$ 为空间有界闭域，$\mathbf{F}=(P,Q,R)$ 为 $\Omega$ 上的连续可微向量场，则
+  $$\iint_{\p{\Omega^+}}(\mathbf{F}\cdot\vec{n})\d{S}=\iiint_\Omega(\text{div}\mathbf{F})\d{x}\d{y}\d{z}$$
+  \item \textbf{（Stokes定理）}设 $S^+$ 是空间中的一个定向曲面，分片正则，$\p{S^+}$ 为分段正则的空间闭曲线，$S^+$ 与 $\p{S^+}$ 定向协调，则
+  $$\int_{\p{S^+}}\mathbf{F}\cdot\d{\vec{r}}=\iint_{S^+}\text{rot}\mathbf{F}\cdot\d{S}$$
+\end{itemize}
+
+\section{常数项级数}
+\subsection{非负项级数的收敛性}
+\begin{itemize}
+  \item \textbf{（Cauchy积分判敛法）}设$ f\in C[1,+\infty]$ \textbf{非负递减}，$u_n=f(n)$，则\\$\sum_{n=1}^{+\infty}$ 收敛 $\iff$ $\int_{1}^{+\infty}f(x)\d{x}$ 收敛
+  \item 设 $\{u_n\}$ 是非负递减数列，则\\
+  $\jishu{n}{u_n}$ 与 $\jishu{n}{2^nu_{2^n}}$ 敛散性相同
+  \item \textbf{（根值判敛法）}若对正项级数$\{u_n\}$有 $$\lim\limits_{n\rightarrow+\infty}\sqrt[n]{u_n}=\rho$$
+  \subitem 若 $\rho<1$，则 $\jishu{n}{u_n}$ 收敛
+  \subitem 若 $\rho>1$，则 $\jishu{n}{u_n}$ 发散\\
+  此外，将极限分别更换为上极限与下极限，也有类似的结果
+  \item \textbf{（Raabe判敛法）}若存在 $\rho>1$，使得当 $n$ 足够大时，有 $$n\left(\frac{u_n}{u_{n+1}}-1\right)\ge\rho$$ 则 $\jishu{n}{u_n}$ 收敛.\\
+  若 $n$ 充分大时，有 $$n\left(\frac{u_n}{u_{n+1}}-1\right)\le1$$ 则 $\jishu{n}{u_n}$ 发散.
+  \item \textbf{（Leibniz定理）}若交错项级数 $\jishu{n}{(-1)^nu_n}$ 满足 $\{u_n\}$ 非负递减，则该级数收敛，且 $S\le u_1$.
+\end{itemize}
+\subsection{任意项级数的收敛性}
+\begin{itemize}
+  \item \textbf{（Dirichlet判敛法）}若 $\sum_{i=1}^nu_n$ 有界，$v_n$ 单调趋近于0，则级数 $\jishu{n}{u_nv_n}$ 收敛
+  \item \textbf{（Abel判敛法）}若$\sum_{i=1}^nu_n$收敛，$v_n$单调有界，则级数 $\jishu{n}{u_nv_n}$ 收敛、
+  \item 无穷乘积 $\prod_{n=1}^{+\infty}(1+a_n)$ 收敛 $\iff$  $\sum_{i=m}^{+\infty}\ln(1+a_n)$ 收敛\\
+  其中 $m$ 为充分大的正整数
+\end{itemize}
+\subsection{函数项级数的收敛性}
+\begin{itemize}
+  \item \textbf{（Weierstrass）}若存在非负常数项级数，使得集合 $I$ 上，$$|u_n(x)|\le M_n,n=1,2,\dots;\ x\in I$$
+  且 $\jishu{n}{M_n}$ 收敛，则函数项级数 $\jishu{n}{u_n(x)}$ 在 $I$ 上一致收敛
+  \item \textbf{（Dirichlet判敛法）}若有：
+  \begin{itemize}
+    \item[$\circ$] $v_n(x)$对任意固定的 $x\in I$ \textbf{单调}，且在 $I$ 上\textbf{一致趋于0}
+    \item[$\circ$] 部分和数列 $\jishu{n}{u_n(x)}$ \textbf{一致有界} $$\bigg|\sum_{k=1}^nu_k(x)\bigg|\le M,n=1,2,\dots;\ x\in I$$ 
+  \end{itemize}
+  则函数级数 $\jishu{n}{u_n(x)v_n(x)}$ 在 $I$ 上一致收敛
+  \item \textbf{（Abel判敛法）}若有：
+  \begin{itemize}
+    \item[$\circ$] $v_n(x)$ 对任意固定的 $x\in I$ \textbf{单调}，且在 $I$ 上\textbf{一致有界}，即 $$|v_n(x)|\le M,n=1,2,\dots;\ x\in I$$ 
+    \item[$\circ$] $\jishu{n}{v_n(x)}$ 在 $I$ 上\textbf{一致收敛}
+  \end{itemize}
+  则函数级数 $\jishu{n}{u_n(x)v_n(x)}$ 在 $I$ 上一致收敛
+\end{itemize}
+\end{document}

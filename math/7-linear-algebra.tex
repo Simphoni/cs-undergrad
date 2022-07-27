@@ -1,0 +1,79 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\chapter{线性代数}
+\section{线性映射和矩阵}
+\subsection{线性映射}
+\tinysec{定义}\concept{线性运算}指向量的加法与数乘。\\
+\tinysec{定义}\concept{向量空间}为带有线性运算的集合 $\mathbb{R}^m$ 被称为向量空间。\\
+\tinysec{定义}映射 $f:\linsp{n}\rightarrow\linsp{m}$ 若满足
+\begin{enumerate*}
+    \item 任意 $\bm{x},\bm{x}'\in\linsp{n}$，都有 $f(\bm{x}+\bm{x'})=f(\bm{x})+f(\bm{x'})$
+    \item 任意 $\bm{x}\in\linsp{n},k\in\linsp{}$, 都有 $f(k\bm{x})=kf(\bm{x})$
+\end{enumerate*}
+ 则 $f$ 为 从 $\linsp{n}$ 到 $\linsp{m}$ 的 \concept{线性映射}。\\
+\tinysec{定义}从 $\linsp{n}$ 到 $\linsp{n}$ 的线性映射称为\concept{线性变换}.\\
+\tinysec{定义}若线性映射 $f$ 有 $f(\bm{e_i})=\bm{a_i},\bm{e_i}\in\linsp{n}, \bm{a_i}\in\linsp{m}$，则矩阵 $A=[\bm{a_1},\dots,\bm{a_n}]$ 即为标准坐标向量下的 \concept{线性映射的表示矩阵}，且满足 $A\bm{e_i}=\bm{a_i}$。\\
+\tinysec{定理}（线性映射的线性运算）若矩阵 $\bm{A},\bm{B}$ 表示 $\linsp{n}\rightarrow\linsp{m}$ 的线性映射，则 $\bm{A}+\bm{B}$ 与 $k\bm{A}$ 也是同样范畴上的线性映射。\\
+\tinysec{定理}$\bm{AB}$ 表示线性映射 $\bm{A},\bm{B}$ 的复合 $\bm{A}\circ\bm{B}$。需要注意，$\bm{AB}=0$ 也不能推出 $\bm{A}=0$ 或 $\bm{B}=0$。\\
+\tinysec{定义}\concept{反对称矩阵}：$A=-A^T$，反对称矩阵对角线必定为0。
+\tinysec{定义}若一个上三角矩阵对角线上全为0，则称为\concept{严格上三角矩阵}。\\
+\tinysec{定义}将阶梯形矩阵，从下向上消元，并单位化主元，得到的矩阵每个非零行上，主变量为 1 而其他列的元素均为 0，称这个矩阵为 \concept{行简化阶梯形矩阵}。\\
+\tinysec{定理}对于 $\bm{v},\bm{w}\in\linsp{m}$，$\bm{v}^T\bm{w} = trace(\bm{w}\bm{v}^T)$。
+
+\subsection{线性方程式组}
+\tinysec{定理}对于方程组 $A\bm{x}=\bm{b}$，将 $[A\ \bm{b}]$ 简化为阶梯型后，若
+\begin{enumerate*}
+    \item $[A\ \bm{b}]$ 阶梯数比 $A$ 多\textbf{1}，则方程组无解
+    \item $[A\ \bm{b}]$ 阶梯数与 $A$ 相等，则方程组有解
+    \begin{enumerate*}
+        \item 若阶梯数等于未知数个数，则有唯一解
+        \item 若阶梯数小于未知数个数，则有无穷多组解
+    \end{enumerate*}
+\end{enumerate*}
+\tinysec{定义}$A\bm{x}=\bm{b}$ 称为\concept{齐次线性方程组}，$\vec{0}$ 为其\concept{平凡解}，除此之外的解称为\concept{非平凡解}。
+
+\subsection{可逆矩阵}
+\tinysec{定义}设 $A$ 为 $n$ 阶方阵，若存在 $n$ 阶方阵 $B$，使得 $AB=BA=I_n$，则 $A$ 为 \concept{可逆矩阵} 或 \concept{非奇异矩阵}，$B$ 为 $A$ 的逆。\\
+\tinysec{定理}以下命题等价
+\begin{enumerate*}
+    \item $A$ 可逆
+    \item 任意 $\bm{b}\in\linsp{n}$，$A\bm{x}=\bm{b}$ 的解唯一
+    \item 其次方程组 $A\bm{x}=0$ 仅有零解
+    \item $A$ 对应的阶梯形矩阵有 $n$ 个主元
+    \item $A$ 对应的行简化阶梯形矩阵是 $I_n$
+    \item $A$ 能表示为有限个初等矩阵的乘积（即消元至行简化阶梯形矩阵的逆过程）
+\end{enumerate*}
+\tinysec{定义}若矩阵 $A=[a_{ij}]_{n\times n}$ 对于 $i=1,2,\dots,n$ 都有 $|a_{ii}|>\sum_{j\neq i}|a_{ij}|$，则称其为 \concept{（行）对角占优矩阵}。\\
+\tinysec{定理}对角占优矩阵必然可逆。\\
+\tinysec{定义}若矩阵 $A$ 通过若干初等\textbf{行变换}可以变为矩阵 $B$，则称 $A,B$ \concept{左相抵}。即存在可逆矩阵 $P$，使得 $PA=B,A=P^{-1}B$。所有和 $A$ 相抵的矩阵中，最简单的是其行简化阶梯形，它被称为 $A$ 的\concept{左相抵标准形}。\\
+\tinysec{定理}左相抵构成等价关系。\\
+\tinysec{定理}\textbf{(Sherman-Morrison)}设 $A$ 为 $n$ 阶可逆方阵，$\bm{u},\bm{v}$ 为 $n$ 阶向量，则 $A+\bm{uv}^T$ 可逆 $\iff 1+\bm{v}^TA^{-1}\bm{u}\neq 0$，且此时
+\begin{equation}
+    (A+\bm{uv}^T)^{-1}=A^{-1}-\frac{A^{-1}\bm{uv}^TA^{-1}}{1+\bm{v}^TA^{-1}\bm{u}}
+\end{equation}
+若将 $\bm{u},\bm{v}$ 改为 $n\times k$ 的矩阵，则类似地有
+\begin{equation}
+    (A+\bm{uv}^T)^{-1}=A^{-1}-A^{-1}\bm{u}(I_k+\bm{v}^TA^{-1}\bm{u})^{-1}\bm{v}^TA^{-1}
+\end{equation}
+\subsection{LU分解}
+\tinysec{定理}若 $n$ 阶方阵 $A$ 仅通过倍加矩阵做行变化即可化为阶梯形，则存在\concept{单位下三角矩阵}（主对角线均为1）$L$ 与上三角矩阵 $U$，使得 $A=LU$，此即 \concept{LU分解}。\\
+\tinysec{定义}方阵 $A$ 左上角的 $k\times k$ 块为第 $k$ 个\concept{顺序主子阵}。\\
+\tinysec{定理}可逆矩阵 $A$ 存在 LU 分解，当且仅当 $A$ 的所有顺序主子阵均可逆，此时 LU 分解唯一。（满足在消元过程中不需要行的调换）\\
+\tinysec{定理}若可逆矩阵 $A$ 存在 LU 分解，则存在对角线均不为 0 的对角矩阵 $D$、单位下三角矩阵 $L$、单位上三角矩阵 $U$，满足 $A=LDU$，且该分解\textbf{唯一}。此即 \concept{LDU分解}。\\
+\tinysec{定理}若可逆对称阵 $A$ 有 LDU 分解，则 $L=U^T$。\\
+\tinysec{定理}可逆矩阵 $A$ 存在分解 $A=PLU$，$P$ 为置换矩阵，显然该分解不唯一。
+\tinysec{技巧}将 $A$ 分解成 对称阵 $X=\frac{1}{2}(A+A^T)$ 与 反对称阵 $Y=\frac{1}{2}(A-A^T)$。
+\section{子空间和维数}
+\tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{像集}
+\begin{equation}
+    \mathcal{R}(A)=\{A\bm{x}|\bm{x}\in\linsp{n}\}\subseteq\linsp{m}
+\end{equation}
+显然 $\bm{0}\in\mathcal{R}(A)$总是成立。\\
+(\texttt{*}) $\mathcal{R}(A)=\linsp{m}\iff A$ 为满射。\\
+\tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{原像}
+\begin{equation}
+\mathcal{N}(A)=\{\bm{x}\in\linsp{n}|A\bm{x}=\bm{0}\}\in\linsp{n}
+\end{equation}
+(\texttt{*}) $\mathcal{N}(A)=\{\bm{0}\}\iff A$ 是单射。
+\tinysec{}
+\end{document}

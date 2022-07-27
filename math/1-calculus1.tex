@@ -1,0 +1,243 @@
+\documentclass[./main.tex]{subfiles}
+\begin{document}
+\chapter{微积分A1 ： 一元微积分与常微分方程}
+\section{极限}
+\subsection{基本事实\&可避免的错误}
+\begin{itemize}
+  \item $e=1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}+\frac{\theta}{n!n},\ \frac{n}{n+1}<\theta<1$
+  \item Taylor展开$\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$，不可忘记除以$n!$
+  \item \textbf{(Leibniz)}两个函数之积的高阶导数
+  $$(f\cdot g)^{(n)}=\sum_{k=0}^n\binom{n}{k}f^{(k)}g^{(n-k)}$$
+\end{itemize}
+\subsection{例题}
+\subsubsection{课本p.57-9(14)}\vspace{-2em}
+\begin{align*}
+  &\lim\limits_{x\rightarrow\infty}(\sqrt{x^2+2x}-\sqrt[3]{x^3-x^2})\\
+  =&\lim\limits_{x\rightarrow \infty}(x\sqrt{1+\frac{2}{x}}-x\sqrt[3]{1-\frac{1}{x}})\\
+  =&\lim\limits_{x\rightarrow \infty}(\frac{(1+\frac{2}{x})^\frac{1}{2}}{\frac{1}{x}})
+  - \lim\limits_{x\rightarrow \infty}(\frac{(1-\frac{1}{x})^\frac{1}{3}}{\frac{1}{x}}) \\
+  =&2*{1\over 2}-(-1)*\frac{1}{3}={4\over 3}
+\end{align*}
+\subsubsection{《数学分析习题课讲义》2.3.2-6}
+\noindent 求证：
+\begin{equation}
+S_n=1+\frac{1}{2^p}+\frac{1}{3^p}+\cdots+\frac{1}{n^p}\ (p>1)
+\end{equation}
+收敛
+\begin{proof}
+\begin{align*}
+&\frac{1}{2^p}+\frac{1}{3^p}<\frac{2}{2^p}=r\\
+&\frac{1}{4^p}+\frac{1}{5^p}+\frac{1}{6^p}+\frac{1}{7^p}<\frac{4}{4^p}=r^2\\
+&\therefore S_n\le S_{2^n-1}<1+r+r^2+\cdots+r^n<\frac{1}{1-r}\\
+\text{又}&\because \{S_n\}\text{单调递增}\ \therefore \{S_n\}\text{收敛}.
+\end{align*}
+\end{proof}
+
+\subsubsection{习题课1-1}
+\noindent 求证：
+\begin{equation}
+  \lim\limits_{n\rightarrow +\infty}(\frac{1^p+2^p+\cdots+n^p}{n^p}-\frac{n}{p+1})=\frac{1}{2}
+\end{equation}
+
+\begin{proof}{该式本质是 $n$ 的多项式}
+\begin{align*}
+  &\text{let}\ x_n=(p+1)(1^p+2^p+\cdots+n^p)-n^{p+1} ,\ y_n=(p+1)n^p \\
+  \text{原式}&=\lim\limits_{x\rightarrow +\infty}\frac{x_{n+1}-x_n}{y_{n+1}-y_n}\\
+  &=\lim\limits_{x\rightarrow +\infty}\frac{(p+1)(n+1)^{p}-(n+1)^{p+1}+n^{p+1}}{(p+1)((n+1)^p-n^p)}\\
+  &=\lim\limits_{x\rightarrow +\infty}\frac{(p+1)\sum\limits_{k=0}^p\binom{p}{k}n^k-\sum\limits_{k=0}^{p}\binom{p+1}{k}n^k}{(p+1)\sum\limits_{k=0}^{p-1}\binom{p}{k}n^k}\\
+  &=\lim\limits_{x\rightarrow +\infty}\frac{(p+1)\sum\limits_{k=0}^{p-2}\binom{p}{k}n^k-\sum\limits_{k=0}^{p-2}\binom{p+1}{k}n^k+\frac{1}{2}p(p+1)n^{p-1}}{(p+1)\sum\limits_{k=0}^{p-2}\binom{p}{k}n^k+p(p+1)n^{p-1}} \\
+ \text{(只考虑最高次项)}\ &=\frac{1}{2}
+\end{align*}
+\end{proof}
+
+\subsubsection{习题课4-6(4)}
+\noindent 已知$f(n)=x^n\ln n$，求 $f^{(n)}(x)$. \\
+\begin{solution}
+  直接用Leibniz公式会得到复杂的交错和，因此考虑递推.
+\begin{align*}
+  f^{(n)}(x)&=\left(f^{\prime}(x)\right)^{(n-1)}=\left(n x^{n-1} \ln x+x^{n-1}\right)^{(n-1)} \\
+  &=\left(n x^{n-1} \ln x\right)^{(n-1)}+(n-1) !=n \cdot\left(x^{n-1} \ln x\right)^{(n-1)}+n ! \frac{1}{n} \\
+  &=n \cdot\left((n-1) x^{n-2} \ln x+x^{n-2}\right)^{(n-2)}+n ! \cdot \frac{1}{n} \\
+  &=n(n-1) \cdot\left(x^{n-2} \ln x\right)^{(n-2)}+n !\left(\frac{1}{n-1}+\frac{1}{n}\right) \\
+  &=n(n-1) \cdot\left((n-2) x^{n-3} \ln x+x^{n-3}\right)^{(n-3)}+n !\left(\frac{1}{n-1}+\frac{1}{n}\right) \\
+  &=n(n-1)(n-2) \cdot\left(x^{n-3} \ln x\right)^{(n-3)}+n !\left(\frac{1}{n-2}+\frac{1}{n-1}+\frac{1}{n}\right) \\
+  &=\cdots=n !\left(\ln x+1+\frac{1}{2}+\cdots \frac{1}{n-2}+\frac{1}{n-1}+\frac{1}{n}\right)
+\end{align*}
+\end{solution}
+
+\subsubsection{习题课4-7}
+定义
+$$P_{n,m}(x)=\frac{\text{d} ^n}{\text{d} x^n}(1-x^m)^n$$
+，求 $P_{n,m}(1)$.\\
+\begin{solution}
+\begin{align*}
+  P_{n,m}(1)&=\frac{\text{d} ^n}{\text{d} x^n}(1-x)^n(1+x^2+\cdots+x^{m-1})^n\\
+            \text{（用Leibniz定理展开）}&=(-1)^nn!\cdot m^n 
+\end{align*}
+*$(1-x)^n$求至少$n$阶导数才非0.
+\end{solution}
+
+\subsubsection{微积分A期中讲座}
+\noindent 定义$\{a_n\}:a_1=1,a_{n+1}=\sin a_n$，求证：$\lim\limits_{n\rightarrow \infty}n\cdot a_n^2=3$.
+\begin{proof}
+  用stolz定理表现类等差数列$\frac{1}{a_n^2}$公差趋向$\frac{1}{3}$.
+  \begin{align*}
+    &\lim\limits_{n\rightarrow \infty}\frac{\frac{1}{a_n^2}}{n}=\lim\limits_{n\rightarrow \infty}(\frac{1}{a_{n+1}^2}-\frac{1}{a_n^2})=\lim\limits_{n\rightarrow \infty}\frac{a_n^2-\sin^2a_n}{a_n^2\sin^2a_n} \\
+    =&\lim\limits_{x\rightarrow 0}\frac{(x-x+\frac{1}{6}x^3+o(x^3))(x+x-\frac{1}{6}x^3+o(x^3))}{x^4}=\frac{1}{3}
+  \end{align*}
+\end{proof}
+
+\section{Taylor展开、Cauchy中值定理}
+\subsubsection{课本p.125-10}
+\noindent 设函数$y=f(x)$在$(-1,1)$内二阶可导，$f^{''}(0)\neq 0$.\ $\forall x\in (-1,1),x\neq 0$，$\exists\ \theta(x)$满足
+$f(x)-f(0)=xf^{'}(x\cdot\theta(x))$，证明：$\lim\limits_{x\rightarrow 0}\theta(x)=\frac{1}{2}$
+\begin{proof}
+  用Cauchy中值定理将$\theta(x)$分离出来.
+  \begin{align*}
+    f^{''}(\zeta_x)\cdot\theta(x)x&=f^{'}(x\cdot\theta(x))-f^{'}(0)\\
+    f^{''}(\zeta_x)\cdot\theta(x)x&=\frac{f(x)-f(0)}{x}-f^{'}(0)\\
+    \theta(x)&=\frac{1}{f^{''}(\zeta_x)}\cdot \frac{f(x)-f(0)-f^{'}(0)x}{x^2}\\
+    &=\frac{1}{f^{''}(\zeta_x)}\cdot \frac{f^{'}(x)-f^{'}(0)}{2x}\\
+    &=\frac{f^{''}(0)}{2f^{''}(0)}=\frac{1}{2} \ (x\rightarrow 0)
+  \end{align*}
+\end{proof}
+\subsubsection{习题课6-2-1}
+\noindent 设$f(x)$在$[a,b]$上连续，在$(a,b)$内二阶可导，证明$\exists\xi\in(a,b)$，使得
+\begin{equation*}
+\frac{\frac{f(x)-f(a)}{x-a}-\frac{f(b)-f(a)}{b-a}}{x-b}=\frac{1}{2}f^{''}(\xi)
+\end{equation*}
+\begin{proof}
+  令$g(x)=\frac{f(x)-f(a)}{x-a}$\\
+  \indent 则$\frac{\frac{f(x)-f(a)}{x-a}-\frac{f(b)-f(a)}{b-a}}{x-b}=\frac{g(x)-g(b)}{x-b}=g^{\prime}(\eta)=\frac{f^{\prime}(\eta)(\eta-a)-(f(\eta)-f(a))}{(\eta-a)^2}$\\
+  \indent 而$f(a)=f(x)+f^{\prime}(x)(a-x)+\frac{f^{\prime\prime}(\xi)}{2}(a-x)^2$\\
+  \indent 故$g^{\prime}(\eta)=\frac{1}{2}f^{\prime\prime}(\xi)$
+\end{proof}
+\section{凸函数}
+\begin{itemize}
+  \item 开区间上的凸函数连续，闭区间上的凸函数未必连续
+  \item 开区间上的凸函数处处存在两个单侧导数，且对于下凸函数，满足$f_{\_}^{\prime}(x)\le f_{+}^{\prime}(x)$，但是导数不一定存在
+\end{itemize}
+\section{积分}
+\subsection{基本定理}
+\begin{itemize}
+  \item $f(x)$在$J$上非一致连续$\iff$\\$\exists\varepsilon_0>0,\ x_n,x_n^{\prime}\in J,$满足$|x_n-x_n^{\prime}|<\frac{1}{n}$，但$|f(x_n)-f(x_n^{\prime})|>\varepsilon_0,\forall n\ge 1$
+  \item 有界闭区间上的连续函数、单调函数黎曼可积，可积必有界
+  \item \textbf{(Lebesgue)}\ $[a,b]$上的有界函数$f(x)$可积$\iff f(x)$在$[a,b]$上的间断点集为零测集
+  \item \textbf{(Cauchy-Schwarz)}$$ \left(\int_a^bf\cdot g\right)^2\le\int_a^bf^2\int_a^bg^2 $$
+  \item \textbf{(积分中值定理)}设 $f(x)$ 在 $[a,b]$ 上连续，则$$\int_a^bf(x)g(x)\d{x}=f(\xi)\int_a^bg(x)\d{x}$$
+  \item 可积函数$f(x)$的变上限积分$g(x)=\int_a^xf(t)\d{t}$连续，且若$f(x)$在$x_0$处\textbf{连续}，即有$g^{\prime}(x_0)=f(x_0)$
+  \item 导函数不一定可积，如：
+  \begin{eqnarray*}
+    F(x)&=&\begin{cases}
+    x^2\sin(\frac{1}{x^2}) & x\neq 0 \\0&x=0 
+    \end{cases}\\
+    F^{\prime}(x)&=&\begin{cases}
+    2x\sin(\frac{1}{x^2})-\frac{2}{x}\cos(\frac{1}{x^2}),& x\neq 0 \\0&x=0 
+    \end{cases}
+  \end{eqnarray*}
+  其中$F^{\prime}(x)$在$[0,1]$上无界，不可积.
+\end{itemize}
+\subsection{常见不定积分}
+\vspace{-3em}
+\begin{align*}
+&\int\frac{1}{\sqrt{x^2+a}}&=&\ln\left|x+\sqrt{x^2+a}\right|+C\\
+&\int\frac{1}{x^2+a}&=&\frac{1}{\sqrt{a}}\arctan(\frac{x}{\sqrt{a}})+C\\
+&\int\frac{\d{x}}{\sin x}&=&\int\frac{\D{\frac{x}{2}}}{\sin\frac{x}{2}\cos\frac{x}{2}}=\int\frac{\text{d}(\frac{x}{2})}{\tan\frac{x}{2}\cos^2\frac{x}{2}}=\int\frac{\D{\tan\frac{x}{2}}}{\tan\frac{x}{2}}=\ln|\tan\frac{x}{2}|+C \\
+&\int\frac{\d{x}}{x\sqrt{x^2-1}}&=&\int\frac{\d{x}}{x^2\sqrt{1-\frac{1}{x^2}}}=-\int\frac{\D{\frac{1}{x}}}{\sqrt{1-\frac{1}{x^2}}}=\arccos\left(\frac{1}{x}\right)+C\\
+&\int\sqrt{x^2-1}\d{x}&=&\int\sqrt{\sec^2t-1}\D{\sec t}=\int\frac{\sin^2t}{\cos^3t}\d{t}=\int\frac{\sin^2t\D{\sin t}}{\cos^4t}\\&&=&\int\frac{u^2}{(1-u)^2(1+u)^2}\d{u}=\int\frac{1}{4}\left(\frac{u}{(1-u)^2}-\frac{u}{(1+u)^2}\right)\d{u}\\&&=&\frac{1}{4}\int\left(\frac{1}{(1-u)^2}-\frac{1}{1-u}-\frac{1}{1+u}+\frac{1}{(1+u)^2}\right)\d{u}\\&&=&\frac{1}{4}\left(-\frac{1}{u-1}-\frac{1}{u+1}+\ln\frac{1-u}{1+u}\right)+C\\&(u=\sin t)&=&\frac{\sin t}{2\cos^2t}+\frac{1}{2}\ln\frac{1-\sin t}{\cos t}+C\\&(\cos t=\frac{1}{x})&=&\frac{1}{2}x\sqrt{x^2-1}+\frac{1}{2}\ln(x-\sqrt{x^2-1})+C\\
+&\int\frac{\d{x}}{x^2\sqrt{x^2-1}}&=&\frac{\sqrt{x^2-1}}{x}+C\\
+&J_n=\int_0^{\frac{\pi}{2}}\cos^nx\d{x}&=&\int_0^{\frac{\pi}{2}}\cos^{n-1}x\D{\sin x}=\cos^{n-1}x\sin x\bigg\vert_0^{\frac{\pi}{2}}+(n-1)\int_0^{\frac{\pi}{2}}\cos^{n-2}x\sin^2x\d{x}\\&&=&(n-1)\int_0^{\frac{\pi}{2}}\cos^{n-2}x\d{x}-(n-1)\int_0^{\frac{\pi}{2}}\cos^nx\d{x}=(n-1)J_{n-2}-(n-1)J_n\\&&\implies&J_n=\frac{n-1}{n}J_{n-2}\implies J_{2m}=\frac{(2m-1)!!}{(2m)!!}\frac{\pi}{2},J_{2m+1}=\frac{(2m)!!}{(2m+1)!!}
+\end{align*}
+\subsection{例题}
+\subsubsection{Lijun Yang: Nov.18 P25}
+\noindent 设 $f(x)$ 在 $[a,b]$ 上连续可微，且 $f(a)=0$.证明:
+$$\int_a^bf^2(x)\d{x}\le\frac{1}{2}(b-a)^2\int_a^b[f'(x)]^2\d{x}$$
+\begin{proof}
+  \begin{align*}
+    f(x)&=\int_a^xf'(t)\d{t}=\int_a^x1\cdot f'(t)\d{t}\\
+    f^2(x)&=\left(\int_a^x1\cdot f'(t)\d{t}\right)^2\\
+    \text{(Cauchy)}&\le\left(\int_a^x 1\cdot\d{t}\right)\cdot\left(\int_a^x[f'(t)]^2\d{t}\right)\\
+    &\le (x-a)\int_a^b[f'(t)]^2\d{t}\\
+    \int_a^bf^2(x)\d{x}&\le\int_a^b(x-a)\d{x}\int_a^b[f'(t)]^2\d{t}\\
+    &\le \frac{1}{2}(b-a)^2\int_a^b[f'(x)]^2\d{x}
+  \end{align*}
+\end{proof}
+\subsubsection{习题课8-4-4.4}
+\noindent 设$k,n\in \mathbb{Z}_+$，求证：
+\begin{eqnarray}
+  \int_0^{\pi}\cos nx \cos kx\d{x}=
+  \begin{cases}
+    \frac{\pi}{2},&k=n\\0,&k\neq n
+  \end{cases}
+\end{eqnarray}
+\begin{proof}
+  \begin{align*}
+  \int_0^{\pi}\cos nx \cos kx &=\int_0^{\pi}\frac{1}{2}(\cos((n+k)x)+\cos((n-k)x))\d{x}\\
+  &=\frac{1}{2}\int_0^{\pi}\cos((n+k)x)\d{x}+\frac{1}{2}\int_0^{\pi}\cos((n-k)x)\d{x}\\
+  &=\frac{\pi}{2}[n=k]
+  \end{align*}
+\end{proof}
+\section{积分的应用}
+\begin{itemize}
+  \item 极坐标下的面积$$S=\int_a^n\frac{1}{2}f^2(\theta)\d{\theta}$$
+  \item 弧长$$|\Gamma|=\int_{\alpha}^{\beta}\sqrt{x^{\prime}(t)^2+y^{\prime}(t)^2}\d{t}$$
+  \item 极坐标下曲线的弧长$$|\Gamma|=\int_{\alpha}^{\beta}\sqrt{r(\theta)^2+r^{\prime}(\theta)^2}\d{\theta}$$
+  \item 曲率$$\kappa=\frac{|x^{\prime}y^{\prime\prime}-x^{\prime\prime}y^{\prime}|}{[x^{\prime 2}+y^{\prime 2}]^{\frac{3}{2}}} $$或$$\kappa(x)=\frac{|f^{\prime\prime}(x)|}{[1+f^{\prime}(x)^2]^{\frac{3}{2}}} $$
+  REMARK:圆的曲率为$\frac{1}{R}$
+  \item 绕$x,y$轴的旋转体体积$$V_x=\int_a^b\pi f^2(x)\d{x},V_y=\int_a^b2\pi x\cdot f(x)\d{x}$$
+  \item 绕$x,y$轴的旋转体表面积$$S_x=\int_a^b2\pi f(x)\sqrt{1+f^{\prime}(x)^2}\d{x},S_y=\int_a^b2\pi x\sqrt{1+f^{\prime}(x)^2}\d{x}$$
+  \item 曲线的形心（质量均匀时即为质心）$$\bar{x}=\frac{\int_a^bx(t)\sqrt{x^{\prime 2}+y^{\prime 2}}\d{t}}{\int_a^b\sqrt{x^{\prime 2}+y^{\prime 2}}\d{t}},\bar{y}=\frac{\int_a^by(t)\sqrt{x^{\prime 2}+y^{\prime 2}}\d{t}}{\int_a^b\sqrt{x^{\prime 2}+y^{\prime 2}}\d{t}}$$
+  \item 平面图形的形心$$\bar{x}=\frac{\int_a^bxf(x)\d{t}}{\int_a^bf(x)\d{t}},\bar{y}=\frac{\int_a^b\frac{1}{2}f^2(x)\d{t}}{\int_a^bf(x)\d{t}}$$
+  \item (Guldin,I,II)
+  \begin{itemize}
+    \item 曲线绕直线旋转所得的旋转面的侧面积，等于曲线的弧长，乘以形心绕直线旋转一周的周长
+    \item 封闭图形绕直线旋转所得的旋转面的体积，等于图形的面积，乘以形心绕直线旋转一周的周长
+  \end{itemize}
+\end{itemize}
+\section{广义积分}
+\subsection{定义}
+设$f(x)$在$[a,b)$上有唯一瑕点$b$，且$\forall b^{\prime}\in(a,b)$，$f(x)$在$[a,b^{\prime})$上可积，则$f(x)$在该区间上\textbf{内闭可积}.
+\subsection{Dirichlet判敛}
+\noindent 设有：
+\begin{enumerate}
+  \item $f(x)$在$[a,b)$上\textbf{内闭可积}，且存在$M>0$，使得$|\int_a^{b^{\prime}}f(x)\d{x}|<M,\forall b^{\prime}\in[a,b)$
+  \item $g(x)$在$[a,b)$上\textbf{单调}且$\lim\limits_{x\rightarrow b^-}g(x)=0$
+\end{enumerate}
+则广义积分$\int_a^bf(x)g(x)\d{x}$收敛
+\subsection{Abel判敛}
+\noindent 设有：
+\begin{enumerate}
+  \item $f(x)$在$[a,b)$上\textbf{内闭可积}，且$\int_a^bf(x)\d{x}$收敛
+  \item \textbf{(ii)}\ $g(x)$在$[a,b)$上\textbf{单调有界}
+\end{enumerate}
+则广义积分$\int_a^bf(x)g(x)\d{x}$收敛
+\section{常微分方程}
+\subsection{常数变易法}
+\begin{enumerate}
+  \item 求解$f^{\prime}(x)+p(x)f(x)=q(x)$,
+  \item 先解$f^{\prime}(x)+p(x)f(x)=0$，得$f(x)=Ce^{-\int p(x)\d{x}}$
+  \item 进一步设原方程解为$f(x)=C(x)e^{-\int p(x)\d{x}}$
+  \item $C^{\prime}(x)e^{-\int p(x)\d{x}}=q(x)$
+  \item $f(x)=e^{-\int p(x)\d{x}}(\int q(x)e^{\int p(x)\d{x}}+C)$
+\end{enumerate}
+\subsection{特殊可降阶高阶常微分方程}
+方程中不显含自变量 $x$，可以表示为 $F(y,\ds{y}{x},\ds{^2y}{x^2})=0$.\\
+\indent 令 $p=\ds{y}{x}$，则 $$\ds{^2y}{x^2}=\ds{p}{x}=\ds{p}{y}\cdot\ds{y}{x}=p\cdot\ds{p}{y}$$，问题转化为函数 $p$ 关于自变量 $y$ 的一阶常微分方程 $F(y,p,p\ds{p}{y})$.
+\subsection{二阶线性常系数齐次方程}
+设 $p,q$ 为实常数，则对常微分方程 $$y''+py'+qy=0$$，称 $\lambda^2+p\lambda+q=0$ 为特征方程，令 $\Delta=p^2-4q$，设方程的根为 $\lambda_{1,2}$.
+\begin{itemize}
+  \item $\Delta>0$，$y=C_1e^{\lambda_1x}+C_2e^{\lambda_2x}$
+  \item $\Delta=0$，$y=(C_1+C_2x)e^{-\frac{p}{2}x}$
+  \item $\Delta<0$，有二虚根 $\lambda=\alpha\pm i\beta$，$y=e^{\alpha x}(C_1\cos{\beta x}+C_2\sin\beta x)$
+\end{itemize}
+\subsection{Euler 方程}
+设 $a_0,a_1,\dots,a_n$ 为实常数，则方程
+$$x^ny^{(n)}+a_{n-1}x^{n-1}y^{(n-1)}+\cdots+a_1xy'+a_0y=0$$
+称为\textbf{Euler方程}，一般作变量替换 $t=\log|x|$ 将方程化为以 $t$ 为自变量的常系数方程，第 $k$ 项转化为：
+\begin{align*}
+  a_kx^ky^{(k)}&=a_kx^{k}\cdot\bm{y}(t(x))^{(k)}\\
+  &=a_kx^{k}\cdot (\bm{y}'(t)\cdot\frac{1}{x})^{(k-1)}\\
+  &=a_kx^{k}\cdot(y''(t))^{(k-2)}\\
+  &=\dots
+\end{align*}
+\end{document}
