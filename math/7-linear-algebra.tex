@@ -1,39 +1,60 @@
 \documentclass[./main.tex]{subfiles}
 \begin{document}
+
 \chapter{线性代数}
+
 \section{线性映射和矩阵}
+
 \subsection{线性映射}
+
 \tinysec{定义}\concept{线性运算}指向量的加法与数乘。\\
+
 \tinysec{定义}\concept{向量空间}为带有线性运算的集合 $\mathbb{R}^m$ 被称为向量空间。\\
+
 \tinysec{定义}映射 $f:\linsp{n}\rightarrow\linsp{m}$ 若满足
 \begin{enumerate*}
     \item 任意 $\bm{x},\bm{x}'\in\linsp{n}$，都有 $f(\bm{x}+\bm{x'})=f(\bm{x})+f(\bm{x'})$
     \item 任意 $\bm{x}\in\linsp{n},k\in\linsp{}$, 都有 $f(k\bm{x})=kf(\bm{x})$
 \end{enumerate*}
  则 $f$ 为 从 $\linsp{n}$ 到 $\linsp{m}$ 的 \concept{线性映射}。\\
+
 \tinysec{定义}从 $\linsp{n}$ 到 $\linsp{n}$ 的线性映射称为\concept{线性变换}.\\
+
 \tinysec{定义}若线性映射 $f$ 有 $f(\bm{e_i})=\bm{a_i},\bm{e_i}\in\linsp{n}, \bm{a_i}\in\linsp{m}$，则矩阵 $A=[\bm{a_1},\dots,\bm{a_n}]$ 即为标准坐标向量下的 \concept{线性映射的表示矩阵}，且满足 $A\bm{e_i}=\bm{a_i}$。\\
+
 \tinysec{定理}（线性映射的线性运算）若矩阵 $\bm{A},\bm{B}$ 表示 $\linsp{n}\rightarrow\linsp{m}$ 的线性映射，则 $\bm{A}+\bm{B}$ 与 $k\bm{A}$ 也是同样范畴上的线性映射。\\
+
 \tinysec{定理}$\bm{AB}$ 表示线性映射 $\bm{A},\bm{B}$ 的复合 $\bm{A}\circ\bm{B}$。需要注意，$\bm{AB}=0$ 也不能推出 $\bm{A}=0$ 或 $\bm{B}=0$。\\
-\tinysec{定义}\concept{反对称矩阵}：$A=-A^T$，反对称矩阵对角线必定为0。
+
+\tinysec{理解}矩阵乘法 $A\bm{x}$ 视为这样一种运算：按照 $\bm{x}$ 指定的系数，将 $\bm{A}$ 的列进行线性组合。\\
+
+\tinysec{定义}\concept{反对称矩阵}：$A=-A^T$，反对称矩阵对角线必定为0。\\
+
 \tinysec{定义}若一个上三角矩阵对角线上全为0，则称为\concept{严格上三角矩阵}。\\
-\tinysec{定义}将阶梯形矩阵，从下向上消元，并单位化主元，得到的矩阵每个非零行上，主变量为 1 而其他列的元素均为 0，称这个矩阵为 \concept{行简化阶梯形矩阵}。\\
+
+\tinysec{定义}将阶梯形矩阵，从下向上消元，并单位化\concept{主元}，得到的矩阵每个非零行上，主变量为 1 而其他列的元素均为 0，称这个矩阵为 \concept{行简化阶梯形矩阵}。\\
+
 \tinysec{定理}对于 $\bm{v},\bm{w}\in\linsp{m}$，$\bm{v}^T\bm{w} = trace(\bm{w}\bm{v}^T)$。
 
 \subsection{线性方程式组}
+
 \tinysec{定理}对于方程组 $A\bm{x}=\bm{b}$，将 $[A\ \bm{b}]$ 简化为阶梯型后，若
+
 \begin{enumerate*}
-    \item $[A\ \bm{b}]$ 阶梯数比 $A$ 多\textbf{1}，则方程组无解
+    \item $[A\ \bm{b}]$ 阶梯数比 $A$ 多\textbf{1}，则方程组无解（$0\neq 1$）
     \item $[A\ \bm{b}]$ 阶梯数与 $A$ 相等，则方程组有解
     \begin{enumerate*}
         \item 若阶梯数等于未知数个数，则有唯一解
         \item 若阶梯数小于未知数个数，则有无穷多组解
     \end{enumerate*}
 \end{enumerate*}
+
 \tinysec{定义}$A\bm{x}=\bm{b}$ 称为\concept{齐次线性方程组}，$\vec{0}$ 为其\concept{平凡解}，除此之外的解称为\concept{非平凡解}。
 
 \subsection{可逆矩阵}
+
 \tinysec{定义}设 $A$ 为 $n$ 阶方阵，若存在 $n$ 阶方阵 $B$，使得 $AB=BA=I_n$，则 $A$ 为 \concept{可逆矩阵} 或 \concept{非奇异矩阵}，$B$ 为 $A$ 的逆。\\
+
 \tinysec{定理}以下命题等价
 \begin{enumerate*}
     \item $A$ 可逆
@@ -43,10 +64,15 @@
     \item $A$ 对应的行简化阶梯形矩阵是 $I_n$
     \item $A$ 能表示为有限个初等矩阵的乘积（即消元至行简化阶梯形矩阵的逆过程）
 \end{enumerate*}
+
 \tinysec{定义}若矩阵 $A=[a_{ij}]_{n\times n}$ 对于 $i=1,2,\dots,n$ 都有 $|a_{ii}|>\sum_{j\neq i}|a_{ij}|$，则称其为 \concept{（行）对角占优矩阵}。\\
+
 \tinysec{定理}对角占优矩阵必然可逆。\\
+
 \tinysec{定义}若矩阵 $A$ 通过若干初等\textbf{行变换}可以变为矩阵 $B$，则称 $A,B$ \concept{左相抵}。即存在可逆矩阵 $P$，使得 $PA=B,A=P^{-1}B$。所有和 $A$ 相抵的矩阵中，最简单的是其行简化阶梯形，它被称为 $A$ 的\concept{左相抵标准形}。\\
+
 \tinysec{定理}左相抵构成等价关系。\\
+
 \tinysec{定理}\textbf{(Sherman-Morrison)}设 $A$ 为 $n$ 阶可逆方阵，$\bm{u},\bm{v}$ 为 $n$ 阶向量，则 $A+\bm{uv}^T$ 可逆 $\iff 1+\bm{v}^TA^{-1}\bm{u}\neq 0$，且此时
 \begin{equation}
     (A+\bm{uv}^T)^{-1}=A^{-1}-\frac{A^{-1}\bm{uv}^TA^{-1}}{1+\bm{v}^TA^{-1}\bm{u}}
@@ -55,25 +81,114 @@
 \begin{equation}
     (A+\bm{uv}^T)^{-1}=A^{-1}-A^{-1}\bm{u}(I_k+\bm{v}^TA^{-1}\bm{u})^{-1}\bm{v}^TA^{-1}
 \end{equation}
+
 \subsection{LU分解}
 \tinysec{定理}若 $n$ 阶方阵 $A$ 仅通过倍加矩阵做行变化即可化为阶梯形，则存在\concept{单位下三角矩阵}（主对角线均为1）$L$ 与上三角矩阵 $U$，使得 $A=LU$，此即 \concept{LU分解}。\\
+
 \tinysec{定义}方阵 $A$ 左上角的 $k\times k$ 块为第 $k$ 个\concept{顺序主子阵}。\\
+
 \tinysec{定理}可逆矩阵 $A$ 存在 LU 分解，当且仅当 $A$ 的所有顺序主子阵均可逆，此时 LU 分解唯一。（满足在消元过程中不需要行的调换）\\
+
 \tinysec{定理}若可逆矩阵 $A$ 存在 LU 分解，则存在对角线均不为 0 的对角矩阵 $D$、单位下三角矩阵 $L$、单位上三角矩阵 $U$，满足 $A=LDU$，且该分解\textbf{唯一}。此即 \concept{LDU分解}。\\
+
 \tinysec{定理}若可逆对称阵 $A$ 有 LDU 分解，则 $L=U^T$。\\
-\tinysec{定理}可逆矩阵 $A$ 存在分解 $A=PLU$，$P$ 为置换矩阵，显然该分解不唯一。
+
+\tinysec{定理}可逆矩阵 $A$ 存在分解 $A=PLU$，$P$ 为置换矩阵，显然该分解不唯一。\\
+
 \tinysec{技巧}将 $A$ 分解成 对称阵 $X=\frac{1}{2}(A+A^T)$ 与 反对称阵 $Y=\frac{1}{2}(A-A^T)$。
+
 \section{子空间和维数}
+
+\subsection{基本概念}
+
 \tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{像集}
 \begin{equation}
     \mathcal{R}(A)=\{A\bm{x}|\bm{x}\in\linsp{n}\}\subseteq\linsp{m}
 \end{equation}
-显然 $\bm{0}\in\mathcal{R}(A)$总是成立。\\
-(\texttt{*}) $\mathcal{R}(A)=\linsp{m}\iff A$ 为满射。\\
+显然 $\mathcal{R}(A)$ 必是子空间，即 $A$ 的\concept{列（向量）空间}。\\
+
+\tinysec{命题} $\mathcal{R}(A)=\linsp{m}\iff A$ 为满射。\\
+
 \tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{原像}
 \begin{equation}
 \mathcal{N}(A)=\{\bm{x}\in\linsp{n}|A\bm{x}=\bm{0}\}\in\linsp{n}
 \end{equation}
-(\texttt{*}) $\mathcal{N}(A)=\{\bm{0}\}\iff A$ 是单射。
-\tinysec{}
+显然 $\mathcal{N}(A)$ 必是子空间，即 $A$ 的\concept{零空间（也称解空间）}。\\
+
+\tinysec{命题} $\mathcal{N}(A)=\{\bm{0}\}\iff A$ 是单射 $\iff \forall\bm{x}_1\neq\bm{x}_2,\ A(\bm{x}_1-\bm{x}_2)\neq 0$。\\
+
+\tinysec{定义}将 $\bm{a}_1,\dots,\bm{a}_n$ 的全体线性组合为 $\linsp{n}$ 的子空间，记为
+\begin{equation}
+\mathrm{span}(\bm{a}_1,\dots,\bm{a}_n):=\{k_1\bm{a}_1,\dots,k_n\bm{a}_n|k_1,\dots,k_n\in\mathbb{R}\}
+\end{equation}
+
+\tinysec{定理}$A=\big[\bm{a}_1\ \cdots\ \bm{a}_n\big]\in\linsp{n\times n}$ 可逆 $\iff \bm{a}_1,\dots,\bm{a}_n$ 是 $\linsp{n}$ 的一组基。
+
+\subsection{基和维数}
+\tinysec{定义}向量组 $S$ 的任一\concept{极大线性无关组}中向量的个数称为 $S$ 的\concept{秩(rank)}；子空间 $\mathcal{M}$ 的一组基的向量数目称为\concept{维数}，记为 $\mathrm{dim}\ \mathcal{M}$。\\
+
+\tinysec{定理}\concept{（基存在定理）}给定 $\linsp{m}$ 的子空间 $\mathcal{M}\neq\{0\}$，则 $\mathcal{M}$ 存在一组基，且基向量个数不超过 $m$。\\
+
+\tinysec{定理}\concept{（基扩充定理）}若 $\mathcal{M}\subseteq\mathcal{N}$，则 $\mathcal{M}$ 的任意一组基都能够\concept{扩充}成 $\mathcal{N}$ 的一组基。\\
+
+\tinysec{定理}对于方阵 $A\in\linsp{n\times n}$，$A$ 可逆 $\iff$ $A$ 是单射 $\iff$ $A$ 是满射。
+
+\subsection{矩阵的秩}
+\tinysec{定义}执行 Gauss 消去法将矩阵化为阶梯型后，主元所在的列对应主变量的系数，称为\concept{主列}；其他列对应自由变量的系数，称为\concept{自由列}。\\
+
+\tinysec{定理}若矩阵 $A=\big[\bm{a}_1\ \dots\ \bm{a}_n\big]$ 与 $B=\big[\bm{b}_1\ \dots\ \bm{b}_n\big]$ 左相抵，则
+
+\begin{enumerate*}
+    \item 部分组 $\bm{a}_{i_1},\dots,\bm{a}_{i_r}$ 线性无关，当且仅当 $\bm{b}_{i_1},\dots,\bm{b}_{i_r}$ 线性无关。
+    \item $\bm{a}_j=k_1\bm{a}_{i_1}+\cdots+k_r\bm{a}_{i_r}\iff\bm{b}_j=k_1\bm{b}_{i_1}+\cdots+k_r\bm{b}_{i_r}$
+\end{enumerate*}
+
+\tinysec{二级结论}
+\begin{itemize*}
+    \item $\mathrm{rank}(A)+\mathrm{rank}(B)=\mathrm{rank}\left(\begin{bmatrix}A &O\\ O &B\end{bmatrix}\right)\le\mathrm{rank}\left(\begin{bmatrix}A &X\\ O &B\end{bmatrix}\right)$。因而当 $A,B$ 可逆时，上述两个分块矩阵都可逆
+    \item $\mathrm{rank}(A+B)\le\mathrm{rank}(A)+\mathrm{rank}(B)$
+    \item $\mathrm{rank}(AB)\le\min\{\mathrm{rank}(A),\mathrm{rank}(B)\}$
+    \item 反对称矩阵的秩必定是偶数
+    \item $\mathcal{R}(AB)\subseteq\mathcal{R}(A)$
+\end{itemize*}
+
+\tinysec{定义}$\mathcal{R}(A^T)$ 为 $A$ 的\concept{行（向量）空间}；$\mathrm{rank}(A)=\mathrm{rank}(A^T)$；$\mathrm{rank}(A)=n$ 定义为\concept{列满秩}，同理有\concept{行满秩}。\\
+
+\tinysec{定理}对于 $A\in\linsp{m\times n}$，
+\begin{itemize*}
+    \item $A$ 是满射 $\iff$ $A$ 行满秩
+    \item $A$ 是单射 $\iff$ $A$ 列满秩
+\end{itemize*}
+
+\tinysec{定义} 通过行列初等变换，能将矩阵 $A$ 变换为\concept{相抵标准型} $\begin{bmatrix} I_r & O\\ O &O\end{bmatrix}$。
+
+\subsection{线性方程组的解}
+\tinysec{方法}（求零空间的一组基）矩阵 $A\in\linsp{m\times n}$，求其行简化阶梯形，考虑依次将各个自由元取为 1，同时维持其他自由元为 0（即只让其中一个自由列在线性组合中系数非零），由于主列都是单位向量，从而容易根据自由列的系数计算出零解。这样求出的解（由于自由元的取值特点）构成零空间的一组基，继而有 $\mathrm{dim}\ \mathcal{N}(A)=n-\mathrm{rank}(A)$。
+
+\section{内积和正交性}
+
+\tinysec{定义}$\bm{b}$ 向 $\bm{a}$ 的\concept{垂直投影} 为 $\hat{x}=\frac{\bm{a}^T\bm{b}}{\bm{a}^T\bm{a}}$；向量 $\frac{\bm{a}^T\bm{b}}{\bm{a}^T\bm{a}}\bm{a}$ 称为向量 $\bm{b}$ 向直线 $\mathrm{span}(\bm{a})$ 的投影。\\
+
+\tinysec{定理}\concept{（Cauchy-Schwarz 不等式）} $|\bm{a}^T\bm{b}|\le \|a\|\|b\|$。\\
+
+\tinysec{定义}设 $\mathcal{M}$ 是 $\linsp{n}$ 的子空间，若它的一组基是\concept{正交向量组}，则称之为 $\mathcal{M}$ 的一组\concept{正交基}；若是\concept{正交单位向量组}，则称为 $\mathcal{M}$ 的\concept{标准正交基}。\\
+
+\tinysec{定义}\concept{（Gram-Schmidt 正交化）}从 $\mathcal{M}$ 的任意一组基 $\bm{a}_1,\dots,\bm{a}_r$ 出发，执行如下操作
+\begin{equation}
+    \bm{\widetilde{q}}_k=\bm{a}_k-\sum_{j=1}^{k-1}\frac{\bm{\widetilde{q}}_j^T\bm{a}_k}{\bm{\widetilde{q}}_j^T\bm{\widetilde{q}}_j}\bm{\widetilde{q}}_j \ \ \ (k=1,2,\dots,r)
+\end{equation}
+即得到一组正交基。
+
+\subsection{正交矩阵和 QR 分解}
+
+\tinysec{定义}若方阵 $Q$ 满足 $Q^TQ=I_n$，则称 $Q$ 为 $n$ 阶\concept{正交矩阵}；$Q$ 的行、列向量各自构成 $\linsp{n}$ 的一组标准正交基。\\
+
+\tinysec{定理}方阵 $Q$ 的以下叙述等价
+\begin{enumerate*}
+    \item $Q$ 是正交矩阵
+    \item $Q$ 为\concept{保距变换}，即 $\|Q\bm{x}\|=\|\bm{x}\|$
+    \item $Q$ 为\concept{保内积变换}，即 $Q\bm{x}\cdot Q\bm{y}=\bm{x}\cdot\bm{y}$
+\end{enumerate*}
+保距变换一定也是\concept{保角变换}。
+
 \end{document}
