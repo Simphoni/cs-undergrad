@@ -1,0 +1,49 @@
+/*
+   CSS for the CS142 project #4 Problem #2 states component
+
+   Since CSS uses a global name space for classes we should use names starting with
+   cs142-states- here.
+ */
+
+.cs142-states-input-wrapper {
+    width: 50%;
+    height: 30px;
+}
+
+.cs142-states-input-frame {
+    float: left;
+    width: 50%;
+    vertical-align: middle;
+}
+
+#cs142-states-inbox {
+    width: 90%;
+    font-size: 20px;
+    font-family: Ubuntu mono;
+}
+
+#cs142-states-warning-msg {
+    color: red;
+    font-family: Courier New;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.cs142-states-search-result-list {
+    float: left;
+    width: 25%;
+}
+
+.cs142-states-search-result-entry {
+    width: 100%;
+    font-family: 'Cascadia Mono';
+    font-size: 15px;
+    color: white;
+    background-color: #4169E1;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border: 2px solid black;
+}
