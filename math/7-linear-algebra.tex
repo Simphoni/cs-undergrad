@@ -16,7 +16,7 @@
     \item 任意 $\bm{x},\bm{x}'\in\linsp{n}$，都有 $f(\bm{x}+\bm{x'})=f(\bm{x})+f(\bm{x'})$
     \item 任意 $\bm{x}\in\linsp{n},k\in\linsp{}$, 都有 $f(k\bm{x})=kf(\bm{x})$
 \end{enumerate*}
- 则 $f$ 为 从 $\linsp{n}$ 到 $\linsp{m}$ 的 \concept{线性映射}。\\
+则 $f$ 为 从 $\linsp{n}$ 到 $\linsp{m}$ 的 \concept{线性映射}。\\
 
 \tinysec{定义}从 $\linsp{n}$ 到 $\linsp{n}$ 的线性映射称为\concept{线性变换}.\\
 
@@ -28,13 +28,13 @@
 
 \tinysec{理解}矩阵乘法 $A\bm{x}$ 视为这样一种运算：按照 $\bm{x}$ 指定的系数，将 $\bm{A}$ 的列进行线性组合。\\
 
-\tinysec{定义}\concept{反对称矩阵}：$A=-A^T$，反对称矩阵对角线必定为0。\\
+\tinysec{定义}\concept{反对称矩阵}：$A=-A^{\mathrm{T}}$，反对称矩阵对角线必定为0。\\
 
 \tinysec{定义}若一个上三角矩阵对角线上全为0，则称为\concept{严格上三角矩阵}。\\
 
 \tinysec{定义}将阶梯形矩阵，从下向上消元，并单位化\concept{主元}，得到的矩阵每个非零行上，主变量为 1 而其他列的元素均为 0，称这个矩阵为 \concept{行简化阶梯形矩阵}。\\
 
-\tinysec{定理}对于 $\bm{v},\bm{w}\in\linsp{m}$，$\bm{v}^T\bm{w} = trace(\bm{w}\bm{v}^T)$。
+\tinysec{定理}对于 $\bm{v},\bm{w}\in\linsp{m}$，$\bm{v}^{\mathrm{T}}\bm{w} = trace(\bm{w}\bm{v}^{\mathrm{T}})$。
 
 \subsection{线性方程式组}
 
@@ -73,13 +73,13 @@
 
 \tinysec{定理}左相抵构成等价关系。\\
 
-\tinysec{定理}\textbf{(Sherman-Morrison)}设 $A$ 为 $n$ 阶可逆方阵，$\bm{u},\bm{v}$ 为 $n$ 阶向量，则 $A+\bm{uv}^T$ 可逆 $\iff 1+\bm{v}^TA^{-1}\bm{u}\neq 0$，且此时
+\tinysec{定理}\textbf{(Sherman-Morrison)}设 $A$ 为 $n$ 阶可逆方阵，$\bm{u},\bm{v}$ 为 $n$ 阶向量，则 $A+\bm{uv}^{\mathrm{T}}$ 可逆 $\iff 1+\bm{v}^{\mathrm{T}}A^{-1}\bm{u}\neq 0$，且此时
 \begin{equation}
-    (A+\bm{uv}^T)^{-1}=A^{-1}-\frac{A^{-1}\bm{uv}^TA^{-1}}{1+\bm{v}^TA^{-1}\bm{u}}
+    (A+\bm{uv}^{\mathrm{T}})^{-1}=A^{-1}-\frac{A^{-1}\bm{uv}^{\mathrm{T}}A^{-1}}{1+\bm{v}^{\mathrm{T}}A^{-1}\bm{u}}
 \end{equation}
 若将 $\bm{u},\bm{v}$ 改为 $n\times k$ 的矩阵，则类似地有
 \begin{equation}
-    (A+\bm{uv}^T)^{-1}=A^{-1}-A^{-1}\bm{u}(I_k+\bm{v}^TA^{-1}\bm{u})^{-1}\bm{v}^TA^{-1}
+    (A+\bm{uv}^{\mathrm{T}})^{-1}=A^{-1}-A^{-1}\bm{u}(I_k+\bm{v}^{\mathrm{T}}A^{-1}\bm{u})^{-1}\bm{v}^{\mathrm{T}}A^{-1}
 \end{equation}
 
 \subsection{LU分解}
@@ -91,11 +91,11 @@
 
 \tinysec{定理}若可逆矩阵 $A$ 存在 LU 分解，则存在对角线均不为 0 的对角矩阵 $D$、单位下三角矩阵 $L$、单位上三角矩阵 $U$，满足 $A=LDU$，且该分解\textbf{唯一}。此即 \concept{LDU分解}。\\
 
-\tinysec{定理}若可逆对称阵 $A$ 有 LDU 分解，则 $L=U^T$。\\
+\tinysec{定理}若可逆对称阵 $A$ 有 LDU 分解，则 $L=U^{\mathrm{T}}$。\\
 
 \tinysec{定理}可逆矩阵 $A$ 存在分解 $A=PLU$，$P$ 为置换矩阵，显然该分解不唯一。\\
 
-\tinysec{技巧}将 $A$ 分解成 对称阵 $X=\frac{1}{2}(A+A^T)$ 与 反对称阵 $Y=\frac{1}{2}(A-A^T)$。
+\tinysec{技巧}将 $A$ 分解成 对称阵 $X=\frac{1}{2}(A+A^{\mathrm{T}})$ 与 反对称阵 $Y=\frac{1}{2}(A-A^{\mathrm{T}})$。
 
 \section{子空间和维数}
 
@@ -111,7 +111,7 @@
 
 \tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{原像}
 \begin{equation}
-\mathcal{N}(A)=\{\bm{x}\in\linsp{n}|A\bm{x}=\bm{0}\}\in\linsp{n}
+    \mathcal{N}(A)=\{\bm{x}\in\linsp{n}|A\bm{x}=\bm{0}\}\in\linsp{n}
 \end{equation}
 显然 $\mathcal{N}(A)$ 必是子空间，即 $A$ 的\concept{零空间（也称解空间）}。\\
 
@@ -119,7 +119,7 @@
 
 \tinysec{定义}将 $\bm{a}_1,\dots,\bm{a}_n$ 的全体线性组合为 $\linsp{n}$ 的子空间，记为
 \begin{equation}
-\mathrm{span}(\bm{a}_1,\dots,\bm{a}_n):=\{k_1\bm{a}_1,\dots,k_n\bm{a}_n|k_1,\dots,k_n\in\mathbb{R}\}
+    \mathrm{span}(\bm{a}_1,\dots,\bm{a}_n):=\{k_1\bm{a}_1,\dots,k_n\bm{a}_n|k_1,\dots,k_n\in\mathbb{R}\}
 \end{equation}
 
 \tinysec{定理}$A=\big[\bm{a}_1\ \cdots\ \bm{a}_n\big]\in\linsp{n\times n}$ 可逆 $\iff \bm{a}_1,\dots,\bm{a}_n$ 是 $\linsp{n}$ 的一组基。
@@ -152,7 +152,7 @@
     \item $\mathcal{R}(AB)\subseteq\mathcal{R}(A)$
 \end{itemize*}
 
-\tinysec{定义}$\mathcal{R}(A^T)$ 为 $A$ 的\concept{行（向量）空间}；$\mathrm{rank}(A)=\mathrm{rank}(A^T)$；$\mathrm{rank}(A)=n$ 定义为\concept{列满秩}，同理有\concept{行满秩}。\\
+\tinysec{定义}$\mathcal{R}(A^{\mathrm{T}})$ 为 $A$ 的\concept{行（向量）空间}；$\mathrm{rank}(A)=\mathrm{rank}(A^{\mathrm{T}})$；$\mathrm{rank}(A)=n$ 定义为\concept{列满秩}，同理有\concept{行满秩}。\\
 
 \tinysec{定理}对于 $A\in\linsp{m\times n}$，
 \begin{itemize*}
@@ -167,21 +167,23 @@
 
 \section{内积和正交性}
 
-\tinysec{定义}$\bm{b}$ 向 $\bm{a}$ 的\concept{垂直投影} 为 $\hat{x}=\frac{\bm{a}^T\bm{b}}{\bm{a}^T\bm{a}}$；向量 $\frac{\bm{a}^T\bm{b}}{\bm{a}^T\bm{a}}\bm{a}$ 称为向量 $\bm{b}$ 向直线 $\mathrm{span}(\bm{a})$ 的投影。\\
+\subsection{基本概念}
 
-\tinysec{定理}\concept{（Cauchy-Schwarz 不等式）} $|\bm{a}^T\bm{b}|\le \|a\|\|b\|$。\\
+\tinysec{定义}$\bm{b}$ 向 $\bm{a}$ 的\concept{垂直投影} 为 $\hat{x}=\frac{\bm{a}^{\mathrm{T}}\bm{b}}{\bm{a}^{\mathrm{T}}\bm{a}}$；向量 $\frac{\bm{a}^{\mathrm{T}}\bm{b}}{\bm{a}^{\mathrm{T}}\bm{a}}\bm{a}$ 称为向量 $\bm{b}$ 向直线 $\mathrm{span}(\bm{a})$ 的投影。\\
+
+\tinysec{定理}\concept{（Cauchy-Schwarz 不等式）} $|\bm{a}^{\mathrm{T}}\bm{b}|\le \|a\|\|b\|$。\\
 
 \tinysec{定义}设 $\mathcal{M}$ 是 $\linsp{n}$ 的子空间，若它的一组基是\concept{正交向量组}，则称之为 $\mathcal{M}$ 的一组\concept{正交基}；若是\concept{正交单位向量组}，则称为 $\mathcal{M}$ 的\concept{标准正交基}。\\
 
 \tinysec{定义}\concept{（Gram-Schmidt 正交化）}从 $\mathcal{M}$ 的任意一组基 $\bm{a}_1,\dots,\bm{a}_r$ 出发，执行如下操作
 \begin{equation}
-    \bm{\widetilde{q}}_k=\bm{a}_k-\sum_{j=1}^{k-1}\frac{\bm{\widetilde{q}}_j^T\bm{a}_k}{\bm{\widetilde{q}}_j^T\bm{\widetilde{q}}_j}\bm{\widetilde{q}}_j \ \ \ (k=1,2,\dots,r)
+    \bm{\widetilde{q}}_k=\bm{a}_k-\sum_{j=1}^{k-1}\frac{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{a}_k}{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{\widetilde{q}}_j}\bm{\widetilde{q}}_j \ \ \ (k=1,2,\dots,r)
 \end{equation}
-即得到一组正交基。
+即得到一组正交基，最后再通过单位化，得到一组标准正交基。
 
 \subsection{正交矩阵和 QR 分解}
 
-\tinysec{定义}若方阵 $Q$ 满足 $Q^TQ=I_n$，则称 $Q$ 为 $n$ 阶\concept{正交矩阵}；$Q$ 的行、列向量各自构成 $\linsp{n}$ 的一组标准正交基。\\
+\tinysec{定义}若方阵 $Q$ 满足 $Q^{\mathrm{T}}Q=I_n$，则称 $Q$ 为 $n$ 阶\concept{正交矩阵}；$Q$ 的行、列向量各自构成 $\linsp{n}$ 的一组标准正交基；多个正交矩阵的积也为正交矩阵。\\
 
 \tinysec{定理}方阵 $Q$ 的以下叙述等价
 \begin{enumerate*}
@@ -189,6 +191,113 @@
     \item $Q$ 为\concept{保距变换}，即 $\|Q\bm{x}\|=\|\bm{x}\|$
     \item $Q$ 为\concept{保内积变换}，即 $Q\bm{x}\cdot Q\bm{y}=\bm{x}\cdot\bm{y}$
 \end{enumerate*}
-保距变换一定也是\concept{保角变换}。
+保距变换一定也是\concept{保角变换}。\\
+
+\tinysec{定义}\concept{（Givens 变换）}在 $\bm{e}_i-\bm{e}_j$ 平面上转角 $\theta$ 的旋转变换的矩阵为
+
+\begin{equation}
+    \begin{bmatrix}
+        \begin{smallmatrix}
+            \ddots &&&&&&&&\\
+            &1&&&&&&&\\
+            &&\cos\theta&&&&-\sin\theta&&\\
+            &&&1&&&&&\\
+            &&&&\ddots &&&&\\
+            &&&&&1&&&\\
+            &&\sin\theta&&&&\cos\theta&&\\
+            &&&&&&&1&\\
+            &&&&&&&&\ddots
+        \end{smallmatrix}
+    \end{bmatrix}
+\end{equation}
+
+\tinysec{定义}\concept{（Householder 变换）}关于 $\linsp{n}$ 中的单位法向量所确定的超平面 $\mathcal{N}(\bm{v}^{\mathrm{T}})$ 进行反射变换的矩阵为
+\begin{equation}
+    H_{\bm{v}}=I_n-2\bm{v}\bm{v}^{\mathrm{T}}
+\end{equation}
+不难注意到 $\bm{v}\bm{v}^{\mathrm{T}}\bm{w}$ 是 $\bm{w}$ 向 $\mathrm{span}(\bm{v})$ 的投影，因此 $H_{\bm{v}}$ 的效果是将 $\bm{w}$ 中与 $\bm{v}$ 共线的成分反向。\\
+
+\tinysec{定义}\concept{（QR 分解）}设 $A=\begin{bmatrix}\bm{a}_1&\dots&\bm{a}_n\end{bmatrix}$ 为 $n$ 可逆矩阵。在对 $\{\bm{a}_1,\dots,\bm{a}_n\}$ 进行 Gram-Schmidt 正交化过程的中，本质上是进行多次的列初等变换，故可以借此对 $A$ 进行表达
+
+\begin{equation}
+    \bm{a}_k=\bm{\widetilde{q}}_k+\sum_{j=1}^{k-1}\frac{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{a}_k}{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{\widetilde{q}}_j}\bm{\widetilde{q}}_j \ \ \ (k=1,2,\dots,r)
+\end{equation}
+\begin{equation}
+    A=\widetilde{Q}\widetilde{R}=\begin{bmatrix}\widetilde{\bm{q}}_1&\dots&\widetilde{\bm{q}}_n\end{bmatrix}
+    \begin{bmatrix}
+        1 & \frac{\widetilde{\bm{q}}_1^{\mathrm{T}}\bm{a}_2}{\widetilde{\bm{q}}_1^{\mathrm{T}}\widetilde{\bm{q}}_1} & \cdots & \frac{\widetilde{\bm{q}}_1^{\mathrm{T}}\bm{a}_n}{\widetilde{\bm{q}}_1^{\mathrm{T}}\widetilde{\bm{q}}_1}             \\
+          & 1                                                                                                       & \ddots & \vdots                                                                                                              \\
+          &                                                                                                         & \ddots & \frac{\widetilde{\bm{q}}_{n-1}^{\mathrm{T}}\bm{a}_n}{\widetilde{\bm{q}}_{n-1}^{\mathrm{T}}\widetilde{\bm{q}}_{n-1}} \\
+          &                                                                                                         &        & 1
+    \end{bmatrix}
+\end{equation}
+
+可以进一步将 $Q$ 单位化，得到
+
+\begin{equation}
+    A=Q\ \mathrm{diag}(\|\widetilde{\bm{q}}_i\|)\widetilde{R}=QR
+\end{equation}
+
+\tinysec{定理}设 $A$ 为 $n$ 阶可逆矩阵，则存在唯一的分解 $A=QR$，其中 $Q$ 为正交矩阵，$R$ 为对角元均为正数的上三角矩阵。\\
+
+\tinysec{定义}若矩阵 $Q$ 满足 $Q^{\mathrm{T}}Q=I_n$，则称之为 \concept{列正交矩阵}。\\
+
+\tinysec{定理}对于 $m\times n$ 的矩阵 $A$，其中 $m\ge n$，则
+\begin{enumerate*}
+    \item \concept{（简化 QR 分解）}存在 $m\times n$ 列正交矩阵 $Q_1$ 和具有非负对角元的 $n$ 阶上三角矩阵 $R_1$，使得 $A=Q_1R_1$
+    \item \concept{（QR 分解）}进一步的，存在 $m$ 阶正交矩阵 $Q$ 和 $m\times n$ 矩阵 $R$，使得 $A=QR=\begin{bmatrix}Q_1&Q_2\end{bmatrix}\begin{bmatrix}R_1\\O\end{bmatrix}$
+\end{enumerate*}
+
+\subsection{正交投影}
+\tinysec{定义}\concept{（子空间正交）}若子空间 $\mathcal{M}$ 的任意向量 与 $\mathcal{N}$ 中的任意向量都正交，则称为 $\mathcal{M}$ 与 $\mathcal{N}$ 正交，记为 $\mathcal{M}\perp\mathcal{N}$。\\\indent 若 $\mathcal{M},\mathcal{N}\in\linsp{n},\mathcal{M}\perp\mathcal{N},\mathcal{M}\cup\mathcal{N}=\linsp{n}$，则称 $\mathcal{N}$ 为 $\mathcal{M}$ 的\concept{正交补}，记为 $\mathcal{N}=\mathcal{M}^{\perp}$。\\
+
+\tinysec{定理}对于 $A\in\linsp{m\times n}$，有
+\begin{enumerate*}
+    \item $\mathcal{R}(A^{\mathrm{T}})^{\perp}=\mathcal{N}(A),\mathcal{R}(A)^{\perp}=\mathcal{N}(A^{\mathrm{T}})$ （矩阵导出的四个子空间的关系）
+    \item $\mathcal{R}(A^{\mathrm{T}}A)=\mathcal{R}(A^{\mathrm{T}}),\mathcal{N}(A^{\mathrm{T}}A)=\mathcal{N}(A)$
+\end{enumerate*}
+
+\tinysec{TBD}正交投影
+
+\section{行列式}
+\subsection{行列式函数}
+\tinysec{定义}定义在全体 $n$ 阶方阵上的函数 $\delta$，如果满足如下性质：
+\begin{enumerate*}
+    \item 列多线性性：$\delta(\cdots,k\bm{a}_i+k'\bm{a}_i',\cdots)=k\delta(\cdots,\bm{a}_i,\cdots)+k'\delta(\cdots,\bm{a}_i',\cdots)$
+    \item 列反对称性：交换任意两列，函数符号反转
+    \item 单位化条件：$\delta(I_n)=1$
+\end{enumerate*}
+则称 $\delta$ 为一个 $n$ 阶\concept{行列式函数}，该函数存在且唯一。容易证明 $\det(AB)=\det(A)\det(B)$。\\
+
+\tinysec{定义}\concept{Vandermonde 矩阵}及其行列式
+\begin{equation}
+    \begin{vmatrix}
+        1      & \lambda_1 & \lambda_1^2 & \cdots & \lambda_1^{n-1} \\
+        1      & \lambda_2 & \lambda_2^2 & \cdots & \lambda_2^{n-1} \\
+        \vdots & \vdots    & \vdots      &        & \vdots          \\
+        1      & \lambda_n & \lambda_n^2 & \cdots & \lambda_n^{n-1} \\
+    \end{vmatrix}=\prod_{1\le j<i\le n}(\lambda_i-\lambda_j)
+\end{equation}
+
+\subsection{行列式的展开式}
+\tinysec{定义}给定 $n$ 阶方阵 $A$，令 $A\binom{i}{j}$ 表示从 $A$ 中划去第 $i$ 行第 $j$ 列后得到的 $n-1$ 阶方阵，称 $M_{ij}=\det\left(A\binom{i}{j}\right)$为元素 $a_{ij}$ 的\concept{余子式}；而 $C_{ij}=(-1)^{i+j}M_{ij}$ 为元素 $a_{ij}$ 的\concept{代数余子式}。\\
+
+\tinysec{定理}行列式按第一列展开 $\det(A)=a_{11}C_{11}+\cdots+a_{n1}C_{n1}$
+
+\tinysec{定理}令 $A$ 的第 $i$ 列为 $\bm{a}_i$，记第 $j$ 列元素的代数余子式组成的向量 $\bm{c}_j=\begin{bmatrix}
+        C_{1j} \\\vdots\\C_{nj}
+    \end{bmatrix}$，则
+\begin{equation}
+    \bm{a}_{j'}^{\mathrm{T}}\bm{c}_j=\begin{cases}
+        0,       & j\neq j' \\
+        \det(A), & j=j'
+    \end{cases}
+\end{equation}
+
+\tinysec{定义}对矩阵 $A=[a_{ij}]$，记 $C=[C_{ij}]_{n\times n}$，则 $C^{\mathrm{T}}$ 为 $A$ 的\concept{伴随矩阵}，且 $C^{\mathrm{T}}A=\det(A)I_n$。
+
+\section{特征值和特征向量}
+
+
 
 \end{document}
