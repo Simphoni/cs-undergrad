@@ -7,34 +7,34 @@
 
 \subsection{线性映射}
 
-\tinysec{定义}\concept{线性运算}指向量的加法与数乘。\\
+\tinysec{定义}\concept{线性运算}指向量的加法与数乘. \\
 
-\tinysec{定义}\concept{向量空间}为带有线性运算的集合 $\mathbb{R}^m$ 被称为向量空间。\\
+\tinysec{定义}\concept{向量空间}为带有线性运算的集合 $\mathbb{R}^m$ 被称为向量空间. \\
 
-\tinysec{定义}映射 $f:\linsp{n}\rightarrow\linsp{m}$ 若满足
+\tinysec{定义}映射 $f:\rlinsp{n}\rightarrow\rlinsp{m}$ 若满足
 \begin{enumerate*}
-    \item 任意 $\bm{x},\bm{x}'\in\linsp{n}$，都有 $f(\bm{x}+\bm{x'})=f(\bm{x})+f(\bm{x'})$
-    \item 任意 $\bm{x}\in\linsp{n},k\in\linsp{}$, 都有 $f(k\bm{x})=kf(\bm{x})$
+    \item 任意 $\bm{x},\bm{x}'\in\rlinsp{n}$，都有 $f(\bm{x}+\bm{x'})=f(\bm{x})+f(\bm{x'})$
+    \item 任意 $\bm{x}\in\rlinsp{n},k\in\rlinsp{}$, 都有 $f(k\bm{x})=kf(\bm{x})$
 \end{enumerate*}
-则 $f$ 为 从 $\linsp{n}$ 到 $\linsp{m}$ 的 \concept{线性映射}。\\
+则 $f$ 为 从 $\rlinsp{n}$ 到 $\rlinsp{m}$ 的 \concept{线性映射}. \\
 
-\tinysec{定义}从 $\linsp{n}$ 到 $\linsp{n}$ 的线性映射称为\concept{线性变换}.\\
+\tinysec{定义}从 $\rlinsp{n}$ 到 $\rlinsp{n}$ 的线性映射称为\concept{线性变换}.\\
 
-\tinysec{定义}若线性映射 $f$ 有 $f(\bm{e_i})=\bm{a_i},\bm{e_i}\in\linsp{n}, \bm{a_i}\in\linsp{m}$，则矩阵 $A=[\bm{a_1},\dots,\bm{a_n}]$ 即为标准坐标向量下的 \concept{线性映射的表示矩阵}，且满足 $A\bm{e_i}=\bm{a_i}$。\\
+\tinysec{定义}若线性映射 $f$ 有 $f(\bm{e_i})=\bm{a_i},\bm{e_i}\in\rlinsp{n}, \bm{a_i}\in\rlinsp{m}$，则矩阵 $A=[\bm{a_1},\dots,\bm{a_n}]$ 即为标准坐标向量下的 \concept{线性映射的表示矩阵}，且满足 $A\bm{e_i}=\bm{a_i}$. \\
 
-\tinysec{定理}（线性映射的线性运算）若矩阵 $\bm{A},\bm{B}$ 表示 $\linsp{n}\rightarrow\linsp{m}$ 的线性映射，则 $\bm{A}+\bm{B}$ 与 $k\bm{A}$ 也是同样范畴上的线性映射。\\
+\tinysec{定理}（线性映射的线性运算）若矩阵 $\bm{A},\bm{B}$ 表示 $\rlinsp{n}\rightarrow\rlinsp{m}$ 的线性映射，则 $\bm{A}+\bm{B}$ 与 $k\bm{A}$ 也是同样范畴上的线性映射. \\
 
-\tinysec{定理}$\bm{AB}$ 表示线性映射 $\bm{A},\bm{B}$ 的复合 $\bm{A}\circ\bm{B}$。需要注意，$\bm{AB}=0$ 也不能推出 $\bm{A}=0$ 或 $\bm{B}=0$。\\
+\tinysec{定理}$\bm{AB}$ 表示线性映射 $\bm{A},\bm{B}$ 的复合 $\bm{A}\circ\bm{B}$. 需要注意，$\bm{AB}=0$ 也不能推出 $\bm{A}=0$ 或 $\bm{B}=0$. \\
 
-\tinysec{理解}矩阵乘法 $A\bm{x}$ 视为这样一种运算：按照 $\bm{x}$ 指定的系数，将 $\bm{A}$ 的列进行线性组合。\\
+\tinysec{理解}矩阵乘法 $A\bm{x}$ 视为这样一种运算：按照 $\bm{x}$ 指定的系数，将 $\bm{A}$ 的列进行线性组合. \\
 
-\tinysec{定义}\concept{反对称矩阵}：$A=-A^{\mathrm{T}}$，反对称矩阵对角线必定为0。\\
+\tinysec{定义}\concept{反对称矩阵}：$A=-A^{\mathrm{T}}$，反对称矩阵对角线必定为0. \\
 
-\tinysec{定义}若一个上三角矩阵对角线上全为0，则称为\concept{严格上三角矩阵}。\\
+\tinysec{定义}若一个上三角矩阵对角线上全为0，则称为\concept{严格上三角矩阵}. \\
 
-\tinysec{定义}将阶梯形矩阵，从下向上消元，并单位化\concept{主元}，得到的矩阵每个非零行上，主变量为 1 而其他列的元素均为 0，称这个矩阵为 \concept{行简化阶梯形矩阵}。\\
+\tinysec{定义}将阶梯形矩阵，从下向上消元，并单位化\concept{主元}，得到的矩阵每个非零行上，主变量为 1 而其他列的元素均为 0，称这个矩阵为 \concept{行简化阶梯形矩阵}. \\
 
-\tinysec{定理}对于 $\bm{v},\bm{w}\in\linsp{m}$，$\bm{v}^{\mathrm{T}}\bm{w} = trace(\bm{w}\bm{v}^{\mathrm{T}})$。
+\tinysec{定理}对于 $\bm{v},\bm{w}\in\rlinsp{m}$，$\bm{v}^{\mathrm{T}}\bm{w} = trace(\bm{w}\bm{v}^{\mathrm{T}})$.
 
 \subsection{线性方程式组}
 
@@ -49,29 +49,29 @@
     \end{enumerate*}
 \end{enumerate*}
 
-\tinysec{定义}$A\bm{x}=\bm{b}$ 称为\concept{齐次线性方程组}，$\vec{0}$ 为其\concept{平凡解}，除此之外的解称为\concept{非平凡解}。
+\tinysec{定义}$A\bm{x}=\bm{b}$ 称为\concept{齐次线性方程组}，$\vec{0}$ 为其\concept{平凡解}，除此之外的解称为\concept{非平凡解}.
 
 \subsection{可逆矩阵}
 
-\tinysec{定义}设 $A$ 为 $n$ 阶方阵，若存在 $n$ 阶方阵 $B$，使得 $AB=BA=I_n$，则 $A$ 为 \concept{可逆矩阵} 或 \concept{非奇异矩阵}，$B$ 为 $A$ 的逆。\\
+\tinysec{定义}设 $A$ 为 $n$ 阶方阵，若存在 $n$ 阶方阵 $B$，使得 $AB=BA=I_n$，则 $A$ 为 \concept{可逆矩阵} 或 \concept{非奇异矩阵}，$B$ 为 $A$ 的逆. \\
 
 \tinysec{定理}以下命题等价
 \begin{enumerate*}
     \item $A$ 可逆
-    \item 任意 $\bm{b}\in\linsp{n}$，$A\bm{x}=\bm{b}$ 的解唯一
+    \item 任意 $\bm{b}\in\rlinsp{n}$，$A\bm{x}=\bm{b}$ 的解唯一
     \item 其次方程组 $A\bm{x}=0$ 仅有零解
     \item $A$ 对应的阶梯形矩阵有 $n$ 个主元
     \item $A$ 对应的行简化阶梯形矩阵是 $I_n$
     \item $A$ 能表示为有限个初等矩阵的乘积（即消元至行简化阶梯形矩阵的逆过程）
 \end{enumerate*}
 
-\tinysec{定义}若矩阵 $A=[a_{ij}]_{n\times n}$ 对于 $i=1,2,\dots,n$ 都有 $|a_{ii}|>\sum_{j\neq i}|a_{ij}|$，则称其为 \concept{（行）对角占优矩阵}。\\
+\tinysec{定义}若矩阵 $A=[a_{ij}]_{n\times n}$ 对于 $i=1,2,\dots,n$ 都有 $|a_{ii}|>\sum_{j\neq i}|a_{ij}|$，则称其为 \concept{（行）对角占优矩阵}. \\
 
-\tinysec{定理}对角占优矩阵必然可逆。\\
+\tinysec{定理}对角占优矩阵必然可逆. \\
 
-\tinysec{定义}若矩阵 $A$ 通过若干初等\textbf{行变换}可以变为矩阵 $B$，则称 $A,B$ \concept{左相抵}。即存在可逆矩阵 $P$，使得 $PA=B,A=P^{-1}B$。所有和 $A$ 相抵的矩阵中，最简单的是其行简化阶梯形，它被称为 $A$ 的\concept{左相抵标准形}。\\
+\tinysec{定义}若矩阵 $A$ 通过若干初等\textbf{行变换}可以变为矩阵 $B$，则称 $A,B$ \concept{左相抵}. 即存在可逆矩阵 $P$，使得 $PA=B,A=P^{-1}B$. 所有和 $A$ 相抵的矩阵中，最简单的是其行简化阶梯形，它被称为 $A$ 的\concept{左相抵标准形}. \\
 
-\tinysec{定理}左相抵构成等价关系。\\
+\tinysec{定理}左相抵构成等价关系. \\
 
 \tinysec{定理}\textbf{(Sherman-Morrison)}设 $A$ 为 $n$ 阶可逆方阵，$\bm{u},\bm{v}$ 为 $n$ 阶向量，则 $A+\bm{uv}^{\mathrm{T}}$ 可逆 $\iff 1+\bm{v}^{\mathrm{T}}A^{-1}\bm{u}\neq 0$，且此时
 \begin{equation}
@@ -83,107 +83,107 @@
 \end{equation}
 
 \subsection{LU分解}
-\tinysec{定理}若 $n$ 阶方阵 $A$ 仅通过倍加矩阵做行变化即可化为阶梯形，则存在\concept{单位下三角矩阵}（主对角线均为1）$L$ 与上三角矩阵 $U$，使得 $A=LU$，此即 \concept{LU分解}。\\
+\tinysec{定理}若 $n$ 阶方阵 $A$ 仅通过倍加矩阵做行变化即可化为阶梯形，则存在\concept{单位下三角矩阵}（主对角线均为1）$L$ 与上三角矩阵 $U$，使得 $A=LU$，此即 \concept{LU分解}. \\
 
-\tinysec{定义}方阵 $A$ 左上角的 $k\times k$ 块为第 $k$ 个\concept{顺序主子阵}。\\
+\tinysec{定义}方阵 $A$ 左上角的 $k\times k$ 块为第 $k$ 个\concept{顺序主子阵}. \\
 
-\tinysec{定理}可逆矩阵 $A$ 存在 LU 分解，当且仅当 $A$ 的所有顺序主子阵均可逆，此时 LU 分解唯一。（满足在消元过程中不需要行的调换）\\
+\tinysec{定理}可逆矩阵 $A$ 存在 LU 分解，当且仅当 $A$ 的所有顺序主子阵均可逆，此时 LU 分解唯一. （满足在消元过程中不需要行的调换）\\
 
-\tinysec{定理}若可逆矩阵 $A$ 存在 LU 分解，则存在对角线均不为 0 的对角矩阵 $D$、单位下三角矩阵 $L$、单位上三角矩阵 $U$，满足 $A=LDU$，且该分解\textbf{唯一}。此即 \concept{LDU分解}。\\
+\tinysec{定理}若可逆矩阵 $A$ 存在 LU 分解，则存在对角线均不为 0 的对角矩阵 $D$、单位下三角矩阵 $L$、单位上三角矩阵 $U$，满足 $A=LDU$，且该分解\textbf{唯一}. 此即 \concept{LDU分解}. \\
 
-\tinysec{定理}若可逆对称阵 $A$ 有 LDU 分解，则 $L=U^{\mathrm{T}}$。\\
+\tinysec{定理}若可逆对称阵 $A$ 有 LDU 分解，则 $L=U^{\mathrm{T}}$. \\
 
-\tinysec{定理}可逆矩阵 $A$ 存在分解 $A=PLU$，$P$ 为置换矩阵，显然该分解不唯一。\\
+\tinysec{定理}可逆矩阵 $A$ 存在分解 $A=PLU$，$P$ 为置换矩阵，显然该分解不唯一. \\
 
-\tinysec{技巧}将 $A$ 分解成 对称阵 $X=\frac{1}{2}(A+A^{\mathrm{T}})$ 与 反对称阵 $Y=\frac{1}{2}(A-A^{\mathrm{T}})$。
+\tinysec{技巧}将 $A$ 分解成 对称阵 $X=\frac{1}{2}(A+A^{\mathrm{T}})$ 与 反对称阵 $Y=\frac{1}{2}(A-A^{\mathrm{T}})$.
 
 \section{子空间和维数}
 
 \subsection{基本概念}
 
-\tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{像集}
+\tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\rlinsp{m\times n}$ 的\concept{像集}
 \begin{equation}
-    \mathcal{R}(A)=\{A\bm{x}|\bm{x}\in\linsp{n}\}\subseteq\linsp{m}
+    \mathcal{R}(A)=\{A\bm{x}|\bm{x}\in\rlinsp{n}\}\subseteq\rlinsp{m}
 \end{equation}
-显然 $\mathcal{R}(A)$ 必是子空间，即 $A$ 的\concept{列（向量）空间}。\\
+显然 $\mathcal{R}(A)$ 必是子空间，即 $A$ 的\concept{列（向量）空间}. \\
 
-\tinysec{命题} $\mathcal{R}(A)=\linsp{m}\iff A$ 为满射。\\
+\tinysec{命题} $\mathcal{R}(A)=\rlinsp{m}\iff A$ 为满射. \\
 
-\tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\linsp{m\times n}$ 的\concept{原像}
+\tinysec{定义}映射 $A:\bm{x}\mapsto A\bm{x}\in\rlinsp{m\times n}$ 的\concept{原像}
 \begin{equation}
-    \mathcal{N}(A)=\{\bm{x}\in\linsp{n}|A\bm{x}=\bm{0}\}\in\linsp{n}
+    \mathcal{N}(A)=\{\bm{x}\in\rlinsp{n}|A\bm{x}=\bm{0}\}\in\rlinsp{n}
 \end{equation}
-显然 $\mathcal{N}(A)$ 必是子空间，即 $A$ 的\concept{零空间（也称解空间）}。\\
+显然 $\mathcal{N}(A)$ 必是子空间，即 $A$ 的\concept{零空间（也称解空间）}. \\
 
-\tinysec{命题} $\mathcal{N}(A)=\{\bm{0}\}\iff A$ 是单射 $\iff \forall\bm{x}_1\neq\bm{x}_2,\ A(\bm{x}_1-\bm{x}_2)\neq 0$。\\
+\tinysec{命题} $\mathcal{N}(A)=\{\bm{0}\}\iff A$ 是单射 $\iff \forall\bm{x}_1\neq\bm{x}_2,\ A(\bm{x}_1-\bm{x}_2)\neq 0$. \\
 
-\tinysec{定义}将 $\bm{a}_1,\dots,\bm{a}_n$ 的全体线性组合为 $\linsp{n}$ 的子空间，记为
+\tinysec{定义}将 $\bm{a}_1,\dots,\bm{a}_n$ 的全体线性组合为 $\rlinsp{n}$ 的子空间，记为
 \begin{equation}
     \mathrm{span}(\bm{a}_1,\dots,\bm{a}_n):=\{k_1\bm{a}_1,\dots,k_n\bm{a}_n|k_1,\dots,k_n\in\mathbb{R}\}
 \end{equation}
 
-\tinysec{定理}$A=\big[\bm{a}_1\ \cdots\ \bm{a}_n\big]\in\linsp{n\times n}$ 可逆 $\iff \bm{a}_1,\dots,\bm{a}_n$ 是 $\linsp{n}$ 的一组基。
+\tinysec{定理}$A=\big[\bm{a}_1\ \cdots\ \bm{a}_n\big]\in\rlinsp{n\times n}$ 可逆 $\iff \bm{a}_1,\dots,\bm{a}_n$ 是 $\rlinsp{n}$ 的一组基.
 
 \subsection{基和维数}
-\tinysec{定义}向量组 $S$ 的任一\concept{极大线性无关组}中向量的个数称为 $S$ 的\concept{秩(rank)}；子空间 $\mathcal{M}$ 的一组基的向量数目称为\concept{维数}，记为 $\mathrm{dim}\ \mathcal{M}$。\\
+\tinysec{定义}向量组 $S$ 的任一\concept{极大线性无关组}中向量的个数称为 $S$ 的\concept{秩(rank)}；子空间 $\mathcal{M}$ 的一组基的向量数目称为\concept{维数}，记为 $\mathrm{dim}\ \mathcal{M}$. \\
 
-\tinysec{定理}\concept{（基存在定理）}给定 $\linsp{m}$ 的子空间 $\mathcal{M}\neq\{0\}$，则 $\mathcal{M}$ 存在一组基，且基向量个数不超过 $m$。\\
+\tinysec{定理}\concept{（基存在定理）}给定 $\rlinsp{m}$ 的子空间 $\mathcal{M}\neq\{0\}$，则 $\mathcal{M}$ 存在一组基，且基向量个数不超过 $m$. \\
 
-\tinysec{定理}\concept{（基扩充定理）}若 $\mathcal{M}\subseteq\mathcal{N}$，则 $\mathcal{M}$ 的任意一组基都能够\concept{扩充}成 $\mathcal{N}$ 的一组基。\\
+\tinysec{定理}\concept{（基扩充定理）}若 $\mathcal{M}\subseteq\mathcal{N}$，则 $\mathcal{M}$ 的任意一组基都能够\concept{扩充}成 $\mathcal{N}$ 的一组基. \\
 
-\tinysec{定理}对于方阵 $A\in\linsp{n\times n}$，$A$ 可逆 $\iff$ $A$ 是单射 $\iff$ $A$ 是满射。
+\tinysec{定理}对于方阵 $A\in\rlinsp{n\times n}$，$A$ 可逆 $\iff$ $A$ 是单射 $\iff$ $A$ 是满射.
 
 \subsection{矩阵的秩}
-\tinysec{定义}执行 Gauss 消去法将矩阵化为阶梯型后，主元所在的列对应主变量的系数，称为\concept{主列}；其他列对应自由变量的系数，称为\concept{自由列}。\\
+\tinysec{定义}执行 Gauss 消去法将矩阵化为阶梯型后，主元所在的列对应主变量的系数，称为\concept{主列}；其他列对应自由变量的系数，称为\concept{自由列}. \\
 
 \tinysec{定理}若矩阵 $A=\big[\bm{a}_1\ \dots\ \bm{a}_n\big]$ 与 $B=\big[\bm{b}_1\ \dots\ \bm{b}_n\big]$ 左相抵，则
 
 \begin{enumerate*}
-    \item 部分组 $\bm{a}_{i_1},\dots,\bm{a}_{i_r}$ 线性无关，当且仅当 $\bm{b}_{i_1},\dots,\bm{b}_{i_r}$ 线性无关。
+    \item 部分组 $\bm{a}_{i_1},\dots,\bm{a}_{i_r}$ 线性无关，当且仅当 $\bm{b}_{i_1},\dots,\bm{b}_{i_r}$ 线性无关.
     \item $\bm{a}_j=k_1\bm{a}_{i_1}+\cdots+k_r\bm{a}_{i_r}\iff\bm{b}_j=k_1\bm{b}_{i_1}+\cdots+k_r\bm{b}_{i_r}$
 \end{enumerate*}
 
 \tinysec{二级结论}
 \begin{itemize*}
-    \item $\mathrm{rank}(A)+\mathrm{rank}(B)=\mathrm{rank}\left(\begin{bmatrix}A &O\\ O &B\end{bmatrix}\right)\le\mathrm{rank}\left(\begin{bmatrix}A &X\\ O &B\end{bmatrix}\right)$。因而当 $A,B$ 可逆时，上述两个分块矩阵都可逆
+    \item $\mathrm{rank}(A)+\mathrm{rank}(B)=\mathrm{rank}\left(\begin{bmatrix}A &O\\ O &B\end{bmatrix}\right)\le\mathrm{rank}\left(\begin{bmatrix}A &X\\ O &B\end{bmatrix}\right)$. 因而当 $A,B$ 可逆时，上述两个分块矩阵都可逆
     \item $\mathrm{rank}(A+B)\le\mathrm{rank}(A)+\mathrm{rank}(B)$
     \item $\mathrm{rank}(AB)\le\min\{\mathrm{rank}(A),\mathrm{rank}(B)\}$
     \item 反对称矩阵的秩必定是偶数
     \item $\mathcal{R}(AB)\subseteq\mathcal{R}(A)$
 \end{itemize*}
 
-\tinysec{定义}$\mathcal{R}(A^{\mathrm{T}})$ 为 $A$ 的\concept{行（向量）空间}；$\mathrm{rank}(A)=\mathrm{rank}(A^{\mathrm{T}})$；$\mathrm{rank}(A)=n$ 定义为\concept{列满秩}，同理有\concept{行满秩}。\\
+\tinysec{定义}$\mathcal{R}(A^{\mathrm{T}})$ 为 $A$ 的\concept{行（向量）空间}；$\mathrm{rank}(A)=\mathrm{rank}(A^{\mathrm{T}})$；$\mathrm{rank}(A)=n$ 定义为\concept{列满秩}，同理有\concept{行满秩}. \\
 
-\tinysec{定理}对于 $A\in\linsp{m\times n}$，
+\tinysec{定理}对于 $A\in\rlinsp{m\times n}$，
 \begin{itemize*}
     \item $A$ 是满射 $\iff$ $A$ 行满秩
     \item $A$ 是单射 $\iff$ $A$ 列满秩
 \end{itemize*}
 
-\tinysec{定义} 通过行列初等变换，能将矩阵 $A$ 变换为\concept{相抵标准型} $\begin{bmatrix} I_r & O\\ O &O\end{bmatrix}$。
+\tinysec{定义} 通过行列初等变换，能将矩阵 $A$ 变换为\concept{相抵标准型} $\begin{bmatrix} I_r & O\\ O &O\end{bmatrix}$.
 
 \subsection{线性方程组的解}
-\tinysec{方法}（求零空间的一组基）矩阵 $A\in\linsp{m\times n}$，求其行简化阶梯形，考虑依次将各个自由元取为 1，同时维持其他自由元为 0（即只让其中一个自由列在线性组合中系数非零），由于主列都是单位向量，从而容易根据自由列的系数计算出零解。这样求出的解（由于自由元的取值特点）构成零空间的一组基，继而有 $\mathrm{dim}\ \mathcal{N}(A)=n-\mathrm{rank}(A)$。
+\tinysec{方法}（求零空间的一组基）矩阵 $A\in\rlinsp{m\times n}$，求其行简化阶梯形，考虑依次将各个自由元取为 1，同时维持其他自由元为 0（即只让其中一个自由列在线性组合中系数非零），由于主列都是单位向量，从而容易根据自由列的系数计算出零解. 这样求出的解（由于自由元的取值特点）构成零空间的一组基，继而有 $\mathrm{dim}\ \mathcal{N}(A)=n-\mathrm{rank}(A)$.
 
 \section{内积和正交性}
 
 \subsection{基本概念}
 
-\tinysec{定义}$\bm{b}$ 向 $\bm{a}$ 的\concept{垂直投影} 为 $\hat{x}=\frac{\bm{a}^{\mathrm{T}}\bm{b}}{\bm{a}^{\mathrm{T}}\bm{a}}$；向量 $\frac{\bm{a}^{\mathrm{T}}\bm{b}}{\bm{a}^{\mathrm{T}}\bm{a}}\bm{a}$ 称为向量 $\bm{b}$ 向直线 $\mathrm{span}(\bm{a})$ 的投影。\\
+\tinysec{定义}$\bm{b}$ 向 $\bm{a}$ 的\concept{垂直投影} 为 $\hat{x}=\frac{\bm{a}^{\mathrm{T}}\bm{b}}{\bm{a}^{\mathrm{T}}\bm{a}}$；向量 $\frac{\bm{a}^{\mathrm{T}}\bm{b}}{\bm{a}^{\mathrm{T}}\bm{a}}\bm{a}$ 称为向量 $\bm{b}$ 向直线 $\mathrm{span}(\bm{a})$ 的投影. \\
 
-\tinysec{定理}\concept{（Cauchy-Schwarz 不等式）} $|\bm{a}^{\mathrm{T}}\bm{b}|\le \|a\|\|b\|$。\\
+\tinysec{定理}\concept{（Cauchy-Schwarz 不等式）} $|\bm{a}^{\mathrm{T}}\bm{b}|\le \|a\|\|b\|$. \\
 
-\tinysec{定义}设 $\mathcal{M}$ 是 $\linsp{n}$ 的子空间，若它的一组基是\concept{正交向量组}，则称之为 $\mathcal{M}$ 的一组\concept{正交基}；若是\concept{正交单位向量组}，则称为 $\mathcal{M}$ 的\concept{标准正交基}。\\
+\tinysec{定义}设 $\mathcal{M}$ 是 $\rlinsp{n}$ 的子空间，若它的一组基是\concept{正交向量组}，则称之为 $\mathcal{M}$ 的一组\concept{正交基}；若是\concept{正交单位向量组}，则称为 $\mathcal{M}$ 的\concept{标准正交基}. \\
 
 \tinysec{定义}\concept{（Gram-Schmidt 正交化）}从 $\mathcal{M}$ 的任意一组基 $\bm{a}_1,\dots,\bm{a}_r$ 出发，执行如下操作
 \begin{equation}
     \bm{\widetilde{q}}_k=\bm{a}_k-\sum_{j=1}^{k-1}\frac{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{a}_k}{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{\widetilde{q}}_j}\bm{\widetilde{q}}_j \ \ \ (k=1,2,\dots,r)
 \end{equation}
-即得到一组正交基，最后再通过单位化，得到一组标准正交基。
+即得到一组正交基，最后再通过单位化，得到一组标准正交基.
 
 \subsection{正交矩阵和 QR 分解}
 
-\tinysec{定义}若方阵 $Q$ 满足 $Q^{\mathrm{T}}Q=I_n$，则称 $Q$ 为 $n$ 阶\concept{正交矩阵}；$Q$ 的行、列向量各自构成 $\linsp{n}$ 的一组标准正交基；多个正交矩阵的积也为正交矩阵。\\
+\tinysec{定义}若方阵 $Q$ 满足 $Q^{\mathrm{T}}Q=I_n$，则称 $Q$ 为 $n$ 阶\concept{正交矩阵}；$Q$ 的行、列向量各自构成 $\rlinsp{n}$ 的一组标准正交基；多个正交矩阵的积也为正交矩阵. \\
 
 \tinysec{定理}方阵 $Q$ 的以下叙述等价
 \begin{enumerate*}
@@ -191,7 +191,7 @@
     \item $Q$ 为\concept{保距变换}，即 $\|Q\bm{x}\|=\|\bm{x}\|$
     \item $Q$ 为\concept{保内积变换}，即 $Q\bm{x}\cdot Q\bm{y}=\bm{x}\cdot\bm{y}$
 \end{enumerate*}
-保距变换一定也是\concept{保角变换}。\\
+保距变换一定也是\concept{保角变换}. \\
 
 \tinysec{定义}\concept{（Givens 变换）}在 $\bm{e}_i-\bm{e}_j$ 平面上转角 $\theta$ 的旋转变换的矩阵为
 
@@ -211,13 +211,13 @@
     \end{bmatrix}
 \end{equation}
 
-\tinysec{定义}\concept{（Householder 变换）}关于 $\linsp{n}$ 中的单位法向量所确定的超平面 $\mathcal{N}(\bm{v}^{\mathrm{T}})$ 进行反射变换的矩阵为
+\tinysec{定义}\concept{（Householder 变换）}关于 $\rlinsp{n}$ 中的单位法向量所确定的超平面 $\mathcal{N}(\bm{v}^{\mathrm{T}})$ 进行反射变换的矩阵为
 \begin{equation}
     H_{\bm{v}}=I_n-2\bm{v}\bm{v}^{\mathrm{T}}
 \end{equation}
-不难注意到 $\bm{v}\bm{v}^{\mathrm{T}}\bm{w}$ 是 $\bm{w}$ 向 $\mathrm{span}(\bm{v})$ 的投影，因此 $H_{\bm{v}}$ 的效果是将 $\bm{w}$ 中与 $\bm{v}$ 共线的成分反向。\\
+不难注意到 $\bm{v}\bm{v}^{\mathrm{T}}\bm{w}$ 是 $\bm{w}$ 向 $\mathrm{span}(\bm{v})$ 的投影，因此 $H_{\bm{v}}$ 的效果是将 $\bm{w}$ 中与 $\bm{v}$ 共线的成分反向. \\
 
-\tinysec{定义}\concept{（QR 分解）}设 $A=\begin{bmatrix}\bm{a}_1&\dots&\bm{a}_n\end{bmatrix}$ 为 $n$ 可逆矩阵。在对 $\{\bm{a}_1,\dots,\bm{a}_n\}$ 进行 Gram-Schmidt 正交化过程的中，本质上是进行多次的列初等变换，故可以借此对 $A$ 进行表达
+\tinysec{定义}\concept{（QR 分解）}设 $A=\begin{bmatrix}\bm{a}_1&\dots&\bm{a}_n\end{bmatrix}$ 为 $n$ 可逆矩阵. 在对 $\{\bm{a}_1,\dots,\bm{a}_n\}$ 进行 Gram-Schmidt 正交化过程的中，本质上是进行多次的列初等变换，故可以借此对 $A$ 进行表达
 
 \begin{equation}
     \bm{a}_k=\bm{\widetilde{q}}_k+\sum_{j=1}^{k-1}\frac{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{a}_k}{\bm{\widetilde{q}}_j^{\mathrm{T}}\bm{\widetilde{q}}_j}\bm{\widetilde{q}}_j \ \ \ (k=1,2,\dots,r)
@@ -238,9 +238,9 @@
     A=Q\ \mathrm{diag}(\|\widetilde{\bm{q}}_i\|)\widetilde{R}=QR
 \end{equation}
 
-\tinysec{定理}设 $A$ 为 $n$ 阶可逆矩阵，则存在唯一的分解 $A=QR$，其中 $Q$ 为正交矩阵，$R$ 为对角元均为正数的上三角矩阵。\\
+\tinysec{定理}设 $A$ 为 $n$ 阶可逆矩阵，则存在唯一的分解 $A=QR$，其中 $Q$ 为正交矩阵，$R$ 为对角元均为正数的上三角矩阵. \\
 
-\tinysec{定义}若矩阵 $Q$ 满足 $Q^{\mathrm{T}}Q=I_n$，则称之为 \concept{列正交矩阵}。\\
+\tinysec{定义}若矩阵 $Q$ 满足 $Q^{\mathrm{T}}Q=I_n$，则称之为 \concept{列正交矩阵}. \\
 
 \tinysec{定理}对于 $m\times n$ 的矩阵 $A$，其中 $m\ge n$，则
 \begin{enumerate*}
@@ -249,9 +249,9 @@
 \end{enumerate*}
 
 \subsection{正交投影}
-\tinysec{定义}\concept{（子空间正交）}若子空间 $\mathcal{M}$ 的任意向量 与 $\mathcal{N}$ 中的任意向量都正交，则称为 $\mathcal{M}$ 与 $\mathcal{N}$ 正交，记为 $\mathcal{M}\perp\mathcal{N}$。\\\indent 若 $\mathcal{M},\mathcal{N}\in\linsp{n},\mathcal{M}\perp\mathcal{N},\mathcal{M}\cup\mathcal{N}=\linsp{n}$，则称 $\mathcal{N}$ 为 $\mathcal{M}$ 的\concept{正交补}，记为 $\mathcal{N}=\mathcal{M}^{\perp}$。\\
+\tinysec{定义}\concept{（子空间正交）}若子空间 $\mathcal{M}$ 的任意向量 与 $\mathcal{N}$ 中的任意向量都正交，则称为 $\mathcal{M}$ 与 $\mathcal{N}$ 正交，记为 $\mathcal{M}\perp\mathcal{N}$. \\\indent 若 $\mathcal{M},\mathcal{N}\in\rlinsp{n},\mathcal{M}\perp\mathcal{N},\mathcal{M}\cup\mathcal{N}=\rlinsp{n}$，则称 $\mathcal{N}$ 为 $\mathcal{M}$ 的\concept{正交补}，记为 $\mathcal{N}=\mathcal{M}^{\perp}$. \\
 
-\tinysec{定理}对于 $A\in\linsp{m\times n}$，有
+\tinysec{定理}对于 $A\in\rlinsp{m\times n}$，有
 \begin{enumerate*}
     \item $\mathcal{R}(A^{\mathrm{T}})^{\perp}=\mathcal{N}(A),\mathcal{R}(A)^{\perp}=\mathcal{N}(A^{\mathrm{T}})$ （矩阵导出的四个子空间的关系）
     \item $\mathcal{R}(A^{\mathrm{T}}A)=\mathcal{R}(A^{\mathrm{T}}),\mathcal{N}(A^{\mathrm{T}}A)=\mathcal{N}(A)$
@@ -267,7 +267,7 @@
     \item 列反对称性：交换任意两列，函数符号反转
     \item 单位化条件：$\delta(I_n)=1$
 \end{enumerate*}
-则称 $\delta$ 为一个 $n$ 阶\concept{行列式函数}，该函数存在且唯一。容易证明 $\det(AB)=\det(A)\det(B)$。\\
+则称 $\delta$ 为一个 $n$ 阶\concept{行列式函数}，该函数存在且唯一. 容易证明 $\det(AB)=\det(A)\det(B)$. \\
 
 \tinysec{定义}\concept{Vandermonde 矩阵}及其行列式
 \begin{equation}
@@ -280,7 +280,7 @@
 \end{equation}
 
 \subsection{行列式的展开式}
-\tinysec{定义}给定 $n$ 阶方阵 $A$，令 $A\binom{i}{j}$ 表示从 $A$ 中划去第 $i$ 行第 $j$ 列后得到的 $n-1$ 阶方阵，称 $M_{ij}=\det\left(A\binom{i}{j}\right)$为元素 $a_{ij}$ 的\concept{余子式}；而 $C_{ij}=(-1)^{i+j}M_{ij}$ 为元素 $a_{ij}$ 的\concept{代数余子式}。\\
+\tinysec{定义}给定 $n$ 阶方阵 $A$，令 $A\binom{i}{j}$ 表示从 $A$ 中划去第 $i$ 行第 $j$ 列后得到的 $n-1$ 阶方阵，称 $M_{ij}=\det\left(A\binom{i}{j}\right)$为元素 $a_{ij}$ 的\concept{余子式}；而 $C_{ij}=(-1)^{i+j}M_{ij}$ 为元素 $a_{ij}$ 的\concept{代数余子式}. \\
 
 \tinysec{定理}行列式按第一列展开 $\det(A)=a_{11}C_{11}+\cdots+a_{n1}C_{n1}$
 
@@ -294,10 +294,96 @@
     \end{cases}
 \end{equation}
 
-\tinysec{定义}对矩阵 $A=[a_{ij}]$，记 $C=[C_{ij}]_{n\times n}$，则 $C^{\mathrm{T}}$ 为 $A$ 的\concept{伴随矩阵}，且 $C^{\mathrm{T}}A=\det(A)I_n$。
+\tinysec{定义}对矩阵 $A=[a_{ij}]$，记 $C=[C_{ij}]_{n\times n}$，则 $C^{\mathrm{T}}$ 为 $A$ 的\concept{伴随矩阵}，且 $C^{\mathrm{T}}A=\det(A)I_n$. \\
+
+\tinysec{二级结论}若 $A$ 不可逆，则其伴随矩阵秩为 0 或 1.
 
 \section{特征值和特征向量}
 
+\tinysec{引子}考虑问题 $A\bm{x}=\lambda\bm{x}$，即求 $(A-\lambda I_n)\bm{x}=0$ 的解，即求 $\det(A-\lambda I_n)$ 的解，即求某个多项式的 0 解. 由代数学基本定理知，在复数域上恰有 $n$ 个根（计算重数）. 因此，接下来考虑的矩阵都是\textbf{复矩阵}. \\
 
+\tinysec{定义}给定方阵 $A$ 若对 $\lambda\in\mathbb{C}$，存在\uline{非零}向量 $\bm{x}\in\clinsp{n}$，使得 $A\bm{x}=\lambda{x}$，则称 $\lambda$ 为 \concept{特征值}，$\bm{x}$ 为 \concept{特征向量}. 以 $\lambda$ 为自变量，则多项式
+\begin{equation}
+    p_A(\lambda)=\det(\lambda I_n-A)
+\end{equation}
+为矩阵 $A$ 的\concept{特征多项式}. \\
+
+\tinysec{定理}
+\begin{enumerate*}
+    \item $\lambda_0$ 是 $A$ 的特征值 $\iff p_A(\lambda_0)=0$
+    \item $\bm{x}_0$ 是 $A$ 的特征向量 $\iff \bm{x}_0\in\mathcal{N}(\lambda_0I_n-A)$
+    \item 上（下）三角矩阵的对角线元素即为全部的特征值
+\end{enumerate*}
+
+\tinysec{定义}给定 $n$ 阶方阵 $A$ 及 $A$ 的一个特征值 $\lambda_0\in\mathbb{C}$，若 $\lambda_0$ 是 $p_A(\lambda)$ 的 $n_0$ 重根，则称 $n_0$ 为 $\lambda_0$ 作为 $A$ 的特征值的\concept{代数重数（简称重数）}，称 $\lambda_0$ 是 $A$ 的 $n_0$ 重特征值（$n_0=1$ 时称为\concept{单特征值}）. 将特征子空间 $\mathcal{N}(\lambda_0 I_n-A)$ 的维数作为 $\lambda_0$ 关于 $A$ 的\concept{几何重数}.\\
+
+\tinysec{定理}\concept{（Vieta 定理）}对于一元 $n$ 次多项式 $p(x)=a_0x^n+a_1x^{n-1}+\cdots+a_n$，其 $n$ 个根 $x_1,\dots,x_n$ 满足
+\begin{align}
+    -\frac{a_1}{a_0}        & =x_1+x_2+\dots+x_n                                           \\
+    (-1)^k\frac{a_k}{a_0}   & =\sum_{1\le i_1<\cdots<i_k\le n}x_{i_1}x_{i_2}\cdots x_{i_k} \\
+    (-1)^{n}\frac{a_n}{a_0} & =x_1x_2\cdots x_n
+\end{align}
+即 $a_0(x-x_1)(x-x_2)\cdots(x-x_n)$ 的展开式与 $p(x)$ 完全相等. 故有
+\begin{equation}
+    \lambda_1+\lambda_2+\cdots+\lambda_n=\mathrm{trace}(A)
+\end{equation}
+
+\tinysec{推论}
+若复数 $\lambda$ 及复向量 $\bm{x}$ 是实矩阵 $A$ 的特征对，则 $\bar{\lambda}$ 也是 $A$ 的特征值，且 $\lambda$ 与 $\overline{\lambda}$ 的重数相同.
+\begin{equation}
+    A\bm{x}=\lambda\bm{x}\iff A\bar{\bm{x}}=\bar{\lambda}\bar{\bm{x}}
+\end{equation}
+
+\tinysec{定义}对方阵 $A$，如果存在可逆矩阵 $X$ 使得 $X^{-1}AX=\Lambda$ 是对角矩阵，则称 $A$ 在 $\mathbb{C}$ 上\concept{可对角化}的，$X$ 对角化 $A$，并称分解 $A=X\Lambda X^{-1}$ 为 $A$ 的\concept{谱分解}. 并且 $\Lambda$ 的对角元素必定为 $\lambda_1,\dots,\lambda_n$.\\
+
+\tinysec{定理}对 $n$ 阶方阵 $A$，$A$ 可对角化，当且仅当 $A$ 有 $n$ 个\textbf{线性无关的特征向量}.
+$$
+    \left.
+    \begin{array}{r}
+        A=X\Lambda X^{-1}\implies AX=X\Lambda\implies Ax_i=\lambda_ix_i \\
+        x\textit{ 可逆}\implies \{x_i\}\textit{ 线性无关}               \\
+    \end{array}
+    \right\}\implies A\ \textit{有}\ n \textit{ 个线性无关的特征向量}
+$$
+
+\tinysec{定理}\begin{enumerate*}
+    \item $A$ 和 $M=X^{-1}AX$ 具有相同的特征多项式.
+    \item 方阵特征值的几何重数小于等于其代数重数.
+    \item 方阵的属于不同特征值的特征向量线性无关.
+\end{enumerate*}
+\begin{proof}
+    考虑将 $A$ 关于 $\lambda_0$ 的特征向量放在 $X$ 的最左侧几列，则有
+    $$AX=[\lambda_0 x_1,\lambda_0 x_2,\dots,\lambda_0 x_r,\dots]=XM$$
+    所以 $M$ 为这样的一个分块矩阵：它的左上角为对角矩阵$\text{diag}(\lambda_0,\dots,\lambda_0)$，左下角为 0.
+    \begin{align}
+        \det(\lambda I_n-A) & =\det(X^{-1}(\lambda_n-A)X)=\det(\lambda I_n-M)                                                \\
+                            & =\det\left(\begin{bmatrix}\lambda I_r-\lambda_0 I_r & I_r -M_{12}            \\
+                0                         & \lambda I_{n-r}-M_{22}\end{bmatrix}\right)=(\lambda-\lambda_0)^r\det(\lambda I_{n-r}-M_{22})
+    \end{align}
+    第二行推导说明，几何重数为 $r$，代数重数必定 $\ge r$.
+\end{proof}
+
+\tinysec{定义}对方阵 $A,B$，若存在 $X$ 使 $X^{-1}AX=B$，则称 $A,B$ \concept{相似}. 相似关系是等价关系，有如下不变量：
+\begin{enumerate*}
+    \item 秩，迹，行列式
+    \item 特征多项式，特征值
+    \item 特征值的代数重数、几何重数
+\end{enumerate*}
+
+\tinysec{定理}两个\underline{对角矩阵}\concept{相似}当且仅当它们的对角元素除排列次序外相同. 称一个可对角化的矩阵对角化得到的对角矩阵为其\concept{相似标准型}.\\
+
+\tinysec{引理}对方阵 $A\in\clinsp{n\times n}$，存在可逆矩阵 $X$，使得 $X^{-1}AX=T$ 是上三角矩阵，且对角元素是 $A$ 的 $n$ 个特征值（计重数）.
+
+\tinysec{定理}\concept{(Hamilton-Cayley)}设方阵的特征多项式为 $p_A(\lambda)$，则 $p_A(A)=O$.
+$$p_A(A)=Xp_A(T)X^{-1}=X(\lambda_0 I_n-T)(\lambda_1 I_n-T)\cdots(\lambda_n I_n-T)X^{-1}=0$$
+
+\tinysec{定义}对于 $A,B\in\rlinsp{n\times n}$ 若存在可逆矩阵 $X$ 使得 $X^{-1}AX=\Lambda_1,X^{-1}BX=\Lambda_2$ 都是对角矩阵，则称 $A,B$ 可\concept{同时对角化}. 以下叙述等价
+\begin{enumerate*}
+    \item $A,B$ 可同时对角化
+    \item 存在 $n$ 个线性无关的向量，它们同时是 $A,B$ 的特征向量
+    \item $A,B$ 可交换，即 $AB=BA$
+\end{enumerate*}
+
+\section{实对称矩阵}
 
 \end{document}

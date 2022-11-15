@@ -3,7 +3,7 @@
 \chapter{概率论}
 \section{事件的概率}
 \subsection{概率的公理化定义}
-\noindent 设 $\Omega$ 为样本空间，定义事件集类 $\mathscr{J}\subset2^\Omega$。定义 $P:\mathscr{J}\rightarrow\mathbb{R}$ 满足三条公理
+\noindent 设 $\Omega$ 为样本空间，定义事件集类 $\mathscr{J}\subset2^\Omega$. 定义 $P:\mathscr{J}\rightarrow\mathbb{R}$ 满足三条公理
 \begin{enumerate*}
     \item $P(A)\ge 0,\forall A\in\mathscr{J}$
     \item $P(\Omega)=1$
@@ -23,41 +23,41 @@ $A_i$ 表示第 $i$ 个数恰好在原位上，则每个数\textbf{都不在}原
 \begin{equation}
     P(A|B)\triangleq\frac{P(AB)}{P(B)}\ \ (P(B)>0)
 \end{equation}
-容易证明，$$\widetilde{P}(A)=P(A|B):\mathscr{J}\rightarrow\mathbb{R}$$ 也是概率函数。
+容易证明，$$\widetilde{P}(A)=P(A|B):\mathscr{J}\rightarrow\mathbb{R}$$ 也是概率函数. 
 \subsection{独立事件}
 \subsubsection{两个事件的独立}
-若 $P(AB)=P(A)P(B)$ 则称 $A,B$ 相互独立。此时有 $P(A)=P(A|B)$，并且能\textbf{推出 $A$ 与 $B^C$ 独立}。
+若 $P(AB)=P(A)P(B)$ 则称 $A,B$ 相互独立. 此时有 $P(A)=P(A|B)$，并且能\textbf{推出 $A$ 与 $B^C$ 独立}. 
 \subsubsection{多个事件的独立}
-若对 $A_1,A_2,\dots$ 为可数个事件，若从中\textbf{任取有限个事件} $A_{i_1},\dots,A_{i_m}$ 都有 $$P(A_{i_1}\cdots A_{i_m})=P(A_{i_1})\cdots P(A_{i_m})$$，则称 $A_1,A_2,\dots$ 相互独立。
+若对 $A_1,A_2,\dots$ 为可数个事件，若从中\textbf{任取有限个事件} $A_{i_1},\dots,A_{i_m}$ 都有 $$P(A_{i_1}\cdots A_{i_m})=P(A_{i_1})\cdots P(A_{i_m})$$，则称 $A_1,A_2,\dots$ 相互独立. 
 \subsubsection{条件独立}
-若 $P(AB|E)=P(A|E)P(B|E)$，则称事件 $A,B$ 关于事件 $E$ 条件独立。\\
+若 $P(AB|E)=P(A|E)P(B|E)$，则称事件 $A,B$ 关于事件 $E$ 条件独立. \\
 \indent \underline{\textbf{注意：条件独立不能推出独立，独立也不能推出条件独立}}
 \subsection{贝叶斯(Bayes)公式}
-定义 $\Omega$ 的一个分割 $\{B\}$ 满足 $\sum_i B_i=\Omega$ 且 $B_iB_j=\phi,\forall i\neq j$。则
+定义 $\Omega$ 的一个分割 $\{B\}$ 满足 $\sum_i B_i=\Omega$ 且 $B_iB_j=\phi,\forall i\neq j$. 则
 \begin{gather}
     P(A)=P(A\sum_iB_i)=\sum_iP(B_i)P(A|B_i)\\
     P(B_j|A)=\frac{P(AB_j)}{P(A)}=\frac{P(B_j)P(A|B_j)}{\sum_iP(B_i)P(A|B_i)}\label{equ:bayes}
 \end{gather}
-\eqref{equ:bayes} 即为Bayes公式。
+\eqref{equ:bayes} 即为Bayes公式. 
 \section{随机变量}
 \subsection{1维随机变量}
-定义实值函数 $X(\omega):\Omega\rightarrow\mathbb{R}$，该映射给样本空间中的每个试验结果一个对应的数值，\underline{\textbf{随机变量}}即定义为试验结果的一个实值函数，也可以通过\textbf{随机变量的函数}定义另一个随机变量。{\kaishu（默认用大写字母表示随机变量，小写字母表示实数。）}
+定义实值函数 $X(\omega):\Omega\rightarrow\mathbb{R}$，该映射给样本空间中的每个试验结果一个对应的数值，\underline{\textbf{随机变量}}即定义为试验结果的一个实值函数，也可以通过\textbf{随机变量的函数}定义另一个随机变量. {\kaishu（默认用大写字母表示随机变量，小写字母表示实数. ）}
 \subsection{随机变量的概率}
 $\forall I\in\mathbb{R}$ 且 $I$ 为可测集，利用数值所对应的事件定义概率函数 $P_X:\mathbb{R}\rightarrow\mathbb{R}$
 $$P_X(X\in I)\triangleq P(X^{-1}(I))$$
 \subsection{（累积）分布函数(cdf)}
-\noindent 定义为 $F(x)\triangleq P(X\le x), x\in\mathbb{R}$，则 $P(a<X\le b)=F(b)-F(a)$。cdf有以下性质：
+\noindent 定义为 $F(x)\triangleq P(X\le x), x\in\mathbb{R}$，则 $P(a<X\le b)=F(b)-F(a)$. cdf有以下性质：
 \begin{enumerate*}
     \item $F(x)$ 单调（非严格）递增
     \item $\lim\limits_{x\rightarrow-\infty}F(x)=0,\lim\limits_{x\rightarrow+\infty}F(x)=1$
     \item $F(x)$ 右连续
 \end{enumerate*}
-以上性质也是 $F(x)$ 成为cdf的充要条件。
+以上性质也是 $F(x)$ 成为cdf的充要条件. 
 \subsection{离散分布}
 \subsubsection{概率质量函数(pmf)}
-定义为 $f(x)=P(X=x), \forall x\in\mathbb{R}$。
+定义为 $f(x)=P(X=x), \forall x\in\mathbb{R}$. 
 \subsubsection{期望和方差}
-期望 $E(X)\triangleq \sum_ix_if(x_i)$；方差 $Var(X)\triangleq\sum_i(x_i-E(X))^2f(x_i)=E(X-E(X)^2)$。
+期望 $E(X)\triangleq \sum_ix_if(x_i)$；方差 $Var(X)\triangleq\sum_i(x_i-E(X))^2f(x_i)=E(X-E(X)^2)$. 
 \begin{enumerate*}
     \item 若用 $X$ 的函数 $g(X)$ 定义 $Y$，则 $E(g(X))=\sum_{i}g(x_i)f(x_i)\neq g(E(X))$
     \item $E(X+Y)=E(X)+E(Y)$；若 $X,Y$ 独立，则 $Var(X+Y)=Var(X)+Var(Y)$
@@ -115,9 +115,9 @@ $$P(X\in I)=\int_If(x)\d{x}$$，则 $X$ 为连续型随机变量，$f$ 为 $X$ �
 $(X_1,X_2,\dots,X_n):\Omega\rightarrow\mathbb{R}^n$，其中 $X_i$ 为随机变量，定义（联合）累积分布函数
 $$F(x_1,\dots,x_n)\triangleq P(X_1\le x_1,\dots,X_n\le x_n),(x_1,\dots,x_n)\in\mathbb{R}^n$$
 \subsection{离散分布}
-若 $\forall 1\le i\le n,X_i$ 为离散型随机变量，则 $(X_1,\dots,X_n)$ 为离散型随机向量。定义pmf为 $f(x_1,\dots,x_n)\triangleq P(X_1=x_1,\dots,X_n=x_n)$。
+若 $\forall 1\le i\le n,X_i$ 为离散型随机变量，则 $(X_1,\dots,X_n)$ 为离散型随机向量. 定义pmf为 $f(x_1,\dots,x_n)\triangleq P(X_1=x_1,\dots,X_n=x_n)$. 
 \subsection{连续分布}
-若对一切可测集 $Q\subset\mathbb{R}^n$，$P((X_1,\dots,X_n)\in Q)=\int_Qf(x_1,\dots,x_n)\d{x_1}\cdots\d{x_n}$，则 $(X_1,\dots,X_n)$ 为连续型随机向量，$f$ 为其pdf。\\
+若对一切可测集 $Q\subset\mathbb{R}^n$，$P((X_1,\dots,X_n)\in Q)=\int_Qf(x_1,\dots,x_n)\d{x_1}\cdots\d{x_n}$，则 $(X_1,\dots,X_n)$ 为连续型随机向量，$f$ 为其pdf. \\
 \indent 以 $n=2$ 为例，$F(a,b)=\int_{-\infty}^a\int_{-\infty}^bf(x,y)\d{x}\d{y}$，反过来有 $f(a,b)=\pds{^2F}{x\p{y}}$
 \subsubsection{二元正态分布}
 $X,Y\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho),|\rho|<1$
@@ -129,7 +129,7 @@ $X,Y\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho),|\rho|<1$
 \begin{equation}
     F_i(x)\triangleq P(X_i\le x)=P(X_i\le x,-\infty<X_j<\infty(j\neq i))
 \end{equation}
-以 $n=2$ 为例，$F_X(x)=\lim\limits_{y\rightarrow\infty}P(X\le x,Y\le y)=\lim\limits_{y\rightarrow\infty}F(x,y)$。\\
+以 $n=2$ 为例，$F_X(x)=\lim\limits_{y\rightarrow\infty}P(X\le x,Y\le y)=\lim\limits_{y\rightarrow\infty}F(x,y)$. \\
 定义$X_i$ 的边际密度函数(pdf)
  $$f_X(x)=\int_{-\infty}^{\infty}f(x,y)\d{y}$$
 \subsection{条件分布}
@@ -150,14 +150,14 @@ $X,Y\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho),|\rho|<1$
 \end{equation}
 即 $\bm{Z=(Y|x)\sim N(\mu_2+\rho\frac{\sigma_2}{\sigma_1}(x-\mu_1),(1-\rho^2)\sigma_2^2)}$
 \subsection{独立性}
-若 $F(x_1,\dots,x_n)=F_1(x_1)\cdots F_n(x_n),\forall x_1,\dots,x_n\in\mathbb{R}$，则称 $X_1,\dots,X_n$ 相互独立。该条件完全等价于 $f(x_1,\dots,x_n)=f_1(x_1)\cdots f_n(x_n)$。
+若 $F(x_1,\dots,x_n)=F_1(x_1)\cdots F_n(x_n),\forall x_1,\dots,x_n\in\mathbb{R}$，则称 $X_1,\dots,X_n$ 相互独立. 该条件完全等价于 $f(x_1,\dots,x_n)=f_1(x_1)\cdots f_n(x_n)$. 
 \begin{enumerate*}
     \item 若 $X_1,\dots,X_n$ 相互独立，则 $Y_1=g_1(X_1,\dots,X_m)$ 与 $Y_2=g_2(X_{m+1},\dots,X_n)$ 相互独立
     \item 若 pdf $f(x_1,\dots,x_n)=g_1(x_1)\cdots g_n(x_n),\forall x_1,\dots,x_n\in\mathbb{R}$，则 $X_1,X_2,\dots,X_n$ 相互独立，且 $f_i$ 与 $g_i$ 相差常数倍 
 \end{enumerate*}
 \subsection{多个随机变量的函数}
 \subsubsection{\ding{72}密度函数变换法}
-设存在由随机变量 $X1,X2$ 到 $Y_1,Y_2$ 的可逆映射 $\begin{cases}Y_1=g_1(X_1,X_2)\\Y_2=g_2(X_1,X_2)\end{cases}$，逆为 $\begin{cases}X_1=h(Y_1,Y_2)\\X_2=h(Y_1,Y_2)\end{cases}$。对于 $X_1,X_2$ 上的区域 $A$，若其在 $Y_1,Y_2$ 上的映射为 $B$，则显然有 $$P((X_1,X_2)\in A)=P((Y_1,Y_2)\in B)$$
+设存在由随机变量 $X1,X2$ 到 $Y_1,Y_2$ 的可逆映射 $\begin{cases}Y_1=g_1(X_1,X_2)\\Y_2=g_2(X_1,X_2)\end{cases}$，逆为 $\begin{cases}X_1=h(Y_1,Y_2)\\X_2=h(Y_1,Y_2)\end{cases}$. 对于 $X_1,X_2$ 上的区域 $A$，若其在 $Y_1,Y_2$ 上的映射为 $B$，则显然有 $$P((X_1,X_2)\in A)=P((Y_1,Y_2)\in B)$$
 \begin{align*}
     P((Y_1,Y_2)\in B)&=\int_B\mathscr{F}(y_1,y_2)\d{y_1}\d{y_2}\\
     P((X_1,X_2)\in A)&=\int_Af(x_1,x_2)\d{x_1}\d{x_2}=\int_Bf(h(y_1),h(y_2))\bigg|\frac{D{(x_1,x_2)}}{D{(y_1,y_2)}}\bigg|\d{y_1}\d{y_2}
@@ -173,7 +173,7 @@ $X,Y\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho),|\rho|<1$
     \item $X_1,\dots,X_n$ 独立时，$E(X_1X_2\cdots X_n)=E(X_1)\cdots E(X_n)$
 \end{enumerate*}
 \subsection{分位数}
-$\forall \alpha\in(0,1)$，若 $P(X\le a)\ge\alpha$ 且 $P(X\ge a)\ge 1-\alpha$，则称 $X=a$ 为 $X$ 的 \textbf{$\text{下}\alpha\text{-分位数}$}。
+$\forall \alpha\in(0,1)$，若 $P(X\le a)\ge\alpha$ 且 $P(X\ge a)\ge 1-\alpha$，则称 $X=a$ 为 $X$ 的 \textbf{$\text{下}\alpha\text{-分位数}$}. 
 \begin{enumerate*}
     \item 若 cdf 连续，则 $F(a)=\alpha$
     \item 分位数不一定唯一
@@ -198,22 +198,22 @@ $\forall \alpha\in(0,1)$，若 $P(X\le a)\ge\alpha$ 且 $P(X\ge a)\ge 1-\alpha$�
     \item $\rho$ 实际上是\textbf{线性}相关系数，不能表达高维的相关关系
 \end{enumerate*}
 \subsection{矩(Moment)}
-\tinysec{定义}将 $E[(X-C)^n]$ 称为 $X$ 关于 $C$ 的 $n$ 阶矩。当 $C=E(X)$ 时，称为中心矩；当 $C=0$ 时，称为原点矩；标准化后的矩 $E[\left(\frac{x-\mu}{\sigma}\right)^n]$ 称为 $n$ 阶标注矩。
+\tinysec{定义}将 $E[(X-C)^n]$ 称为 $X$ 关于 $C$ 的 $n$ 阶矩. 当 $C=E(X)$ 时，称为中心矩；当 $C=0$ 时，称为原点矩；标准化后的矩 $E[\left(\frac{x-\mu}{\sigma}\right)^n]$ 称为 $n$ 阶标注矩. 
 \subsubsection{偏度系数}
-\tinysec{定义}3阶标准矩又称偏度系数。
+\tinysec{定义}3阶标准矩又称偏度系数. 
 \begin{enumerate*}
     \item 偏度系数小于零，左偏；大于零，右偏
     \item 相对于5阶以上的奇数阶矩，3阶矩容易计算且噪声的影响小
 \end{enumerate*}
 \subsubsection{峰度系数}
-\tinysec{定义}4阶标准矩又称峰度系数。
+\tinysec{定义}4阶标准矩又称峰度系数. 
 \begin{enumerate*}
     \item 正态分布峰度恒为3
     \item 超值峰度定义为 $E[\left(\frac{X-\mu}{\sigma}\right)^4]$
     \item 超值峰度为正，一般相对于正态分布峰更尖，尾部更扁
 \end{enumerate*}
 \subsection{矩母函数}
-\tinysec{定义}(moment generating function, mgf) $M_X(t)\triangleq E(e^{tX})$ 若在 $t=0$ 的某个邻域内 $M_X(t)$ 存在，则称其为 $X$ 的矩母函数，否则称 $X$ 的矩母函数不存在。\textbf{注意标明 $\bm{t}$ 的取值范围。}\\
+\tinysec{定义}(moment generating function, mgf) $M_X(t)\triangleq E(e^{tX})$ 若在 $t=0$ 的某个邻域内 $M_X(t)$ 存在，则称其为 $X$ 的矩母函数，否则称 $X$ 的矩母函数不存在. \textbf{注意标明 $\bm{t}$ 的取值范围. }\\
 对于 $X\sim Exp(\lambda)$，
 \begin{equation}
     M_X(t)=\int_0^{\infty}e^{tx}\lambda e^{-\lambda x}\d{x}=\frac{\lambda}{\lambda -t},t<\lambda
@@ -237,8 +237,8 @@ $\forall \alpha\in(0,1)$，若 $P(X\le a)\ge\alpha$ 且 $P(X\ge a)\ge 1-\alpha$�
 \tinysec{例}对于$X\sim N(0,1)$，
 $$M_X(t)=e^{\frac{t^2}{2}}=\sum_{n\ge 0}\frac{t^{2n}}{2^nn!}=\sum_{n\ge 0}\frac{(2n)!}{2^nn!}\frac{t^{2n}}{(2n)!}$$
 故 $E(X^{2n})=\frac{(2n!)}{2^nn!},E(X^{2n-1})\equiv 0$\\
-\tinysec{定理}矩母函数确定分布。若存在 $a>0$，使得 $M_X(t)=M_Y(t),t\in(-a,a)$，则 $X,Y$ 同分布。\\
-\tinysec{REMARK}矩存在的时候，矩母函数不一定存在（即泰勒展式不收敛），因此各阶矩完全相同也无法说明两个随机变量同分布。\\
+\tinysec{定理}矩母函数确定分布. 若存在 $a>0$，使得 $M_X(t)=M_Y(t),t\in(-a,a)$，则 $X,Y$ 同分布. \\
+\tinysec{REMARK}矩存在的时候，矩母函数不一定存在（即泰勒展式不收敛），因此各阶矩完全相同也无法说明两个随机变量同分布. \\
 \tinysec{例}取服从对数正态分布的变量 $Y$ 于另一变量 $Z$
 \begin{align*}
     y&=f_1(x)=\frac{1}{\sqrt{2\pi x}}e^{-\frac{\log^2x}{2}},x>0\\
@@ -252,7 +252,7 @@ $$E(Z^n)-E(Y^n)=\int_0^{\infty}x^nf_1(x)\sin(2\pi\log x)\d{x}=T$$
     &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\left[\frac{1}{2}(n+t)(n+t+1)\right]\d{t}\\
     &=\frac{e^{-\frac{1}{8}}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\left[\frac{1}{2}(n+t+\frac{1}{2})^2\right]\d{t}=0
 \end{align*}
-因此对一切 $n$，$Y,Z$ 的 $n$ 阶矩相等。但是由于 $$e^{tx}f_1(x)=\frac{1}{\sqrt{2\pi}}e^{tx-\frac{\log^2x}{2}}$$ 对于一切的 $t>0$ 都有 $\lim\limits_{x\rightarrow\infty}e^{tx}f_1(x)=+\infty$，因此无法积分，$M_Y(t)$不存在。故即使各阶矩完全相同，实际上也不是同分布。
+因此对一切 $n$，$Y,Z$ 的 $n$ 阶矩相等. 但是由于 $$e^{tx}f_1(x)=\frac{1}{\sqrt{2\pi}}e^{tx-\frac{\log^2x}{2}}$$ 对于一切的 $t>0$ 都有 $\lim\limits_{x\rightarrow\infty}e^{tx}f_1(x)=+\infty$，因此无法积分，$M_Y(t)$不存在. 故即使各阶矩完全相同，实际上也不是同分布. 
 \subsubsection{独立随机变量和的分布}
 对于相互独立的 $X_1,X_2,\dots,X_n$，有
 \begin{equation}
@@ -262,11 +262,11 @@ $$E(Z^n)-E(Y^n)=\int_0^{\infty}x^nf_1(x)\sin(2\pi\log x)\d{x}=T$$
 \begin{equation}
     M_{X_1,\dots,X_n}(t_1,t_2,\dots,t_n)=E(e^{t_1X_1+\cdots+t_nX_n})
 \end{equation}
-若该函数在原点的邻域 $B(0,\sigma),\sigma>0$ 内有定义，则称联合分布的矩母函数存在；若两组联合分布的矩母函数在 $B(0,\sigma)$ 内恒等，则这两组联合分布同分布。
+若该函数在原点的邻域 $B(0,\sigma),\sigma>0$ 内有定义，则称联合分布的矩母函数存在；若两组联合分布的矩母函数在 $B(0,\sigma)$ 内恒等，则这两组联合分布同分布. 
 \subsection{条件期望}
 \tinysec{定义}$$E(Y|X=x)=\begin{cases}\sum_iy_iP(Y=y_i|X=x)\\\int_{-\infty}^{\infty}f_Y(y|X=x)\d{y}\end{cases}$$
 \tinysec{定理}$E(Y)=E(E(Y|X))$\\
-\tinysec{定理}$E((Y-g(X))^2)\ge E[(Y-E(Y|X))^2]$，这意味着 $E(Y|X)$ 是均方误差意义下的最优预测。均方最优：$E[(Y-c)^2]\ge E[(Y-E(Y))^2]$，这是因为 $\pds{E[(Y-c)^2]}{c}=2E[Y-c]\big|_{c=E(Y)}=0$。
+\tinysec{定理}$E((Y-g(X))^2)\ge E[(Y-E(Y|X))^2]$，这意味着 $E(Y|X)$ 是均方误差意义下的最优预测. 均方最优：$E[(Y-c)^2]\ge E[(Y-E(Y))^2]$，这是因为 $\pds{E[(Y-c)^2]}{c}=2E[Y-c]\big|_{c=E(Y)}=0$. 
 \section{不等式与极限定理}
 \subsection{概率不等式}
 \subsubsection{Markov不等式}
@@ -284,7 +284,7 @@ $$E(Z^n)-E(Y^n)=\int_0^{\infty}x^nf_1(x)\sin(2\pi\log x)\d{x}=T$$
     E(|Y-E(Y)|\ge a)\le \frac{Var(Y)}{a^2}
 \end{equation}
 \begin{proof}
-    在\eqref{neq:markov}中代入 $P[|Y-E(Y)|\ge a]=P[(Y-E(Y))^2\ge a^2]=E[Var(Y)\ge a^2]$ 即可。
+    在\eqref{neq:markov}中代入 $P[|Y-E(Y)|\ge a]=P[(Y-E(Y))^2\ge a^2]=E[Var(Y)\ge a^2]$ 即可. 
 \end{proof}
 \subsubsection{Chernoff不等式}
 $\forall a>0,t>0$ 有 
@@ -300,7 +300,7 @@ $\forall a>0,t>0$ 有
 \begin{proof}
     $$P(|\bar{X}-\mu|\ge\varepsilon)\le\frac{Var(\bar{X})}{\varepsilon^2}=\frac{\sigma^2}{n\varepsilon^2}\rightarrow 0(n\rightarrow\infty)$$
 \end{proof}
-若 $P(|\bar{X}-\mu|\ge\varepsilon)\le\alpha$，则称 $\alpha$ 为置信水平，$\varepsilon$ 为精度。
+若 $P(|\bar{X}-\mu|\ge\varepsilon)\le\alpha$，则称 $\alpha$ 为置信水平，$\varepsilon$ 为精度. 
 \subsubsection{Kolmogorov强大数定律}
 $\bar{X}$ 几乎必然收敛到 $\mu$
 \begin{equation}

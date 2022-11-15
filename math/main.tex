@@ -31,10 +31,11 @@
 \def\ds#1#2{\frac{\text{d}#1}{\text{d}#2}}
 \def\pds#1#2{\frac{\partial#1}{\partial#2}}
 \def\jishu#1#2{\sum_{#1=1}^{+\infty}#2}
-\def\linsp#1{\mathbb{R}^{#1}}
+\def\rlinsp#1{\mathbb{R}^{#1}}
+\def\clinsp#1{\mathbb{C}^{#1}}
 \def\ntoinf#1{\lim\limits_{#1\rightarrow\infty}}
 \def\tinysec#1{\noindent\textbf{#1}\indent}
-\def\concept#1{\uline{\textbf{#1}}}
+\def\concept#1{\textbf{\uline{#1}}}
 \geometry{a4paper, scale=0.75}
 
 \newenvironment{solution}{\noindent{\kaishu 解}.}{  }
@@ -96,51 +97,6 @@
 \subfile{5-probability.tex}
 \subfile{6-stochastic-process.tex}
 
-\chapter{线性代数}
-\section{基本事实}
-\begin{itemize}
-  \item \( rank(A)+rank(B)<rank(AB)-n,A\in \mathbb{R}^{m\times n} \)
-  \item  \( a_1+a_2,a_2+a_3,\cdots,a_n+a_1 \text{可逆}\implies n\text{为奇数} \)
-  \item \( Q^TQ=I_n\iff Q\text{为保距变换}\iff \text{为保内积变换}\)
-  \item \textit{Housholder}变换(关于\textbf{面}反射)：\( I_n-2\bm{vv}^T,||\bm{v}||=1 \)
-  \item \( \mathcal{R}(A^TA)=\mathcal{R}(A^T)\)
-  \item \( P_{\mathcal{M}}=QQ^T,\text{span}(Q)=\mathcal{M} \)
-  \item \( P_{A}=A(A^TA)^{-1}A^T,A \)列线性无关
-  \item 实对称矩阵\( S=Q\Lambda Q^T \)
-\end{itemize}
-\section{例题}
-\subsubsection{练习1.6.17-(5)}
-若 $A^2-I_n=O$ ，证明：
-\begin{equation*}
-  \forall \bm{v}\in \mathbb{R}^n, \exists \bm{x}+\bm{y}=\bm{v},\ s.t.\ (A-I_n)\bm{x}=(A+I_n)\bm{y}=\bm{0}
-\end{equation*}
-\begin{proof}
-  \begin{align*}
-                  & (A+I_n)(A-I_n)=0                                           \\
-    \text{构造}\  & \bm{x}=\frac{A+I_n}{2}\bm{v},\bm{y}=\frac{-A+I_n}{2}\bm{v}
-  \end{align*}
-\end{proof}
-\subsubsection{练习 1.7.10}
-证明：$A\in\mathbb{R}^{m*n},B\in\mathbb{R}^{n*m}, I_m+AB\ \text{可逆} \iff I_n+BA\ \text{可逆}$.
-\begin{proof}
-  \begin{align*}
-                  & \text{构造矩阵} \begin{bmatrix} I_m  &A \\ B &I_n \end{bmatrix}                       \\
-                  & \begin{bmatrix} I_m  &O \\-B  &I_n\end{bmatrix}
-    \begin{bmatrix} I_m  &A \\  B  &I_n\end{bmatrix}=
-    \begin{bmatrix} I_m  &A \\  O  &I_n-BA\end{bmatrix}                                                       \\
-                  & \begin{bmatrix} I_m  &-A \\ O  &I_n\end{bmatrix}
-    \begin{bmatrix} I_m  &A \\ B  &I_n\end{bmatrix}=
-    \begin{bmatrix} I_m-AB  &O \\ B  &I_n\end{bmatrix}                                                       \\
-                  & I_n-BA\text{可逆}\iff
-    \begin{bmatrix} I_m &A \\ B &I_n\end{bmatrix}\text{可逆} \iff I_m-AB \text{可逆}                   \\
-    \text{另：\ } & (I_m+AB)A=A+ABA=A(I_n+BA)                                       \\
-    let\          & (I_n+BA)^{-1}=C                                                 \\
-    then\         & (I_m+AB)ACB=AB                                                  \\
-                  & (I_m+AB)-(I_m+AB)ACB=(I_m+AB)-AB                                \\
-                  & (I_m+AB)(I_m-ACB)=I_m\implies (I_m+AB)^{-1}=I_m-A(I_n+BA)^{-1}B
-  \end{align*}
-\end{proof}
-\subsection{正交矩阵}
 \subsection{特征值与特征向量}
 \subsubsection{练习5.2.23}
 给定$m$阶方阵$A_1$，$n$阶方阵$A_2$和$m\times n$矩阵$B$，证明若$A_1$和$A_2$没有相同的特征值，则关于$m\times n$矩阵$X$的矩阵方程$A_1X-XA_2=B$有唯一解.\\
@@ -163,12 +119,6 @@
   故$f(A_2)$可逆，因此$$X=f(A_1)X\left[f(A_2)\right]^{-1}=O$$
 \end{proof}
 \subsection{实对称矩阵}
-对实对称矩阵，$A$正定\\$\iff$$A$的特征值都是正数\\$\iff$$A=TT^T$,$T$可逆\\$\iff$$A=LDL^T$\\$\iff$$A$的顺序主子式都是正数
-\newpage
-
-\newpage
-\begin{itemize}
-  \item gbk (gbk不能解码的特殊字符，用更高级的GB18030)
-\end{itemize}
+对实对称矩阵，$A$正定\\$\iff$$A$的特征值都是正数\\$\iff$$A=TT^{\mathrm{T}}$,$T$可逆\\$\iff$$A=LDL^{\mathrm{T}}$\\$\iff$$A$的顺序主子式都是正数
 
 \end{document}
